@@ -15,6 +15,7 @@
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-xxl">
             <a class="navbar-brand" href="#">Навбар</a>
+            <!--тайная кнопка-->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Переключатель навигации">
@@ -26,7 +27,7 @@
                         <a class="nav-link active" aria-current="page" href="#">Главная</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Ссылка</a>
+                        <a class="nav-link" href="#">Задания</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
@@ -48,8 +49,10 @@
                 </ul>
                 <form class="d-flex" role="search">
                     <input class="form-control me-2" type="search" placeholder="Поиск" aria-label="Поиск">
-                    <button class="btn btn-outline-success" type="submit">Поиск</button>
+                    <button id="search_button" class="btn btn-outline-success" type="submit">Искать</button>
                 </form>
+                <!--профиль-->
+                <a aria-controls="профиль" href="#"><img src="src/images/free-icon-user-profile-2651994.png" style="width: 9%" alt="профиль"></a>
             </div>
         </div>
     </nav>
@@ -59,51 +62,86 @@
         <div class="container text-center">
             <div class="row align-items-start">
                 <div class="col">
-                    Одна из трех колонок
+
                 </div>
-                <div class="col">
+                <div class="col col-md-8">
+                    <h3>выберите свой стиль сайта:</h3>
+                    <!--карусель-->
                     <div class="carousel">
-                        <!--карусель-->
-                        <div id="carouselExampleIndicators" class="carousel slide" style="border: 2px solid red">
-                            <div class="carousel-indicators">
-                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                            </div>
-                            <div class="carousel-inner">
+                        <div id="carouselExampleIndicators" class="carousel slide">
+                            <!--<div class="carousel-indicators">
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                                        class="active" aria-current="true" aria-label="Slide 1"></button>
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                                        aria-label="Slide 2"></button>
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                                        aria-label="Slide 3"></button>
+                            </div>-->
+                            <div class="carousel-inner"> <!--елементы:-->
+
                                 <div class="carousel-item active">
-                                    <div class="d-block w-100">1111</div>
+                                    <!--1 слайд-->
+                                    <div class="d-block w-100">
+                                        <div class="card" style="width: 18rem;">
+                                            <img src="src/images/free-icon-apple-1330449.png" class="card-img-top"
+                                                 alt="яблоко">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Яблочко</h5>
+                                                <p class="card-text">Небольшой пример текста про яблочко.</p>
+                                                <a href="#" class="btn btn-primary">Выбрать</a>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="carousel-item">
-                                    <div class="d-block w-100">2222</div>
+                                    <div class="d-block w-100">
+                                        <div class="card" style="width: 18rem;">
+                                            <img src="src/images/free-icon-blueberry-4057300.png" class="card-img-top" alt="черника">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Черничка</h5>
+                                                <p class="card-text">Выбрав черничку, сайт будет выглядеть так</p>
+                                                <a href="#" class="btn btn-primary" id="blueberry_bt">Выбрать</a>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="carousel-item">
-                                    <div class="d-block w-100">3333</div>
+                                    <div class="d-block w-100">
+                                        <div class="card" style="width: 18rem;">
+                                            <img src="src/images/free-icon-orange-6866499.png" class="card-img-top" alt="апельсин">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Апельсинчик</h5>
+                                                <p class="card-text">Небольшой пример текста про апельсин.</p>
+                                                <a href="#" class="btn btn-primary">Выбрать</a>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                            <button class="carousel-control-prev" type="button"
+                                    data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Предыдущий</span>
                             </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                            <button class="carousel-control-next" type="button"
+                                    data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Следующий</span>
                             </button>
                         </div>
-                    </div >
+                    </div>
 
                 </div>
                 <div class="col">
-                    Одна из трех колонок
+
                 </div>
             </div>
         </div>
     </div>
 </section>
-
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
+<script src="src/js/your_changes.js"></script>
 </body>
 </html>
