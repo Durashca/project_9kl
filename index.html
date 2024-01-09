@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Знакомство</title>
+    <title>ВсеЗнай</title>
     <!--подключение Бутстрапа-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -14,13 +14,17 @@
 <header>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-xxl">
-            <a class="navbar-brand" href="#">Навбар</a>
+            <a class="navbar-brand" href="#">ВсеЗнай</a>
             <!--тайная кнопка-->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Переключатель навигации">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+            <div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Переключатель навигации">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!--профиль-->
+                 <a href="#"><img class="profile_indentation" src="src/images/free-icon-user-profile-2651994.png" alt="профиль"></a>
+            </div>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
@@ -51,8 +55,6 @@
                     <input class="form-control me-2" type="search" placeholder="Поиск" aria-label="Поиск">
                     <button id="search_button" class="btn btn-outline-success" type="submit">Искать</button>
                 </form>
-                <!--профиль-->
-                <a aria-controls="профиль" href="#"><img src="src/images/free-icon-user-profile-2651994.png" style="width: 9%" alt="профиль"></a>
             </div>
         </div>
     </nav>
@@ -79,39 +81,74 @@
                             </div>-->
                             <div class="carousel-inner"> <!--елементы:-->
 
-                                <div class="carousel-item active">
-                                    <!--1 слайд-->
+                                <div class="carousel-item active"><!--1 слайд-->
                                     <div class="d-block w-100">
                                         <div class="card" style="width: 18rem;">
-                                            <img src="src/images/free-icon-apple-1330449.png" class="card-img-top"
-                                                 alt="яблоко">
+                                            <img src="src/images/free-icon-kiwi-5402127.png" class="card-img-top"
+                                                 alt="киви">
                                             <div class="card-body">
-                                                <h5 class="card-title">Яблочко</h5>
-                                                <p class="card-text">Небольшой пример текста про яблочко.</p>
+                                                <h5 class="card-title">Киви</h5>
+                                                <p class="card-text">Выбрав киви, сайт будет выглядеть так.</p>
                                                 <a href="#" class="btn btn-primary">Выбрать</a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="carousel-item">
-                                    <div class="d-block w-100">
-                                        <div class="card" style="width: 18rem;">
-                                            <img src="src/images/free-icon-blueberry-4057300.png" class="card-img-top" alt="черника">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Черничка</h5>
-                                                <p class="card-text">Выбрав черничку, сайт будет выглядеть так</p>
-                                                <a href="#" class="btn btn-primary" id="blueberry_bt">Выбрать</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="carousel-item">
+                                <div class="carousel-item"> <!--2 слайд-->
                                     <div class="d-block w-100">
                                         <div class="card" style="width: 18rem;">
                                             <img src="src/images/free-icon-orange-6866499.png" class="card-img-top" alt="апельсин">
                                             <div class="card-body">
                                                 <h5 class="card-title">Апельсинчик</h5>
-                                                <p class="card-text">Небольшой пример текста про апельсин.</p>
+                                                <p class="card-text">Выбрав апельсин, сайт будет выглядеть так.</p>
+                                                <a href="#" class="btn btn-primary">Выбрать</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="carousel-item"> <!--3 слайд-->
+                                    <div class="d-block w-100">
+                                        <div class="card" style="width: 18rem;">
+                                            <img src="src/images/free-icon-banana-831896.png" class="card-img-top" alt="апельсин">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Банана</h5>
+                                                <p class="card-text">Выбрав банан, сайт будет выглядеть так.</p>
+                                                <a href="#" class="btn btn-primary">Выбрать</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="carousel-item"> <!--4 слайд-->
+                                    <div class="d-block w-100">
+                                        <div class="card" style="width: 18rem;">
+                                            <img src="src/images/free-icon-mangosteen-8645375.png" class="card-img-top" alt="мангостин">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Мангостин</h5>
+                                                <p class="card-text">Выбрав мангостин, сайт будет выглядеть так</p>
+                                                <a href="#" class="btn btn-primary" id="blueberry_bt">Выбрать</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="carousel-item"> <!--5 слайд-->
+                                    <div class="d-block w-100">
+                                        <div class="card" style="width: 18rem;">
+                                            <img src="src/images/free-icon-pitaya-572580.png" class="card-img-top" alt="питайя">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Питайя</h5>
+                                                <p class="card-text">Выбрав апельсин, сайт будет выглядеть так.</p>
+                                                <a href="#" class="btn btn-primary">Выбрать</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="carousel-item"> <!--6 слайд-->
+                                    <div class="d-block w-100">
+                                        <div class="card" style="width: 18rem;">
+                                            <img src="src/images/free-icon-red-apple-8953531.png" class="card-img-top" alt="яблоко">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Яблоко</h5>
+                                                <p class="card-text">Выбрав Яблоко, сайт будет выглядеть так.</p>
                                                 <a href="#" class="btn btn-primary">Выбрать</a>
                                             </div>
                                         </div>
