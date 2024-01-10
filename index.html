@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ВсеЗнай</title>
+    <title>ВсеZнай</title>
     <!--подключение Бутстрапа-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -14,7 +14,7 @@
 <header>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-xxl">
-            <a class="navbar-brand" href="#">ВсеЗнай</a>
+            <a class="navbar-brand" href="#">ВсеZнай</a>
             <!--тайная кнопка-->
             <div>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -23,7 +23,11 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <!--профиль-->
-                 <a href="#"><img class="profile_indentation" src="src/images/free-icon-user-profile-2651994.png" alt="профиль"></a>
+                <button style="border-color: transparent" class="btn" type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                    <img class="profile_indentation" src="src/images/free-icon-user-profile-2651994.png" alt="профиль">
+                </button>
+                <!---->
             </div>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -97,7 +101,8 @@
                                 <div class="carousel-item"> <!--2 слайд-->
                                     <div class="d-block w-100">
                                         <div class="card" style="width: 18rem;">
-                                            <img src="src/images/free-icon-orange-6866499.png" class="card-img-top" alt="апельсин">
+                                            <img src="src/images/free-icon-orange-6866499.png" class="card-img-top"
+                                                 alt="апельсин">
                                             <div class="card-body">
                                                 <h5 class="card-title">Апельсинчик</h5>
                                                 <p class="card-text">Выбрав апельсин, сайт будет выглядеть так.</p>
@@ -109,7 +114,8 @@
                                 <div class="carousel-item"> <!--3 слайд-->
                                     <div class="d-block w-100">
                                         <div class="card" style="width: 18rem;">
-                                            <img src="src/images/free-icon-banana-831896.png" class="card-img-top" alt="апельсин">
+                                            <img src="src/images/free-icon-banana-831896.png" class="card-img-top"
+                                                 alt="апельсин">
                                             <div class="card-body">
                                                 <h5 class="card-title">Банана</h5>
                                                 <p class="card-text">Выбрав банан, сайт будет выглядеть так.</p>
@@ -121,7 +127,8 @@
                                 <div class="carousel-item"> <!--4 слайд-->
                                     <div class="d-block w-100">
                                         <div class="card" style="width: 18rem;">
-                                            <img src="src/images/free-icon-mangosteen-8645375.png" class="card-img-top" alt="мангостин">
+                                            <img src="src/images/free-icon-mangosteen-8645375.png" class="card-img-top"
+                                                 alt="мангостин">
                                             <div class="card-body">
                                                 <h5 class="card-title">Мангостин</h5>
                                                 <p class="card-text">Выбрав мангостин, сайт будет выглядеть так</p>
@@ -133,7 +140,8 @@
                                 <div class="carousel-item"> <!--5 слайд-->
                                     <div class="d-block w-100">
                                         <div class="card" style="width: 18rem;">
-                                            <img src="src/images/free-icon-pitaya-572580.png" class="card-img-top" alt="питайя">
+                                            <img src="src/images/free-icon-pitaya-572580.png" class="card-img-top"
+                                                 alt="питайя">
                                             <div class="card-body">
                                                 <h5 class="card-title">Питайя</h5>
                                                 <p class="card-text">Выбрав апельсин, сайт будет выглядеть так.</p>
@@ -145,7 +153,8 @@
                                 <div class="carousel-item"> <!--6 слайд-->
                                     <div class="d-block w-100">
                                         <div class="card" style="width: 18rem;">
-                                            <img src="src/images/free-icon-red-apple-8953531.png" class="card-img-top" alt="яблоко">
+                                            <img src="src/images/free-icon-red-apple-8953531.png" class="card-img-top"
+                                                 alt="яблоко">
                                             <div class="card-body">
                                                 <h5 class="card-title">Яблоко</h5>
                                                 <p class="card-text">Выбрав Яблоко, сайт будет выглядеть так.</p>
@@ -167,8 +176,21 @@
                             </button>
                         </div>
                     </div>
-
+                    <!--панель справа-->
+                    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight"
+                         aria-labelledby="offcanvasRightLabel">
+                        <div class="offcanvas-header">
+                            <h5 class="offcanvas-title" id="offcanvasRightLabel">Offcanvas справа</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                                    aria-label="Закрыть"></button>
+                        </div>
+                        <div style="text-align: start" class="offcanvas-body">
+                            <input value="www">
+                        </div>
+                    </div>
+                    <!---->
                 </div>
+
                 <div class="col">
 
                 </div>

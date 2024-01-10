@@ -38,11 +38,12 @@ header {
  h3 {
      margin-bottom: 10%;
  }
+
  /*профиль*/
 .profile_indentation {
-    width: 44px;
-    margin-left: 5px;
+    width: 32px;
 }
+
 /* кнопки */
 .btn-primary {
     --bs-btn-color: #000;
