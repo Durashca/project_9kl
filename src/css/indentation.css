@@ -3,11 +3,11 @@ header {
 }
 /*положение области левой кнопки*/
 .carousel-control-prev {
-    left: 6%;
+    left: 9%;
 }
 /*положение области правой кнопки*/
 .carousel-control-next {
-    right: 6%;
+    right: 9%;
 }
 
 /*левая кнопка карусели */
@@ -42,6 +42,11 @@ header {
  /*профиль*/
 .profile_indentation {
     width: 32px;
+}
+
+/**/
+.scale_indentation_1 {
+    font-size: 10px;
 }
 
 /* кнопки */
