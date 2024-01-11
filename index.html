@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ВсеZнай</title>
+    <title>ВсеЗнай</title>
     <!--подключение Бутстрапа-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="src/css/indentation.css">
 </head>
-<body>
+<body class="theme">
 <!--меню-->
 <header>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-xxl">
+        <div class="container-xxl theme little-dark">
             <a class="navbar-brand" href="#">ВсеZнай</a>
             <!--тайная кнопка-->
             <div>
@@ -42,7 +42,7 @@
                            aria-expanded="false">
                             Выпадающий список
                         </a>
-                        <ul class="dropdown-menu">
+                        <ul class="dropdown-menu theme little-light">
                             <li><a class="dropdown-item" href="#">Действие</a></li>
                             <li><a class="dropdown-item" href="#">Другое действие</a></li>
                             <li>
@@ -76,7 +76,7 @@
                     <div class="carousel">
                         <div id="carouselExampleIndicators" class="carousel slide">
                             <!--<div class="carousel-indicators">
-                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                                <button type="button" data-bs-target="#carouselExampleIndicators". data-bs-slide-to="0"
                                         class="active" aria-current="true" aria-label="Slide 1"></button>
                                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
                                         aria-label="Slide 2"></button>
@@ -84,111 +84,47 @@
                                         aria-label="Slide 3"></button>
                             </div>-->
                             <div class="carousel-inner"> <!--елементы:-->
-
-                                <div class="carousel-item active"><!--1 слайд-->
-                                    <div class="d-block w-100">
-                                        <div class="card" style="width: 18rem;">
-                                            <img src="src/images/free-icon-kiwi-5402127.png" class="card-img-top"
-                                                 alt="киви">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Киви</h5>
-                                                <p class="card-text">Выбрав киви, сайт будет выглядеть так.</p>
-                                                <a href="#" class="btn btn-primary">Выбрать</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="carousel-item"> <!--2 слайд-->
-                                    <div class="d-block w-100">
-                                        <div class="card" style="width: 18rem;">
-                                            <img src="src/images/free-icon-orange-6866499.png" class="card-img-top"
-                                                 alt="апельсин">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Апельсинчик</h5>
-                                                <p class="card-text">Выбрав апельсин, сайт будет выглядеть так.</p>
-                                                <a href="#" class="btn btn-primary">Выбрать</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="carousel-item"> <!--3 слайд-->
-                                    <div class="d-block w-100">
-                                        <div class="card" style="width: 18rem;">
-                                            <img src="src/images/free-icon-banana-831896.png" class="card-img-top"
-                                                 alt="апельсин">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Банана</h5>
-                                                <p class="card-text">Выбрав банан, сайт будет выглядеть так.</p>
-                                                <a href="#" class="btn btn-primary">Выбрать</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="carousel-item"> <!--4 слайд-->
-                                    <div class="d-block w-100">
-                                        <div class="card" style="width: 18rem;">
-                                            <img src="src/images/free-icon-mangosteen-8645375.png" class="card-img-top"
-                                                 alt="мангостин">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Мангостин</h5>
-                                                <p class="card-text">Выбрав мангостин, сайт будет выглядеть так</p>
-                                                <a href="#" class="btn btn-primary" id="blueberry_bt">Выбрать</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="carousel-item"> <!--5 слайд-->
-                                    <div class="d-block w-100">
-                                        <div class="card" style="width: 18rem;">
-                                            <img src="src/images/free-icon-pitaya-572580.png" class="card-img-top"
-                                                 alt="питайя">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Питайя</h5>
-                                                <p class="card-text">Выбрав апельсин, сайт будет выглядеть так.</p>
-                                                <a href="#" class="btn btn-primary">Выбрать</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="carousel-item"> <!--6 слайд-->
-                                    <div class="d-block w-100">
-                                        <div class="card" style="width: 18rem;">
-                                            <img src="src/images/free-icon-red-apple-8953531.png" class="card-img-top"
-                                                 alt="яблоко">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Яблоко</h5>
-                                                <p class="card-text">Выбрав Яблоко, сайт будет выглядеть так.</p>
-                                                <a href="#" class="btn btn-primary">Выбрать</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                             <button class="carousel-control-prev" type="button"
                                     data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="carousel-control-prev-icon" aria-hidden="true"> <img style="width: 70%" src="src/images/free-icon-arrowhead-thin-outline-to-the-left-32542%20(1).png" alt="правая кнопка"></span>
                                 <span class="visually-hidden">Предыдущий</span>
                             </button>
                             <button class="carousel-control-next" type="button"
                                     data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="carousel-control-next-icon" aria-hidden="true"> <img style="width: 70%" alt="правая кнопка"
+                                        src="src/images/free-icon-right-arrow-271228.png"></span>
                                 <span class="visually-hidden">Следующий</span>
                             </button>
                         </div>
                     </div>
                     <!--панель справа-->
-                    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight"
+                    <div class="offcanvas offcanvas-end theme little-light-100" tabindex="-1" id="offcanvasRight"
                          aria-labelledby="offcanvasRightLabel">
                         <div class="offcanvas-header">
-                            <h5 class="offcanvas-title" id="offcanvasRightLabel">Профиль</h5>
+                            <h5 class="offcanvas-title" id="offcanvasRightLabel">Offcanvas справа</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
                                     aria-label="Закрыть"></button>
                         </div>
-                        <!--отображение-->
                         <div style="text-align: start" class="offcanvas-body">
-
-                            <input class="btn-primary" value="www">
-                            <!--флажки-->
+                            <!--поля ввода-->
+                            <div class="profile-fields">
+                                <div class="profile-field">
+                                    <p class="profile-info">Имя пользователя</p>
+                                    <input placeholder="Введите имя..."  class="input-fill-field">  <!--value="www"-->
+                                </div>
+                                <div class="profile-field">
+                                    <p class="profile-info">Почта</p>
+                                    <input type="email" placeholder="Введите почту..."
+                                           class="input-fill-field"> <!--value="test@gmail.com"-->
+                                </div>
+                                <div class="profile-field">
+                                    <p class="profile-info">Пароль</p>
+                                    <input type="password" placeholder="Введите пароль..." class="input-fill-field">
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-primary">Зарегистрироваться</button>
+<!--                            &lt;!&ndash;флажки&ndash;&gt;
                             <div class="form-check form-switch">
                                 <input class="form-check-input" type="checkbox" role="switch"
                                        id="flexSwitchCheckDefault">
@@ -213,8 +149,7 @@
                                 <label class="form-check-label" for="flexSwitchCheckCheckedDisabled">Отключено
                                     переключение флажка в поле ввода</label>
                             </div>
-                            <!---->
-                            <!--форма-->
+                            &lt;!&ndash;форма&ndash;&gt;
                             <form class="was-validated">
                                 <div class="mb-3">
                                     <label for="validationTextarea" class="form-label">Текстовое поле</label>
@@ -225,15 +160,13 @@
                                     </div>
                                 </div>
                             </form>
-                            <!---->
                             <label for="customRange2" class="form-label">Пример диапазона</label>
                             <input type="range" class="form-range" min="0" max="5" id="customRange2">
-
+                            -->
                             <!---->
                         </div>
                     </div>
                 </div>
-
                 <div class="col">
 
                 </div>
@@ -241,33 +174,10 @@
         </div>
     </div>
 </section>
-<nav aria-label="...">
-    <ul class="pagination">
-        <li class="page-item disabled">
-            <span class="page-link">Предыдущая</span>
-        </li>
-        <li class="page-item"><a class="page-link" href="#">1</a></li>
-        <li class="page-item active" aria-current="page">
-            <span class="page-link">2</span>
-        </li>
-        <li class="page-item"><a class="page-link" href="#">3</a></li>
-        <li class="page-item">
-            <a class="page-link" href="#">Следующая</a>
-        </li>
-    </ul>
-</nav>
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
-<script>
-    let rangeInput = document.getElementById("customRange2");
-    rangeInput.addEventListener("input", function () {
-        let valueI = rangeInput.value;
-
-    });
-</script>
-<script>
-</script>
+<script src="src/js/slide_settings.js"></script>
+<script src="src/js/theme_changer.js"></script>
 </body>
 </html>

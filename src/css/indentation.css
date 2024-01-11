@@ -3,22 +3,21 @@ header {
 }
 /*положение области левой кнопки*/
 .carousel-control-prev {
-    left: 9%;
+    left: 6%;
 }
 /*положение области правой кнопки*/
 .carousel-control-next {
-    right: 9%;
+    right: 6%;
 }
 
 /*левая кнопка карусели */
 .carousel-control-prev-icon {
-    background-image: url("/src/images/free-icon-arrowhead-thin-outline-to-the-left-32542 (1).png");
+
     background-size: 50%;
 
 }
 /*правая кнопка карусели */
 .carousel-control-next-icon {
-    background-image: url("/src/images/free-icon-right-arrow-271228.png");
     background-size: 50%;
 }
 /*выравнивание div.card по div.d-block.w-100*/
@@ -34,21 +33,36 @@ header {
     margin: 0 auto;
 }
 
+/*информация о поле ввода*/
+.profile-info {
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
+/*поле ввода с информацией*/
+.profile-field {
+    margin-bottom: 14px;
+}
+
+/*список всех полей*/
+.profile-fields {
+    margin-bottom: 30px;
+}
+
+/*поле ввода*/
+.input-fill-field {
+    border-radius: 5px
+}
+
 /*заголовок cлайдов (h3)*/
  h3 {
      margin-bottom: 10%;
  }
-
  /*профиль*/
 .profile_indentation {
-    width: 32px;
+    width: 44px;
+    margin-left: 5px;
 }
-
-/**/
-.scale_indentation_1 {
-    font-size: 10px;
-}
-
 /* кнопки */
 .btn-primary {
     --bs-btn-color: #000;
