@@ -62,6 +62,8 @@ header {
 .profile_indentation {
     width: 44px;
     margin-left: 5px;
+    --bs-btn-padding-x:'';
+    border-color: transparent!important;
 }
 /* кнопки */
 .btn-primary {
