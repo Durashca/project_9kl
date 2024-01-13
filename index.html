@@ -25,7 +25,7 @@
                 <!--профиль-->
                 <button style="border-color: transparent" class="btn" type="button" data-bs-toggle="offcanvas"
                         data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
-                    <img class="profile_indentation" src="src/images/free-icon-user-profile-2651994.png" alt="профиль">
+                    <img class="profile_indentation" src="src/images/user-profile.png" alt="профиль">
                 </button>
                 <!---->
             </div>
@@ -87,18 +87,18 @@
                             </div>
                             <button class="carousel-control-prev" type="button"
                                     data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="carousel-control-prev-icon" aria-hidden="false"></span>
                                 <span class="visually-hidden">Предыдущий</span>
                             </button>
                             <button class="carousel-control-next" type="button"
                                     data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="carousel-control-next-icon" aria-hidden="false"></span>
                                 <span class="visually-hidden">Следующий</span>
                             </button>
                         </div>
                     </div>
                     <!--панель справа-->
-                    <div class="offcanvas offcanvas-end theme little-light-100" tabindex="-1" id="offcanvasRight"
+                    <div class="offcanvas offcanvas-end" style="background-color: #F5F5F5" tabindex="-1" id="offcanvasRight"
                          aria-labelledby="offcanvasRightLabel">
                         <div class="offcanvas-header">
                             <h5 class="offcanvas-title" id="offcanvasRightLabel">Offcanvas справа</h5>
@@ -107,21 +107,35 @@
                         </div>
                         <div style="text-align: start" class="offcanvas-body">
                             <!--поля ввода-->
-                            <div class="profile-fields">
-                                <div class="profile-field">
-                                    <p class="profile-info">Имя пользователя</p>
-                                    <input placeholder="Введите имя..." class="input-fill-field">
+                            <form id="form-profile" class="row g-3" novalidate>
+                                <div class="col-md-8">
+                                    <label for="validationTextarea1" class="form-label">Имя пользователя</label>
+                                    <input type="text" class="form-control" id="validationTextarea1" placeholder="Ваше имя пользователя" required>
+                                    <div class="invalid-feedback">
+                                        Пожалуйста, введите имя пользователя.
+                                    </div>
                                 </div>
-                                <div class="profile-field">
-                                    <p class="profile-info">Почта</p>
-                                    <input type="email" placeholder="Введите почту..." value="test@gmail.com" class="input-fill-field">
+                                <div class="col-md-8">
+                                    <label for="validationTextarea2" class="form-label">Почта</label>
+                                    <input type="text" class="form-control" id="validationTextarea2" placeholder="Ваша почту" required>
+                                    <div class="invalid-feedback">
+                                        Пожалуйста, введите почту.
+                                    </div>
                                 </div>
-                                <div class="profile-field">
-                                    <p class="profile-info">Пароль</p>
-                                    <input type="password" placeholder="Введите пароль..." class="input-fill-field">
+                                <div class="col-md-8">
+                                    <label for="validationTextarea3" class="form-label">Пароль</label>
+                                    <input type="text" class="form-control" id="validationTextarea3" placeholder="Ваш пароль" required>
+                                    <div class="invalid-feedback">
+                                        Пожалуйста, введите пароль.
+                                    </div>
                                 </div>
-                            </div>
-                            <button type="button" class="btn btn-primary">Зарегистрироваться</button>
+                                <div class="col-md-8">
+                                    <button type="submit" id="reg-btn" class="btn btn-primary">Зарегистрироваться</button>
+                                </div>
+                                <div class="col-md-8">
+                                    <a>Уже есть аккаунт? <a href="#">Войти</a></a>
+                                </div>
+                            </form>
                         </div>
                     </div>
                     <!---->
@@ -137,6 +151,7 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
 <script src="src/js/carousel.js"></script>
+<script src="src/js/authorization.js"></script>
 <script src="src/js/theme_changer.js"></script>
 <script src="src/js/slide_settings.js"></script>
 </body>
