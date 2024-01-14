@@ -55,16 +55,23 @@ header {
 }
 
 /*заголовок cлайдов (h3)*/
- h3 {
-     margin-bottom: 10%;
- }
- /*профиль*/
+h3 {
+    margin-bottom: 10%;
+}
+/*профиль*/
 .profile_indentation {
     width: 44px;
     margin-left: 5px;
+    margin-right: 25px;
     --bs-btn-padding-x:'';
     border-color: transparent!important;
 }
+/**/
+div.offcanvas {
+    border: 2px solid gray !important;
+    border-radius: 15px
+}
+
 /* кнопки */
 .btn-primary {
     --bs-btn-color: #000;
