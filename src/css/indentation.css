@@ -12,12 +12,13 @@ header {
 
 /*левая кнопка карусели */
 .carousel-control-prev-icon {
-
+    background-image: url("../../src/images/left-arrow.png");
     background-size: 50%;
 
 }
 /*правая кнопка карусели */
 .carousel-control-next-icon {
+    background-image: url("../../src/images/right-arrow.png");
     background-size: 50%;
 }
 /*выравнивание div.card по div.d-block.w-100*/
@@ -52,6 +53,10 @@ header {
 /*поле ввода*/
 .input-fill-field {
     border-radius: 5px
+}
+
+.hide {
+    display: none;
 }
 
 /*заголовок cлайдов (h3)*/
