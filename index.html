@@ -9,11 +9,11 @@
           integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="src/css/indentation.css">
 </head>
-<body class="theme">
+<body class="theme" data-theme="color: theme">
 <!--меню-->
 <header>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-xxl theme little-dark">
+        <div class="container-xxl theme little-dark" data-theme="color: smooth-theme & dark-20">
             <a class="navbar-brand" href="#">ВсеZнай</a>
             <!--тайная кнопка-->
             <div>
@@ -112,33 +112,57 @@
                         </div>
                         <div style="text-align: start" class="offcanvas-body">
                             <!--поля ввода-->
-                            <form id="form-profile" class="row g-3" novalidate>
+                            <!--register-->
+                            <form class="form-profile row g-3 registry" novalidate>
                                 <div class="col-md-8">
-                                    <label for="validationTextarea1" class="form-label">Имя пользователя</label>
-                                    <input type="text" class="form-control" id="validationTextarea1" placeholder="Ваше имя пользователя" required>
+                                    <label for="validationTextareaRegister1" class="form-label">Имя пользователя</label>
+                                    <input type="text" class="form-control" id="validationTextareaRegister1" placeholder="Ваше имя пользователя" required>
                                     <div class="invalid-feedback">
                                         Пожалуйста, введите имя пользователя.
                                     </div>
                                 </div>
                                 <div class="col-md-8">
-                                    <label for="validationTextarea2" class="form-label">Почта</label>
-                                    <input type="text" class="form-control" id="validationTextarea2" placeholder="Ваша почту" required>
+                                    <label for="validationTextareaRegister2" class="form-label">Почта</label>
+                                    <input type="email" class="form-control" id="validationTextareaRegister2" placeholder="Ваша почту" required>
                                     <div class="invalid-feedback">
                                         Пожалуйста, введите почту.
                                     </div>
                                 </div>
-                                <div class="col-md-8">
-                                    <label for="validationTextarea3" class="form-label">Пароль</label>
-                                    <input type="text" class="form-control" id="validationTextarea3" placeholder="Ваш пароль" required>
+                                <div class="col-md-8 is-invalid">
+                                    <label for="validationTextareaRegister3" class="form-label">Пароль</label>
+                                    <input type="password" class="form-control" id="validationTextareaRegister3" placeholder="Ваш пароль" required>
                                     <div class="invalid-feedback">
                                         Пожалуйста, введите пароль.
                                     </div>
                                 </div>
                                 <div class="col-md-8">
-                                    <button type="submit" id="reg-btn" class="btn btn-primary">Зарегистрироваться</button>
+                                    <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
                                 </div>
                                 <div class="col-md-8">
-                                    <a>Уже есть аккаунт? <a href="#">Войти</a></a>
+                                    <a>Уже есть аккаунт? <a id="proceed-to-login" href="#">Войти</a></a>
+                                </div>
+                            </form>
+                            <!--login-->
+                            <form class="form-profile row g-3 login hide" novalidate>
+                                <div class="col-md-8">
+                                    <label for="validationTextareaLogin2" class="form-label">Почта</label>
+                                    <input type="email" class="form-control" id="validationTextareaLogin2" placeholder="Ваша почту" required>
+                                    <div class="invalid-feedback">
+                                        Пожалуйста, введите почту.
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <label for="validationTextareaLogin3" class="form-label">Пароль</label>
+                                    <input type="password" class="form-control" id="validationTextareaLogin3" placeholder="Ваш пароль" required>
+                                    <div class="invalid-feedback">
+                                        Пожалуйста, введите пароль.
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <button type="submit" class="btn btn-primary">Войти</button>
+                                </div>
+                                <div class="col-md-10">
+                                    <a>Ещё нет аккаунта? <a id="proceed-to-registry" href="#">Зарегистрироваться</a></a>
                                 </div>
                             </form>
                         </div>
@@ -164,6 +188,7 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
 <script src="src/js/carousel.js"></script>
+<script src="src/js/authorization_panel.js"></script>
 <script src="src/js/authorization.js"></script>
 <script src="src/js/theme_changer.js"></script>
 <script src="src/js/slide_settings.js"></script>

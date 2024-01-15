@@ -52,7 +52,11 @@ header {
 
 /*поле ввода*/
 .input-fill-field {
-    border-radius: 5px
+    border-radius: 5px;
+}
+
+.hide {
+    display: none;
 }
 
 .hide {
