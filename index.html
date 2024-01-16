@@ -28,7 +28,7 @@
                     <img class="profile_indentation" src="src/images/user-profile.png" alt="профиль">
                     <!--уведомления-->
                     <span  class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dark">
-                        1
+                        !
                         <span class="visually-hidden">непрочитанные сообщения</span>
                     </span>
                 </button>
@@ -40,7 +40,7 @@
                         <a class="nav-link active" aria-current="page" href="#">Главная</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Задания</a>
+                        <a class="nav-link" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">Задания</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
@@ -103,7 +103,7 @@
                         </div>
                     </div>
                     <!--панель справа-->
-                    <div class="offcanvas offcanvas-end" style="background-color: #F5F5F5" tabindex="-1" id="offcanvasRight"
+                    <div class="offcanvas offcanvas-end offcanvas-left" style="background-color: #F5F5F5" tabindex="-1" id="offcanvasRight"
                          aria-labelledby="offcanvasRightLabel">
                         <div class="offcanvas-header">
                             <h5 class="offcanvas-title" id="offcanvasRightLabel">Авторизация</h5>
@@ -166,13 +166,27 @@
                                 </div>
                             </form>
                         </div>
-                        <div style="margin-top: 5%">
-                            <h6>Прогресс по материалу:</h6>
-                            <div class="progress" role="progressbar" aria-label="Пример информации"
-                                 aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
-                                <div class="progress-bar-animated progress-bar-striped bg-dark "
-                                     style="width: 50%"></div>
+                    </div>
+                    <!---->
+                    
+                    <!--material-->
+                    <div class="offcanvas offcanvas-start offcanvas-right" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+                        <div class="offcanvas-header">
+                            <h5 class="offcanvas-title" id="offcanvasExampleLabel">Материал</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Закрыть"></button>
+                        </div>
+                        <div class="offcanvas-body">
+
+                            <!--прогресбар-->
+                            <div style="margin-top: 5%">
+                                <h6>Прогресс по материалу:</h6>
+                                <div class="progress" role="progressbar" aria-label="Пример информации"
+                                     aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="height: 0.9em">
+                                    <div class="progress-bar-animated progress-bar-striped bg-dark "
+                                         style="width: 50%"></div>
+                                </div>
                             </div>
+                            <!---->
                         </div>
                     </div>
                     <!---->

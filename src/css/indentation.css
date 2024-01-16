@@ -34,31 +34,6 @@ header {
     margin: 0 auto;
 }
 
-/*информация о поле ввода*/
-.profile-info {
-    font-size: 13px;
-    margin-bottom: 5px;
-}
-
-/*поле ввода с информацией*/
-.profile-field {
-    margin-bottom: 14px;
-}
-
-/*список всех полей*/
-.profile-fields {
-    margin-bottom: 30px;
-}
-
-/*поле ввода*/
-.input-fill-field {
-    border-radius: 5px;
-}
-
-.hide {
-    display: none;
-}
-
 .hide {
     display: none;
 }
@@ -75,6 +50,11 @@ h3 {
     --bs-btn-padding-x:'';
     border-color: transparent!important;
 }
+
+div.offcanvas {
+    border: 0 solid gray !important;
+}
+
 /* кнопки */
 .btn-primary {
     --bs-btn-color: #000;

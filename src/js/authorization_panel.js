@@ -88,5 +88,5 @@ let textRegistry = document.querySelector("#proceed-to-registry");
 textRegistry.addEventListener("click", (event) =>
     authorizationPanel.switchTo(0));
 
-addPasswordsValidateEvent();
+// addPasswordsValidateEvent();
 addInputValidationEvent();
