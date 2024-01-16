@@ -1,4 +1,4 @@
-authorizationPanel = {
+let authorizationPanel = {
     switchTo(indexView) {
         let forms = document.querySelectorAll(".form-profile");
 
@@ -80,13 +80,17 @@ function validatePassword(form, event) {
     }
 }
 
-let textLogin = document.querySelector("#proceed-to-login");
-textLogin.addEventListener("click", (event) =>
-    authorizationPanel.switchTo(1));
+function addSwitchingAuthorizationCapabilitiesEvent() {
+    let textLogin = document.querySelector("#proceed-to-login");
+    textLogin.addEventListener("click", (event) =>
+        authorizationPanel.switchTo(1));
 
-let textRegistry = document.querySelector("#proceed-to-registry");
-textRegistry.addEventListener("click", (event) =>
-    authorizationPanel.switchTo(0));
+    let textRegistry = document.querySelector("#proceed-to-registry");
+    textRegistry.addEventListener("click", (event) =>
+        authorizationPanel.switchTo(0));
 
-// addPasswordsValidateEvent();
-addInputValidationEvent();
+    // addPasswordsValidateEvent();
+    addInputValidationEvent();
+}
+
+addSwitchingAuthorizationCapabilitiesEvent();
