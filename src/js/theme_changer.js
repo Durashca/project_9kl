@@ -29,6 +29,8 @@ let themeTags = {
 
 function addEventTheme(btn, slide) {
     btn.addEventListener('click', function () {
+        let slideElem = carousel.getSlideElemByName(slide.text);
+        carousel.select(slideElem);
         switchTheme(slide.colorTheme);
     });
 }

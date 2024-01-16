@@ -1,6 +1,5 @@
 let carousel = {
     slideElems: [],
-    active: 0,
 
     showSlides() {
         let carouselElem = document.querySelector(".carousel-inner");
@@ -11,8 +10,12 @@ let carousel = {
     },
 
     createSlides(slidesInfo) {
-        for (let i = 0; i < slidesInfo.length; i++) {
-            let slideElem = this.createSlide(slidesInfo[i], i === this.active);
+        for (let slide of slidesInfo) {
+            let slideElem = this.createSlide(slide, slide.selected);
+
+            if (slide.selected)
+                slideElem.selected = true;
+
             this.slideElems.push(slideElem);
         }
     },
@@ -62,4 +65,16 @@ let carousel = {
     getSlideElems() {
         return this.slideElems;
     },
+
+    getSlideElemByName(name) {
+        return this.slideElems.find((elem) => elem.getText() === name);
+    },
+
+    select(slideElem) {
+        for (let elem of this.slideElems) {
+            elem.selected = false;
+        }
+
+        slideElem.selected = true;
+    }
 };

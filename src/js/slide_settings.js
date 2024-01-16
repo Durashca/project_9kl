@@ -1,11 +1,12 @@
-function SlideInfo(img, title, text, colorTheme = "white") {
+function SlideInfo(img, title, text, colorTheme = "white", selected = false) {
     this.img = img;
     this.title = title;
     this.text = text;
     this.colorTheme = colorTheme;
+    this.selected = selected;
 }
 
-function SlideElement(item, img, title, text, button) {
+function SlideElement(item, img, title, text, button, selected = false) {
     this.item = item;
     this.img = img;
     this.title = title;
@@ -15,10 +16,23 @@ function SlideElement(item, img, title, text, button) {
     this.getTitle = () => this.title.innerText;
     this.getText = () => this.text.innerText;
     this.getButtonText = () => this.button.innerText;
+
+    let self = this;
+
+    Object.defineProperty(this, 'selected', {
+        get: function() {
+            return this._selected;
+        },
+        set: function(value) {
+            this._selected = value;
+            this.button.innerText = value ? "Выбрано" : "Выбрать";
+            this.button.style.setProperty("--bs-btn-bg", value ? "rgb(32, 243, 50)" : "white");
+        }
+    });
 }
 
 let slides = [
-    new SlideInfo("src/images/coconut.png", "Кокос", "Выбрав кокос, сайт будет выглядеть так.", "white"),
+    new SlideInfo("src/images/coconut.png", "Кокос", "Выбрав кокос, сайт будет выглядеть так.", "white", true),
     new SlideInfo("src/images/kiwi.png", "Киви", "Выбрав киви, сайт будет выглядеть так.", "dark-green"),
     new SlideInfo("src/images/orange.png", "Апельсинчик", "Выбрав апельсин, сайт будет выглядеть так.", "orange"),
     new SlideInfo("src/images/banana.png", "Банана", "Выбрав банан, сайт будет выглядеть так.", "yellow"),
