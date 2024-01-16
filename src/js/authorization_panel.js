@@ -82,11 +82,11 @@ function validatePassword(form, event) {
 
 function addSwitchingAuthorizationCapabilitiesEvent() {
     let textLogin = document.querySelector("#proceed-to-login");
-    textLogin.addEventListener("click", (event) =>
+    textLogin.addEventListener("click", () =>
         authorizationPanel.switchTo(1));
 
     let textRegistry = document.querySelector("#proceed-to-registry");
-    textRegistry.addEventListener("click", (event) =>
+    textRegistry.addEventListener("click", () =>
         authorizationPanel.switchTo(0));
 
     // addPasswordsValidateEvent();

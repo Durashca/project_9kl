@@ -5,6 +5,6 @@ let authorization = {
     },
 
     Login() {
-
+        console.log("Вы вошли");
     },
 };
