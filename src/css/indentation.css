@@ -38,10 +38,21 @@ header {
     display: none;
 }
 
+.navbar {
+    position: fixed;
+    width: 100%;
+    top: 0;
+}
+
+#h-space {
+    height: 50px;
+}
+
 /*заголовок cлайдов (h3)*/
 h3 {
     margin-bottom: 10%;
 }
+
 /*профиль*/
 .profile_indentation {
     width: 44px;
@@ -50,10 +61,15 @@ h3 {
     --bs-btn-padding-x:'';
     border-color: transparent!important;
 }
+
+.offcanvas {
+    max-width: 90%;
+}
+
 /**/
 .offcanvas, .offcanvas-lg, .offcanvas-md, .offcanvas-sm, .offcanvas-xl, .offcanvas-xxl {
     --bs-offcanvas-zindex: 1045;
-    --bs-offcanvas-width: 500px;
+    --bs-offcanvas-width: 400px;
     --bs-offcanvas-height: 30vh;
     --bs-offcanvas-padding-x: 1rem;
     --bs-offcanvas-padding-y: 1rem;
