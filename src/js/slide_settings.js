@@ -17,8 +17,6 @@ function SlideElement(item, img, title, text, button, selected = false) {
     this.getText = () => this.text.innerText;
     this.getButtonText = () => this.button.innerText;
 
-    let self = this;
-
     Object.defineProperty(this, 'selected', {
         get: function() {
             return this._selected;

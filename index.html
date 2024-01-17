@@ -41,7 +41,8 @@
                         <a class="nav-link active" aria-current="page" href="#">Главная</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">Задания</a>
+                        <a class="nav-link" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
+                           aria-controls="offcanvasExample">Задания</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
@@ -104,8 +105,18 @@
                             </button>
                         </div>
                     </div>
+
+                    <!--кнопка перехода на другую страницу-->
+                    <button style="position: absolute; right: 1%; bottom: 1%" id="createPageButton" type="button"
+                            class="btn btn-outline-success" data-bs-toggle="tooltip" data-bs-placement="top"
+                            data-bs-title="Подсказка вверху">
+                        <a class="nav-link active" href="screenshots.html">                        Продолжить
+                        </a>
+                    </button>
+
                     <!--панель справа-->
-                    <div class="offcanvas offcanvas-end offcanvas-left" style="background-color: #F5F5F5" tabindex="-1" id="offcanvasRight"
+                    <div class="offcanvas offcanvas-end" style="background-color: #F5F5F5" tabindex="-1"
+                         id="offcanvasRight"
                          aria-labelledby="offcanvasRightLabel">
                         <div class="offcanvas-header">
                             <h5 class="offcanvas-title" id="offcanvasRightLabel">Авторизация</h5>
@@ -170,7 +181,6 @@
                         </div>
                     </div>
                     <!---->
-                    
                     <!--material-->
                     <div class="offcanvas offcanvas-start offcanvas-right" style="background-color: #F5F5F5" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
                         <div class="offcanvas-header">
@@ -189,6 +199,8 @@
                                 </div>
                             </div>
                             <!---->
+
+
                         </div>
                     </div>
                     <!---->
