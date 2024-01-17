@@ -1,4 +1,5 @@
-authorization = {
+// сама логика авторизации с помощью класса `authorization`
+let authorization = {
     AddEventRegistry() {
         let form = document.querySelector("#form-profile");
         form.addEventListener("submit", function (event) {
@@ -17,7 +18,7 @@ authorization = {
     },
 
     Login() {
-
+        console.log("Вы вошли");
     },
 };
 
