@@ -14,7 +14,7 @@ function Color(r, g, b, a = 0) {
     };
 }
 
-const defaultColorDimming = 20;
+const defaultColorDimming = 10;
 
 // Настройки смены темы
 let themeTags = {
@@ -29,23 +29,24 @@ let themeTags = {
 
 function addEventTheme(btn, slide) {
     btn.addEventListener('click', function () {
+        let slideElem = carousel.getSlideElemByName(slide.text);
+        carousel.select(slideElem);
         switchTheme(slide.colorTheme);
     });
 }
 
-function switchTheme(color) {
+function switchTheme(colorName) {
     let elems = document.querySelectorAll(".theme");
+    let color = colors[colorName];
 
     let keys = Object.keys(themeTags);
 
     elems.forEach(elem => {
-        elem.style = `background-color: rgb(${color.r}, ${color.g}, ${color.b})`;
+        elem.style.backgroundColor = `rgb(${color.r}, ${color.g}, ${color.b})`;
 
         elem.classList.forEach((elemTag) => {
             if (elemTag in themeTags) {
-                console.log(elemTag);
                 themeTags[elemTag](elem, color);
-
                 return;
             }
 
@@ -67,14 +68,12 @@ function applyColor(elem, color, value) {
     let back = elem.style.backgroundColor;
 
     let rgbValues = back.match(/\d+/g); // взять все числа
-    let r = parseInt(rgbValues[0]);
-    let g = parseInt(rgbValues[1]);
-    let b = parseInt(rgbValues[2]);
+    let [r, g, b] = rgbValues.map(value => parseInt(value));
 
     let col = new Color(r, g, b);
     col.add(value);
 
-    elem.style = `background-color: rgb(${col.r}, ${col.g}, ${col.b})`;
+    elem.style.backgroundColor = `rgb(${col.r}, ${col.g}, ${col.b})`;
 }
 
 function clamp(value, min, max) {

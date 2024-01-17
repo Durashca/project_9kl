@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ВсеZнай</title>
+    <!--подключение Бутстрапа-->
+    <link rel="stylesheet" href="src/scss/styles.scss">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="src/css/indentation.css">
+</head>
+<body>
+
+<div class="container-xxl">
+    <div class="container text-center">
+        <div class="row">
+            <div class="col">
+
+            </div>
+            <div class="col-8">
+                <h3>Сочетание клавиш</h3>
+
+                <content style="text-align: start">
+                    <p>Что же такое сочетание клавиш ? Если коротко то это когда вы зажимаете на пк две и более кнопок
+                        одновременно. Для
+                        чего это нужно? Cейчас разберем</p>
+                    <p>Допустим перед вами стоит задача скопировать какой-то текст. В принципе можно просто на мышке
+                        нажать правую
+                        кнопку и выбрать "скопировать" </p>
+                    <p>При написании длинного текста этот процесс занимает незначительные доли секунд. А время надо
+                        ценить! Поэтому сейчас расскажу как сэкономить время</p>
+
+                    <!--ctrl + c-->
+                    <div style="margin-top: 8%">
+                        <p>Пробуем использовать сочетание клавиш которое поможет скопировать текст:</p>
+                        <ul>
+                            <li>сперва выделим текст который хотим скопировать. выделите этот пример вместе с кавычками:
+                                ( "этот текст вы должны
+                                выделить с помощью мышки")
+                            </li>
+                            <li>нажмите и удерживайте кнопку <b>Ctrl</b> (обычно она в нижнем левом углу клавиатуры)
+                            </li>
+                            <li>теперь не отпуская кнопку <b>Ctrl</b> нажмите 1 раз на русскую <b>"с"</b></li>
+                            <li>отпустите кнопки</li>
+                        </ul>
+                    </div>
+                        <!--ctrl + v-->
+                    <div style="margin-top: 8%">
+                        <p>Теперь попробуем вставить на сохраненный текст</p>
+                        <ul>
+                            <li>кликните на поле справа <input maxlength="48" id="keyboard"></li>
+                            <li>удерживайте кнопку <b>Ctrl</b> и нажмите 1 раз теперь на русскую "м" (она находится
+                                рядом с русской "с")
+                            </li>
+                            <li>отпустите кнопки</li>
+
+                        </ul>
+                    </div>
+                </content>
+            </div>
+            <div class="col">
+
+            </div>
+
+        </div>
+    </div>
+
+    <button style="position: relative; left: 95%; bottom: 5%; margin-right: 15px" id="createPageButton" type="button"
+            class="btn btn-outline-success " data-bs-toggle="tooltip" data-bs-html="true"
+            data-bs-title="<em>Подсказка</em> <u>с</u> <b>HTML</b>" disabled>
+        <a class="nav-link active" href="screenshots.html"> Продолжить
+        </a>
+    </button>
+</div>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+<script>
+    let bt = document.getElementById('createPageButton')
+    let test = document.getElementById('keyboard');
+    test.addEventListener('keydown', function (event) {
+        if (event.ctrlKey) {
+            bt.removeAttribute('disabled')
+        }
+    });
+
+</script>
+</body>
+</html>
