@@ -230,5 +230,23 @@ h3 {
     --bs-gradient: none;
 }
 
+/*условия перехода на следующую страницу*/
+ul.none {
+    list-style-type: none; /* Удаление стандартных маркеров списка */
+    padding-left: 20px; /* Отступ слева для списка */
+}
+
+.checkmark:before {
+    content: "\2713"; /* Код символа галочки (✓) */
+    color: green; /* Цвет галочки */
+    margin-right: 5px; /* Отступ между галочкой и текстом */a check has been made in the hotkeys
+}
+
+.crossmark:before {
+    content: "\2717"; /* Код символа крестика (✗) */
+    color: red; /* Цвет крестика */
+    margin-right: 5px; /* Отступ между крестиком и текстом */
+}
+
 
 
