@@ -239,13 +239,39 @@ ul.none {
 .checkmark:before {
     content: "\2713"; /* Код символа галочки (✓) */
     color: green; /* Цвет галочки */
-    margin-right: 5px; /* Отступ между галочкой и текстом */a check has been made in the hotkeys
+    margin-right: 5px; /* Отступ между галочкой и текстом */
 }
 
 .crossmark:before {
     content: "\2717"; /* Код символа крестика (✗) */
     color: red; /* Цвет крестика */
     margin-right: 5px; /* Отступ между крестиком и текстом */
+}
+.list-materials {
+    display: flex;
+    justify-content: center;
+    border: 1px solid gray;
+    border-radius: 7px;
+    min-height: 50px;
+}
+
+.material {
+    min-height: 50px;
+}
+
+.lesson {
+    position: relative;
+    border: 1px solid black;
+    border-radius: 15px;
+    background-color: rgb(0, 200, 0);
+    padding: 0.1rem 0.5rem;
+    font-size: 10px;
+    color: black;
+    text-decoration: none;
+    float: left;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
 }
 
 
