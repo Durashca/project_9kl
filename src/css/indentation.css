@@ -230,6 +230,12 @@ h3 {
     --bs-gradient: none;
 }
 
+/*применяется для разделов абзаца на странице */
+.sep_par {
+    margin-top: 5%;
+}
+
+
 /*условия перехода на следующую страницу*/
 ul.none {
     list-style-type: none; /* Удаление стандартных маркеров списка */
@@ -247,32 +253,34 @@ ul.none {
     color: red; /* Цвет крестика */
     margin-right: 5px; /* Отступ между крестиком и текстом */
 }
+
+/*код чтоб пользователь не растягивал текстрай*/
+textarea {
+    resize: none;
+}
+
 .list-materials {
     display: flex;
-    justify-content: center;
-    border: 1px solid gray;
-    border-radius: 7px;
-    min-height: 50px;
+    align-items: center;
+    margin-top: 5%;
 }
 
 .material {
-    min-height: 50px;
+    flex-shrink: 0;
 }
 
-.lesson {
-    position: relative;
-    border: 1px solid black;
-    border-radius: 15px;
-    background-color: rgb(0, 200, 0);
-    padding: 0.1rem 0.5rem;
-    font-size: 10px;
-    color: black;
-    text-decoration: none;
-    float: left;
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
+.material a {
+    margin: 5% 8% 10%;
 }
 
+.material + div {
+    margin-left: 20px;
+}
+
+.text-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
 
 
