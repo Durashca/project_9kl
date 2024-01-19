@@ -58,12 +58,73 @@ h3 {
     width: 44px;
     margin-left: 5px;
     margin-right: 25px;
-    --bs-btn-padding-x:'';
+    padding: 0;
     border-color: transparent!important;
 }
 
 .offcanvas {
     max-width: 90%;
+}
+
+.list-lessons {
+    min-height: 50px;
+    display: block;
+}
+
+.lesson {
+    border: 1px solid gray;
+    border-radius: 7px;
+    min-height: 50px;
+    display: flex;
+    flex: 1;
+    background-color: #F0F0F0;
+    padding: 1px 1px;
+    margin-bottom: 10px;
+}
+
+.lesson:hover {
+    background-color: #E5E5E5;
+    color: black;
+    border-color: black;
+}
+
+.left-part-lesson {
+    min-height: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.right-part-lesson {
+    min-height: 50px;
+    display: block;
+    margin-left: 12px;
+    max-width: 80%;
+}
+
+.number-lesson {
+    border: 1px solid black;
+    border-radius: 15px;
+    background-color: rgb(0, 200, 0);
+    padding: 0.1rem 0.5rem;
+    font-size: 10px;
+    color: black;
+    text-decoration: none;
+    margin-top: 3px;
+    margin-left: 3px;
+}
+
+.text-lesson {
+    margin-bottom: 2px;
+    text-align: left;
+}
+
+.name-lesson {
+    font-size: 17px;
+}
+
+.description-lesson {
+
 }
 
 /**/
