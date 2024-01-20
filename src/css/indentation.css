@@ -28,6 +28,7 @@ header {
     align-items: center !important;
 }
 
+/*для карточек*/
 .card-img-top {
     width: 50%;
     display: block;
@@ -50,7 +51,7 @@ h3 {
     --bs-btn-padding-x:'';
     border-color: transparent!important;
 }
-/**/
+/*офкенс панель*/
 .offcanvas, .offcanvas-lg, .offcanvas-md, .offcanvas-sm, .offcanvas-xl, .offcanvas-xxl {
     --bs-offcanvas-zindex: 1045;
     --bs-offcanvas-width: 500px;
@@ -261,10 +262,35 @@ textarea {
 
 .list-materials {
     display: flex;
+    /*
     align-items: center;
+    */
     margin-top: 5%;
+    padding: 5%;
 }
 
+.list-materials img {
+    height: auto;
+
+
+}
+/*css к скрину */
+.ckr_ol {
+
+    padding: 0
+}
+.skr_ol > img {
+    width: auto;
+    max-width: 55%;
+    height: 20%;
+}
+
+/* под заголовки*/
+h4 {
+    margin: 1% 0;
+}
+
+/*
 .material {
     flex-shrink: 0;
 }
@@ -283,4 +309,5 @@ textarea {
     align-items: flex-start;
 }
 
+*/
 
