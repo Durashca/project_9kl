@@ -234,6 +234,9 @@ h3 {
 /*применяется для разделов абзаца на странице */
 .sep_par {
     margin-top: 5%;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 1%;
 }
 
 
@@ -259,27 +262,24 @@ ul.none {
 textarea {
     resize: none;
 }
-
+/*
 .list-materials {
     display: flex;
-    /*
+    !*
     align-items: center;
-    */
+    *!
     margin-top: 5%;
     padding: 5%;
 }
 
 .list-materials img {
     height: auto;
-
-
-}
+}*/
 /*css к скрину */
 .ckr_ol {
-
     padding: 0
 }
-.skr_ol > img {
+.skr_img > img {
     width: auto;
     max-width: 55%;
     height: 20%;
@@ -289,25 +289,4 @@ textarea {
 h4 {
     margin: 1% 0;
 }
-
-/*
-.material {
-    flex-shrink: 0;
-}
-
-.material a {
-    margin: 5% 8% 10%;
-}
-
-.material + div {
-    margin-left: 20px;
-}
-
-.text-container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-*/
 
