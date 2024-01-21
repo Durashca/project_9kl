@@ -16,7 +16,7 @@ function LessonElement(lessonButton, name, description, numberLesson, link) {
 
 let lessons = [
     new LessonInfo("Горячие клавиши", "Упрощение жизни с помощью горячих клавиш", "#"),
-    new LessonInfo("Скриншоты", "Для чего нужны и как их делать?", "src/material/screenshots/screenshots.html"),
+    new LessonInfo("Скриншоты", "Для чего нужны и как их делать?", "screenshots.html"),
 ];
 
 material.createLessons(lessons);
