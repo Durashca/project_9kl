@@ -1,59 +1,59 @@
 /*добавление слайдов карусели*/
-let carousel = {
-    slideElems: [],
+let carousel = (function () {
+    let slideElems = [];
 
-    showSlides() {
+    function showSlides() {
         let carouselElem = document.querySelector(".carousel-inner");
-        for (let i = 0; i < this.slideElems.length; i++) {
-            let elem = this.slideElems[i];
+        for (let elem of slideElems) {
             carouselElem.appendChild(elem.item);
         }
-    },
+    }
 
-    createSlides(slidesInfo) {
+    function createSlides(slidesInfo) {
         for (let slide of slidesInfo) {
-            let slideElem = this.createSlide(slide, slide.selected);
+            let slideElem = createSlide(slide, slide.selected);
 
-            if (slide.selected)
+            if (slide.selected) {
                 slideElem.selected = true;
+                // switchTheme(slide.colorTheme);
+            }
 
-            this.slideElems.push(slideElem);
+            slideElems.push(slideElem);
         }
-    },
+    }
 
-    createSlide(slideInfo, active = false) {
-        let item = this.createElement("div", "carousel-item");
+    function createSlide(slideInfo, active = false) {
+        let slideCode =
+        `
+        <div class="d-block w-100">
+            <div class="card" style="width: 18rem">
+                <img class="card-img-top" src="${slideInfo.img}" alt="${slideInfo.title}">
+                <div class="card-body">
+                    <h5 class="card-title">${slideInfo.title}</h5>
+                    <p class="card-text">${slideInfo.text}</p>
+                    <a class="btn btn-primary" href="#">Выбрать</a>
+                </div>
+            </div>
+        </div>
+        `;
+
+        let item = createElement("div", "carousel-item");
+        item.innerHTML = slideCode;
+
+        let btn = item.querySelector(".btn");
+        let img = item.querySelector(".card-img-top");
+        let title = item.querySelector(".card-title");
+        let text = item.querySelector(".card-text");
 
         if (active)
             item.classList.add("active");
 
-        let block = this.createElement("div", "d-block w-100", item);
-
-        let card = this.createElement("div", "card", block);
-        card.style.width = "18rem";
-
-        let img = this.createElement("img", "card-img-top", card);
-        img.src = slideInfo.img;
-        img.alt = slideInfo.title;
-
-        let cardBody = this.createElement("div", "card-body", card);
-
-        let title = this.createElement("h5", "card-title", cardBody);
-        title.innerText = slideInfo.title;
-
-        let text = this.createElement("p", "card-text", cardBody);
-        text.innerText = slideInfo.text;
-
-        let btn = this.createElement("a", "btn btn-primary", cardBody);
-        btn.innerText = "Выбрать";
-        btn.href = "#";
-
         addEventTheme(btn, slideInfo);
 
         return new SlideElement(item, img, title, text, btn);
-    },
+    }
 
-    createElement(tagName, className, parent = null) {
+    function createElement(tagName, className, parent = null) {
         let elem = document.createElement(tagName);
         elem.className = className;
 
@@ -61,21 +61,29 @@ let carousel = {
             parent.appendChild(elem);
 
         return elem;
-    },
+    }
 
-    getSlideElems() {
-        return this.slideElems;
-    },
+    function getSlideElems() {
+        return slideElems;
+    }
 
-    getSlideElemByName(name) {
-        return this.slideElems.find((elem) => elem.getText() === name);
-    },
+    function getSlideElemByName(name) {
+        return slideElems.find((elem) => elem.getText() === name);
+    }
 
-    select(slideElem) {
-        for (let elem of this.slideElems) {
+    function select(slideElem) {
+        for (let elem of slideElems) {
             elem.selected = false;
         }
 
         slideElem.selected = true;
     }
-};
+
+    return {
+        showSlides: showSlides,
+        createSlides: createSlides,
+        get slideElems() { getSlideElems(); },
+        getSlideElemByName: getSlideElemByName,
+        select: select,
+    };
+})();

@@ -21,7 +21,8 @@
             <h1 style="margin: 3% 0 ">Горячие клавиши</h1>
             <div style="text-align:justify">
                 <p>Что же такое горячие клавиши? Если коротко, то это, когда вы зажимаете на пк две и более кнопок
-                    одновременно. Они обычно предназначены для облегчения и ускорения работы. Cейчас разберем поподробнее.</p>
+                    одновременно. Они обычно предназначены для облегчения и ускорения работы. Cейчас разберем
+                    поподробнее.</p>
                 <p>Если вы хотите стать профи в использовании пк, то горячие клавиши надо знать как таблицу
                     умножения.</p>
                 <!--<p>Знаете ли вы, что использование горячих клавиш может сэкономить вам кучу времени и усилий? Они
@@ -34,7 +35,7 @@
                         <li>Сперва выделим текст который нужно скопировать. Возьмите пример ниже без с
                             кавычек:
                         </li>
-                        <li style="list-style-type: none"><b>Пример:</b> <i>"Этот текст вы должны выделить с помощью
+                        <li style="list-style-type: none"><b>Пример:</b> <i id="example">"Этот текст вы должны выделить с помощью
                             мышки"</i></li>
                         <li>Нажмите и удерживайте кнопку <b>Ctrl</b> (обычно она в нижнем левом углу клавиатуры)
                         </li>
@@ -64,7 +65,8 @@
                 </div>
                 <!--ctrl + x-->
                 <div class="sep_par">
-                    <h4 id="Ctrl_x">Пробуем, вырезать текст из одного поля и вставить его c помощью комбинации Ctrl + x:</h4>
+                    <h4 id="Ctrl_x">Пробуем, вырезать текст из одного поля и вставить его c помощью комбинации Ctrl +
+                        x:</h4>
                     <ol>
                         <li>Сперва выделим текст который нужно вырезать. Возьмите пример ниже.</li>
                         <li style="list-style-type: none"><span
@@ -89,7 +91,7 @@
                     </div>
                 </div>
                 <!--ctrl + z-->
-                <div id="Ctrl_z"  class="sep_par">
+                <div id="Ctrl_z" class="sep_par">
                     <h4>Мы подошли к самому интересному. Как вернуть прежние изменения с помощью Ctrl + z:</h4>
                     <ol>
                         <li>Кликните на поле, чтоб вернуть прежние изменения. Возьмите пример ниже.</li>
@@ -134,6 +136,11 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
+<script src="src/js/navbar_creator.js"></script>
+<script src="src/js/authorization.js"></script>
+<script src="src/js/authorization_panel.js"></script>
+<script src="src/js/material.js"></script>
+<script src="src/js/material_settings.js"></script>
 <script>
     let tt = document.getElementById('ttt');
     let str = ''
@@ -194,7 +201,21 @@
             liK.classList.add('checkmark');
         }
     });
+</script>
+<script>
+    var exampleElement = document.getElementById("example");
 
+    exampleElement.addEventListener("copy", function (event) {
+        event.preventDefault();
+        var copiedText = window.getSelection().toString();
+        var fullText = exampleElement.textContent.trim();
+
+        if (copiedText === fullText) {
+            alert("Вы скопировали ВЕСЬ текст!");
+        } else {
+            alert("Пожалуйста, скопируйте ВЕСЬ текст!");
+        }
+    });
 </script>
 </body>
 </html>

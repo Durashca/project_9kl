@@ -1,0 +1,19 @@
+.show-img {
+    border-radius: 4px;
+    width: 100%;
+}
+
+.title {
+    margin-bottom: 4px;
+}
+
+.subtitle {
+    margin-top: 40px;
+    margin-bottom: 14px;
+    font-weight: normal;
+}
+
+.caption-picture {
+    font-size: 15px;
+    font-style: italic;
+}

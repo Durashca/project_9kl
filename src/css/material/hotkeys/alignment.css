@@ -1,0 +1,41 @@
+/*применяется для разделов абзаца на странице */
+.keyboard-shortcut-block {
+    margin-top: 4%;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 1%;
+}
+
+/*условия перехода на следующую страницу*/
+ul.none {
+    list-style-type: none; /* Удаление стандартных маркеров списка */
+    padding-left: 20px; /* Отступ слева для списка */
+}
+
+.checkmark:before {
+    content: "\2713"; /* Код символа галочки (✓) */
+    color: green;
+    margin-right: 5px;
+}
+
+.crossmark:before {
+    content: "\2717"; /* Код символа крестика (✗) */
+    color: red;
+    margin-right: 5px;
+}
+
+/*css к скрину */
+.ckr_ol {
+    padding: 0;
+}
+
+.skr_ol > img {
+    width: auto;
+    max-width: 55%;
+    height: 20%;
+}
+
+/* под заголовки*/
+h4 {
+    margin: 1% 0;
+}

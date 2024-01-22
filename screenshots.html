@@ -7,7 +7,11 @@
     <!--подключение Бутстрапа-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="/src/css/indentation.css">
+    <link rel="stylesheet" href="src/css/indentation.css">
+    <link rel="stylesheet" href="src/css/bootstrap.css">
+    <link rel="stylesheet" href="src/css/material.css">
+    <link rel="stylesheet" href="src/css/material/style.css">
+    <link rel="stylesheet" href="src/css/material/screenshots/alignment.css">
 </head>
 <body>
 
@@ -21,8 +25,7 @@
                     когда надо показать экран телефона или пк, и не все знают как правильно сделать.
                 </p>
                 <h4>Сравните два примера ниже.Какой по вашему мнению выглядит привлекательным?</h4>
-                <div style="margin: 5% 0">
-                    <div class="skr_img">
+                <div class="skr_img" style="margin: 5% 0">
                         <!--хорошая картинка-->
                         <span style="display: flex">№1</span><img style="margin-bottom: 1%"
                                                                   src="src/images/screenshots-material/img_1.png"
@@ -30,7 +33,6 @@
                         <!--плохая картинка-->
                         <span style="display: flex">№2</span><img src="src/images/screenshots-material/img3.jpg"
                                                                   alt="плохое_изоб">
-                    </div>
                 </div>
                 <!--скрин на телефоне-->
                 <!-- <div class="sep_par">
@@ -80,14 +82,10 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
-<script>
-    let bt = document.getElementById('createPageButton')
-    let sel = document.getElementById('answer_to_screen');
-    sel.addEventListener('change', function () {
-        if (sel.selectedIndex === 0) {
-            bt.removeAttribute("disabled")
-        }
-    });
-</script>
+<script src="src/js/navbar_creator.js"></script>
+<script src="src/js/authorization.js"></script>
+<script src="src/js/authorization_panel.js"></script>
+<script src="src/js/material.js"></script>
+<script src="src/js/material_settings.js"></script>
 </body>
 </html>
