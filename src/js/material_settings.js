@@ -15,7 +15,7 @@ function LessonElement(lessonButton, name, description, numberLesson, link) {
 }
 
 let lessons = [
-    new LessonInfo("Горячие клавиши", "Упрощение жизни с помощью горячих клавиш", "keyboard_shortcut.html"),
+    new LessonInfo("Горячие клавиши", "Упрощение жизни с помощью горячих клавиш", "hotkeys.html"),
     new LessonInfo("Скриншоты", "Для чего нужны и как их делать?", "screenshots.html"),
 ];
 
