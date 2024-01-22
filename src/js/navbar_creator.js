@@ -2,7 +2,7 @@ let navbarCode =
 `
 <header id="h-space" class="text-center">
     <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top" style="--bs-navbar-padding-y: 0rem; z-index: 10">
-        <div class="container-xxl theme little-dark" style="min-height: 50px;box-shadow: 1px 2px 10px grey">
+        <div class="container-xxl theme little-dark" style="min-height: 50px; box-shadow: 1px 2px 10px grey; text-align: justify">
             <a class="navbar-brand" href="#">ВсеZнай</a>
             <!--тайная кнопка-->
             <div>
