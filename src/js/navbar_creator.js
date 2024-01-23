@@ -134,7 +134,7 @@ let navbarCode =
         <div class="offcanvas-body">
             <!--прогресбар-->
             <div>
-                <h6>Прогресс по материалу:</h6>
+                <h6 class="text-center">Прогресс по материалу:</h6>
                 <div class="progress" role="progressbar" aria-label="Пример информации"
                      aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="height: 0.9em">
                     <div class="progress-bar-animated progress-bar-striped bg-dark"
