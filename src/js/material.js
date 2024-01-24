@@ -31,6 +31,9 @@ let material = (function () {
         let lesson = createElement("a", "btn btn-primary lesson");
         lesson.innerHTML = lessonCode;
 
+        let leftPart = lesson.querySelector(".left-part-lesson");
+        leftPart.insertAdjacentHTML('beforeend', stateElems[lessonInfo.state]);
+
         let name = lesson.querySelector(".name-lesson");
         let description = lesson.querySelector(".description-lesson");
         let numberLesson = lesson.querySelector(".number-lesson");
