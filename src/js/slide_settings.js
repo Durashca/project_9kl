@@ -24,7 +24,7 @@ function SlideElement(item, img, title, text, button, selected = false) {
         set: function(value) {
             this._selected = value;
             this.button.innerText = value ? "Выбрано" : "Выбрать";
-            this.button.style.setProperty("--bs-btn-bg", value ? "rgb(32, 243, 50)" : "white");
+            this.button.style.setProperty("--bs-btn-bg", value ? "rgb(105, 209, 125)" : "white");
         }
     });
 }

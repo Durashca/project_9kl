@@ -3,33 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ВсеZнай</title>
+    <title>Скриншоты</title>
     <!--подключение Бутстрапа-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="src/css/indentation.css">
+    <link rel="stylesheet" href="src/css/bootstrap.css">
+    <link rel="stylesheet" href="src/css/material.css">
+    <link rel="stylesheet" href="src/css/material/style.css">
+    <link rel="stylesheet" href="src/css/material/screenshots/alignment.css">
 </head>
 <body>
-
 <div class="container-xxl">
-    <div class="container text-center">
+    <div class="container text-left text">
         <div class="row">
-            <div class="col">
-                Колонка
-            </div>
-            <div class="col-6">
+            <div class="container-material">
                 <content>
-                    <h3>Что такое скриншот и для чего он нужен?</h3>
-                    <p>Скриншот — это воспроизведение текущего содержимого экрана компьютера,
-                        мобильного устройства или веб-страницы в виде статичного изображения.Если говорить проще то это снимок экрана </p>
-                    <img src="src/images/delaem-skrinshot-na-honore.jpg" style="width:100%; height: 60%; border-radius: 15px " alt="скриншот">
+                    <h1 class="title text-center">Скриншоты</h1>
+                    <h2 class="subtitle">Что такое скриншот и для чего он нужен?</h2>
+                    <p>Если коротко, то это снимок экрана. Бывает такие моменты когда надо показать экран телефона или ПК, и не все знают как правильно сделать.</p>
+                    <p>Сравните два примера ниже. Какой по вашему мнению выглядит привлекательно?</p>
+                    <div>
+                        <figure>
+                            <a href="src/images/screenshots-material/screenshot_from_computer.png">
+                                <img src="src/images/screenshots-material/screenshot_from_computer.png" class="show-img" alt="скриншот-с-пк">
+                            </a>
+                            <figcaption class="caption-picture">1. Скриншот с компьютера</figcaption>
+                        </figure>
+                        <figure>
+                            <a href="src/images/screenshots-material/photo_from_phone.jpg">
+                                <img src="src/images/screenshots-material/photo_from_phone.jpg" class="show-img" alt="фото-с-телефона">
+                            </a>
+                            <figcaption class="caption-picture">2. Фото экрана с телефона</figcaption>
+                        </figure>
+                    </div>
+                    <!--скрин на телефоне-->
+                    <!-- <div class="sep_par">
+                         <h4>Сделаем скриншот на телефоне:</h4>
+                         <ol>
+                             <li> зажмите 2 кнопки: кнопку включить/выключить телефон и уменьшения громкости.</li>
+                             <li>Скриншот сделан</li>
+                         </ol>
+                         &lt;!&ndash;карточка&ndash;&gt;
+                         <div class="card text-bg-primary mb-3" style="width: 70%;">
+                             <div class="card-body">
+                                 <p class="card-text">Сделанный вами скриншот отправится в галерею.
+                                     В галерии можно перейти в раздел <i>альбомы</i> и
+                                     найдите альбом <i>скриншоты(Screenshots), там и будет ваша картинка</i></p>
+                             </div>
+                         </div>
+                     </div>-->
+                    <!--выбор-->
+                    <p>Выберите какая картинка лучше <select id="answer_to_screen">
+                        <option> картинка №1</option>
+                        <option selected>картинка №2</option>
+                    </select></p>
+
+                    <!--скрин на пк-->
+                    <h2 class="subtitle">Как сделать скриншот?</h2>
+                    <p>Для того чтобы сделать скриншот на ПК, следуйте следующей инструкции:</p>
+                    <ol>
+                        <li>В правой верхней части клавиатуры найдите и нажмите 1 раз кнопку <b>Prt Src</b> (или <b>Prt Sc</b>).</li>
+                        <li>Чтобы посмотреть картинку, вы можете вставить его куда-нибудь, например в <b>Word</b>, <b>Paint</b>.</li>
+                    </ol>
                 </content>
-            </div>
-            <div class="col">
-                Колонка
             </div>
         </div>
     </div>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+<script src="src/js/navbar_creator.js"></script>
+<script src="src/js/authorization.js"></script>
+<script src="src/js/authorization_panel.js"></script>
+<script src="src/js/material.js"></script>
+<script src="src/js/material_settings.js"></script>
 </body>
 </html>

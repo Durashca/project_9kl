@@ -1,18 +1,5 @@
 // сама логика авторизации с помощью класса `authorization`
 let authorization = {
-    AddEventRegistry() {
-        let form = document.querySelector("#form-profile");
-        form.addEventListener("submit", function (event) {
-            if (!form.checkValidity()) {
-                event.preventDefault();
-                event.stopPropagation();
-                authorization.Register();
-            }
-
-            form.classList.add("was-validated");
-        }, false);
-    },
-
     Register() {
         console.log("Вы зарегестрированы");
     },
@@ -21,5 +8,3 @@ let authorization = {
         console.log("Вы вошли");
     },
 };
-
-authorization.AddEventRegistry();
