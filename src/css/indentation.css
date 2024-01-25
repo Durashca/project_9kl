@@ -54,3 +54,10 @@ h3 {
     padding: 0;
     border-color: transparent!important;
 }
+
+/*для transferring_files*/
+
+ol.meterial-block li {
+    margin: 2% 0;
+}
+
