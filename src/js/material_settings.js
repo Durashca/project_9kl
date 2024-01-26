@@ -1,9 +1,9 @@
-const lessonState = { IDLE: 'idle', NEW: 'new', SOON: 'soon', OLD: 'old' };
+const lessonState = { IDLE: 'idle', NEW: 'new', SOON: 'soon', OLD: 'old', HARD: 'hard' };
 
-function LessonInfo(name, description, link, state = 'idle', children = []) {
+function LessonInfo(name, description, link, states = ['idle'], children = []) {
     this.name = name;
     this.description = description;
-    this.state = state;
+    this.states = states;
     this.link = link;
     this.children = children;
 }
@@ -31,17 +31,16 @@ function LessonElement(lessonButton, name, description, numberLesson, link, chil
             if (this.folding === null)
                 return;
 
-            const toggleIcons = ['▼', '▲'];
-            this.folding.innerText = toggleIcons[+value];
+            this.folding.style.backgroundImage = value ?
+                'url(\'src/images/material_panel/arrow-up-square.svg\')' :
+                'url(\'src/images/material_panel/arrow-down-square.svg\')';
             this.switchVisibilityChildren(value);
         }
     });
 
     this.switchVisibilityChildren = function (value) {
         for (let child of children) {
-            const visibilityParams = ['none', ''];
-
-            child.lessonButton.style.display = visibilityParams[+value];
+            child.lessonButton.style.display = !value ? 'none' : '';
             child.switchVisibilityChildren(value);
         }
     };
@@ -51,17 +50,19 @@ function LessonElement(lessonButton, name, description, numberLesson, link, chil
 }
 
 let lessons = [
-    new LessonInfo("Горячие клавиши", "Упрощение жизни с помощью горячих клавиш" , "hotkeys.html", "idle", [
-        new LessonInfo("Тест1", "Описание1", ''),
+    new LessonInfo("Горячие клавиши", "Упрощение жизни с помощью горячих клавиш" , "hotkeys.html", ["idle"], [
+        new LessonInfo("Работа с текстом", "Горячие клавиши для работы с текстом", '', ["soon"]),
+        new LessonInfo("Работа с ПК", "Горячие клавиши для работы с ПК", '', ["hard", "soon"]),
     ]),
     new LessonInfo("Скриншоты", "Для чего нужны и как их делать?", "screenshots.html"),
-    new LessonInfo("Перекидывание файлов", "Как перекинуть файлы с телефона на ПК?", "", "soon"),
+    new LessonInfo("Перекидывание файлов", "Как перекинуть файлы с телефона на ПК?", "", ["soon"]),
 ];
 
 const stateToLessonNumberElement = {
     'new': `<a class="number-lesson bg-success">Новый</a>`,
     'soon': `<a class="number-lesson bg-primary">Скоро</a>`,
     'old': `<a class="number-lesson bg-warning">Устар.</a>`,
+    'hard': `<a class="number-lesson bg-danger">Сложный</a>`,
 };
 
 const stateToAdditionalDecoration = {

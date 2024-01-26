@@ -45,6 +45,10 @@
     width: 25px;
     height: 25px;
     padding: 0;
+    background: transparent url('../images/material_panel/arrow-up-square.svg');
+    opacity: 0.85;
+    background-size: cover;
+    border: none;
 }
 
 /* область с номером урока */

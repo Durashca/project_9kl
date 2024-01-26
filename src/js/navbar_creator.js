@@ -14,7 +14,7 @@ let navbarCode =
                 <!--профиль-->
                 <button class="btn position-relative profile" type="button" data-bs-toggle="offcanvas"
                         data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
-                    <img class="profile" src="src/images/user-profile.png" alt="профиль">
+                    <img class="profile" src="src/images/settings/theme/user-profile.png" alt="профиль">
                     <!--уведомления-->
                     <span class="position-absolute badge rounded-pill bg-dark" style="right: -8px; top: -2px">
                         !

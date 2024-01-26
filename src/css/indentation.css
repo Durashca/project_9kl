@@ -12,13 +12,13 @@ header {
 
 /* левая кнопка карусели */
 .carousel-control-prev-icon {
-    background-image: url("../../src/images/left-arrow.png");
+    background-image: url("../images/settings/theme/left-arrow.png");
     background-size: 50%;
 
 }
 /* правая кнопка карусели */
 .carousel-control-next-icon {
-    background-image: url("../../src/images/right-arrow.png");
+    background-image: url("../images/settings/theme/right-arrow.png");
     background-size: 50%;
 }
 /* выравнивание div.card по div.d-block.w-100 */

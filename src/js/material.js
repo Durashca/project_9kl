@@ -40,7 +40,8 @@ let material = (function () {
         `;
 
         const codeFolding =
-            `<button type="button" class="btn btn-primary folding" data-bs-toggle="button" aria-pressed="false">▼</button>`;
+        `<button type="button" class="folding" data-bs-toggle="button" aria-pressed="false">
+        </button>`;
 
         let lesson = createElement("a", "btn btn-primary lesson");
         lesson.style.marginLeft = `${indent}px`;
@@ -52,10 +53,13 @@ let material = (function () {
         if (lessonInfo.children.length > 0)
             rightPart.insertAdjacentHTML('afterbegin', codeFolding);
 
-        if (lessonInfo.state in stateToLessonNumberElement)
-            leftPart.insertAdjacentHTML('beforeend', stateToLessonNumberElement[lessonInfo.state]);
+        for (let state of lessonInfo.states) {
+            if (state in stateToLessonNumberElement)
+                leftPart.insertAdjacentHTML('beforeend', stateToLessonNumberElement[state]);
+        }
 
-        stateToAdditionalDecoration[lessonInfo.state]?.call(null, lesson);
+        for (let state of lessonInfo.states)
+            stateToAdditionalDecoration[state]?.call(null, lesson);
 
         let name = lesson.querySelector(".name-lesson");
         let description = lesson.querySelector(".description-lesson");
