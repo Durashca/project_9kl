@@ -2,6 +2,16 @@ div.keyboard-shortcut-block  img {
     width: auto;
     min-width: 250px;
     margin: 1% auto;
-    min-height:190px;
-    max-height:190px;
+    min-height:350px;
+    max-height:350px;
+}
+div.container.text-center img {
+    min-height: 450px;
+}
+p {
+    text-align: left;
+    margin: 2%;
+}
+h4 {
+    margin-top: 4%;
 }
