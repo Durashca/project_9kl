@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="src/css/bootstrap.css">
     <link rel="stylesheet" href="src/css/material.css">
     <link rel="stylesheet" href="src/css/material/style.css">
+    <link rel="stylesheet" href="src/css/material/hotkeys/alignment.css">
     <link rel="stylesheet" href="src/css/material/screenshots/alignment.css">
 </head>
 <body>
@@ -21,9 +22,9 @@
                 <content>
                     <h1 class="title text-center">Скриншоты</h1>
                     <h2 class="subtitle">Что такое скриншот и для чего он нужен?</h2>
-                    <p>Если коротко, то это снимок экрана. Бывает такие моменты когда надо показать экран телефона или ПК, и не все знают как правильно сделать.</p>
-                    <p>Сравните два примера ниже. Какой по вашему мнению выглядит привлекательно?</p>
-                    <div>
+                    <p >Если коротко, то это снимок экрана. Бывает такие моменты когда надо показать экран телефона или ПК, и не все знают как правильно сделать.</p>
+                    <p >Сравните два примера ниже. Какой по вашему мнению выглядит привлекательно?</p>
+                    <div  >
                         <figure>
                             <a href="src/images/screenshots-material/screenshot_from_computer.png">
                                 <img src="src/images/screenshots-material/screenshot_from_computer.png" class="show-img" alt="скриншот-с-пк">
@@ -34,7 +35,7 @@
                             <a href="src/images/screenshots-material/photo_from_phone.jpg">
                                 <img src="src/images/screenshots-material/photo_from_phone.jpg" class="show-img" alt="фото-с-телефона">
                             </a>
-                            <figcaption class="caption-picture">2. Фото экрана с телефона</figcaption>
+                            <figcaption class="caption-picture">2. Фото сделанное с помощью телефона</figcaption>
                         </figure>
                     </div>
                     <!--скрин на телефоне-->
@@ -60,12 +61,19 @@
                     </select></p>
 
                     <!--скрин на пк-->
-                    <h2 class="subtitle">Как сделать скриншот?</h2>
-                    <p>Для того чтобы сделать скриншот на ПК, следуйте следующей инструкции:</p>
-                    <ol>
-                        <li>В правой верхней части клавиатуры найдите и нажмите 1 раз кнопку <b>Prt Src</b> (или <b>Prt Sc</b>).</li>
-                        <li>Чтобы посмотреть картинку, вы можете вставить его куда-нибудь, например в <b>Word</b>, <b>Paint</b>.</li>
-                    </ol>
+                    <div class="keyboard-shortcut-block">
+                        <h4 >Как сделать скриншот?</h4>
+                        <p>Для того чтобы сделать скриншот на ПК, следуйте следующей инструкции:</p>
+                        <ol>
+                            <li>В правой верхней части клавиатуры найдите и нажмите 1 раз кнопку <b>Prt Src</b> (или <b>Prt Sc</b>).</li>
+                            <li>Чтобы посмотреть картинку, вы можете вставить его куда-нибудь, например в <b>Word</b> или <b>Paint</b>.</li>
+                        </ol>
+                    </div>
+                    <h4>Картинку можно вставить с помощью горячих клавиш, а именно <b>Ctrl</b> + <b>V</b>.</h4>
+                    <div class="keyboard-shortcut-block" contenteditable="true" id="editableDiv"></div>
+
+
+
                 </content>
             </div>
         </div>
@@ -85,5 +93,32 @@
 <script src="src/js/authorization_panel.js"></script>
 <script src="src/js/material.js"></script>
 <script src="src/js/material_settings.js"></script>
+<script>
+    const editableDiv = document.getElementById('editableDiv');
+
+    // Обработчик события вставки (paste)
+    editableDiv.addEventListener('paste', function(e) {
+        e.preventDefault(); // Предотвращаем стандартное поведение вставки
+
+        // Получаем вставленные данные
+        const clipboardData = e.clipboardData || window.clipboardData;
+        const items = clipboardData.items;
+
+        // Ищем вставленную картинку
+        for (let i = 0; i < items.length; i++) {
+            if (items[i].type.indexOf('image') !== -1) {
+                const file = items[i].getAsFile(); // Получаем файл изображения
+
+                // Создаем элемент <img> с вставленной картинкой
+                const img = document.createElement('img');
+                img.src = URL.createObjectURL(file);
+                img.alt = 'Вставленная картинка';
+
+                // Вставляем картинку в редактируемый div
+                editableDiv.appendChild(img);
+            }
+        }
+    });
+</script>
 </body>
 </html>

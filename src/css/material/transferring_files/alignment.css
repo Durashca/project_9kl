@@ -16,3 +16,20 @@ p {
 h4 {
     margin-top: 4%;
 }
+
+.bd-callout-warning {
+    --bd-callout-color: #ffda6a;
+    --bd-callout-bg:#332701;
+    --bd-callout-border: #997404;
+}
+
+.bd-callout {
+    --bs-link-color-rgb: 110,168,254;
+    --bs-code-color: #e685b5;
+    padding: 1.25rem;
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+    color: var(--bd-callout-color, inherit);
+    background-color: var(--bd-callout-bg);
+    border-left: 0.25rem solid #997404;
+}
