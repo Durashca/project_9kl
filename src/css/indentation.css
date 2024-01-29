@@ -61,3 +61,25 @@ ol.meterial-block li {
     margin: 2% 0;
 }
 
+/**/
+.bd-callout-red {
+    --bd-callout-color: rgb(227, 38, 89) ;
+    --bd-callout-bg: rgb(73,0, 5);
+    --bd-callout-border: rgb(79, 0, 20);
+}
+
+.bd-callout-info {
+    --bd-callout-color: #6edff6;
+    --bd-callout-bg: #032830;
+    --bd-callout-border: #087990;
+}
+.bd-callout {
+    --bs-link-color-rgb: 110, 168, 254;
+    --bs-code-color: #e685b5;
+    padding: 1.25rem;
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+    color: var(--bd-callout-color, inherit);
+    background-color: var(--bd-callout-bg);
+    border-left: 0.25rem solid var(--bd-callout-border);
+}
