@@ -13,10 +13,12 @@ function LessonElement(lessonButton, name, description, numberLesson, link) {
 
     lessonButton.href = link;
 }
-
+/*добавляем элементы*/
 let lessons = [
-    new LessonInfo("Горячие клавиши", "Упрощение жизни с помощью горячих клавиш", "hotkeys.html"),
+    new LessonInfo("Глобальные горячие клавиши", "Упрощение жизни с помощью горячих клавиш", "hotkeys.html"),
     new LessonInfo("Скриншоты", "Для чего нужны и как их делать?", "screenshots.html"),
+    new LessonInfo("Перенос файла через USB-подключение", "Как перенести картинку с телефона на пк", "transferring_files.html"),
+    new LessonInfo("Функциональные клавиши", "Быстро и легко работаем с текстом", "basic_keys.html"),
 ];
 
 material.createLessons(lessons);

@@ -69,9 +69,13 @@
                             <li>Чтобы посмотреть картинку, вы можете вставить его куда-нибудь, например в <b>Word</b> или <b>Paint</b>.</li>
                         </ol>
                     </div>
-                    <h4>Картинку можно вставить с помощью горячих клавиш, а именно <b>Ctrl</b> + <b>V</b>.</h4>
-                    <div class="keyboard-shortcut-block" contenteditable="true" id="editableDiv"></div>
-
+                    <div class="keyboard-shortcut-block">
+                        <h4>Картинку можно вставить с помощью горячих клавиш, а именно <b>Ctrl</b> + <b>V</b>.</h4>
+                        <ol>
+                            <li>Поставьте курсор в поле ниже и используйте 2 клавиши для вставки: </li>
+                            <div class="keyboard-shortcut-block" contenteditable="true" id="editableDiv"></div>
+                        </ol>
+                    </div>
 
 
                 </content>
@@ -113,6 +117,8 @@
                 const img = document.createElement('img');
                 img.src = URL.createObjectURL(file);
                 img.alt = 'Вставленная картинка';
+                img.style.width = '100%';
+                img.style.height = '50%';
 
                 // Вставляем картинку в редактируемый div
                 editableDiv.appendChild(img);
