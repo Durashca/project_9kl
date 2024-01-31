@@ -19,6 +19,7 @@ let lessons = [
     new LessonInfo("Скриншоты", "Для чего нужны и как их делать?", "screenshots.html"),
     new LessonInfo("Перенос файла через USB-подключение", "Как перенести картинку с телефона на пк", "transferring_files.html"),
     new LessonInfo("Функциональные клавиши", "Быстро и легко работаем с текстом", "basic_keys.html"),
+    new LessonInfo("Скачивание приложения", "Учимся скачивать приложение на пк или ноутбук", "download_the_application.html"),
 ];
 
 material.createLessons(lessons);

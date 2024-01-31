@@ -3,7 +3,7 @@ let navbarCode =
 <header id="h-space" class="text-center">
     <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top" style="--bs-navbar-padding-y: 0rem; z-index: 10">
         <div class="container-xxl theme little-dark" style="min-height: 50px; box-shadow: 1px 2px 10px grey; text-align: justify">
-            <a class="navbar-brand" href="#">ВсеZнай</a>
+            <a class="navbar-brand" href="#">ВсеЗнай</a>
             <!--тайная кнопка-->
             <div>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -32,23 +32,7 @@ let navbarCode =
                         <a class="nav-link" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
                            aria-controls="offcanvasExample">Материал</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                           aria-expanded="false">
-                            Выпадающий список
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Действие</a></li>
-                            <li><a class="dropdown-item" href="#">Другое действие</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">Что-то еще здесь</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled">Отключенная</a>
-                    </li>
+                    
                 </ul>
                 <!--поиск-->
                 <form class="d-flex" role="search">

@@ -86,13 +86,14 @@ ol.meterial-block li {
     --bd-callout-border: #997404;
 }
 
-
+/*применение карточки*/
 .bd-callout {
     --bs-link-color-rgb: 110, 168, 254;
     --bs-code-color: #e685b5;
     padding: 1.25rem;
     margin-top: 1.25rem;
     margin-bottom: 1.25rem;
+    border-radius: 0 12px 12px 0;
     color: var(--bd-callout-color, inherit);
     background-color: var(--bd-callout-bg);
     border-left: 0.25rem solid var(--bd-callout-border);
