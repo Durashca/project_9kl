@@ -93,7 +93,7 @@ ol.meterial-block li {
     padding: 1.25rem;
     margin-top: 1.25rem;
     margin-bottom: 1.25rem;
-    border-radius: 0 12px 12px 0;
+    border-radius: 0 10px 10px 10px;
     color: var(--bd-callout-color, inherit);
     background-color: var(--bd-callout-bg);
     border-left: 0.25rem solid var(--bd-callout-border);
