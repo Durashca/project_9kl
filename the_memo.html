@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Логин и авторизация</title>
+    <!--подключение Бутстрапа-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="src/css/indentation.css">
+    <link rel="stylesheet" href="src/css/bootstrap.css">
+    <link rel="stylesheet" href="src/css/material.css">
+    <link rel="stylesheet" href="src/css/material/style.css">
+    <link rel="stylesheet" href="src/css/material/hotkeys/alignment.css">
+    <link rel="stylesheet" href="src/css/material/transferring_files/alignment.css">
+</head>
+<body>
+<div class="container-xxl">
+    <div class="container text-left text">
+        <div class="row">
+            <div class="container-material">
+                <content>
+                    <h1 class="title text-center">Логин, авторизация, регистрация, вход</h1>
+                    <p><i>Что это за слова? Сейчас разберем</i>.</p>
+                    <p>Представьте вы зашли на какой-то сайт. Поработали на нем. Вышли. Зашли и Оп, то что вы делали, не
+                        сохранилось. Почему так?</p>
+                    <p>Ваш ноутбук или компьютер( сокращенно <b>ПК</b>) не может запоминать каждое ваше действие,
+                        причем он еще и очищает всякий мусор который считает не нужным.</p>
+                    <p>Для этого и приходит на помощь <b>регистрация</b>. Она запоминает, все что вы делали. А еще у нее
+                        есть
+                        один большой плюс. Если вы работаете дома и на работе. То <b>регистрация</b> поможет вам
+                        продолжить
+                        работу, но пока не об этом. </p>
+                    <p>Регистрация, авторизация, логин, пароль, вход ... - это для регистрации.</p>
+                    <p><b>Представим:</b> <i>вы заходите на сайт, а там два поля: логин и пароль.</i></p>
+                    <div class="keyboard-shortcut-block">
+                        <ul style="font-style: italic">
+                            <b>Перед нами стоит важный вопрос:</b>
+                            <li>Посещали мы этот сайт раньше или нет? Если да, то регистрировались мы на сайте?</li>
+                        </ul>
+                        <p>К чему такой важный вопрос? Все потому что: <b>Зарегистрироваться</b> и <b>вход</b> - это
+                            разные вещи.</p>
+                        <p>Понятие <b>Зарегистрироваться</b> можно ассоциировать с новой вещью, новым домом, машиной,
+                            работой... </p>
+                        <p> С понятием <b>Вход</b> - можно представить старую вещь. Так вот, хотели вы начать жизнь с
+                            чистого листа (Зарегистрироваться) или же продолжить на чем остановились(Вход), решать вам,
+                            моё дело объяснить. </p>
+                        <div class="keyboard-shortcut-block">
+                            <h4> Разберем что делать если нам надо попасть в старый аккаунт: </h4>
+                            <ol>
+                                <li>Выбираем <b>Вход</b>(может называться чуть по другому)</li>
+                                <li>Вам надо написать <b>логин</b> и <b>пароль</b>.</li>
+                                <li>Если вы забыли логин и пароль, то обычно для забывашек на сайте пишется ссылка: <i>Забыли
+                                    пароль?</i></li>
+                                <li>Нажмите на ссылку. Вам надо ввести хоть какие-то данные (номер телефона, электронную
+                                    почту), чтобы можно подтвердить что вы владелец аккаунта.
+                                </li>
+                                <li>Если вы ввели код подтверждения, который прейдет на вашу эл. почту или на номер
+                                    телефона.
+                                </li>
+                            </ol>
+                        </div>
+                        <div class="keyboard-shortcut-block">
+                            <h4>Теперь узнаем как <b>Зарегистрироваться</b>:</h4>
+                            <ol>
+                                <li> Выбираем ссылку где написано: <b>Зарегистрироваться(или что-то похожее)</b>.</li>
+                                <li>Вводим все данные которые нужно указать. бычно это почта, номер телефона, имя и тд.</li>
+                                <li>Нажимаем <b>продолжить</b>.</li>
+                                <li>На телефон или на эл. почту прейдет сообщение. Введите код или перейдите по ссылки для подтверждения.</li>
+                            </ol>
+                        </div>
+
+                    </div>
+                </content>
+            </div>
+        </div>
+    </div>
+    <div style="display: flex; justify-content: center; margin: 1% 0;">
+        <button id="createPageButton" type="button"
+                class="btn btn-outline-success">
+            <a class="nav-link active" href="download_the_application.html">Сл. страница</a>
+        </button>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+<script src="src/js/navbar_creator.js"></script>
+<script src="src/js/authorization.js"></script>
+<script src="src/js/authorization_panel.js"></script>
+<script src="src/js/material.js"></script>
+<script src="src/js/material_settings.js"></script>
+</div>
+</body>
+</html>
