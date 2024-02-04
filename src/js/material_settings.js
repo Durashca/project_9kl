@@ -21,7 +21,8 @@ let lessons = [
     new LessonInfo("Скриншоты", "Для чего нужны и как их делать?", "screenshots.html"),
     new LessonInfo("Перенос файла через USB-подключение", "Как перенести картинку с телефона на пк", "transferring_files.html"),
     new LessonInfo("Функциональные клавиши", "Быстро и легко работаем с текстом", "basic_keys.html"),
-    new LessonInfo("Скачивание приложения", "Учимся скачивать приложение на пк или ноутбук", "download_the_application.html"),
+    new LessonInfo("Скачивание приложения", "Учимся скачивать приложения на пк или ноутбуке", "download_the_application.html"),
+    new LessonInfo("Удаление приложения", "Учимся удалять приложения на пк или ноутбуке", "download_the_application.html"),
     new LessonInfo("Ошибки со звуком", "Исправляем ошибки со звуком на пк или ноутбуке", "audio_errors.html"),
 ];
 
