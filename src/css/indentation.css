@@ -85,6 +85,13 @@ ol.meterial-block li {
     --bd-callout-bg:#332701;
     --bd-callout-border: #997404;
 }
+/*сиреневая карточка*/
+.bd-callout-lilac {
+    --bd-callout-color: #ffda6a;
+    --bd-callout-bg:#332701;
+    --bd-callout-border: #997404;
+}
+
 
 /*применение карточки*/
 .bd-callout {

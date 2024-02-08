@@ -16,7 +16,7 @@ function LessonElement(lessonButton, name, description, numberLesson, link) {
 /*добавляем элементы*/
 let lessons = [
 
-    new LessonInfo("Памятка", "Что означают эти не понятные слова", "the_memo.html"),
+    new LessonInfo("Логин", "Что означают эти не понятные слова", "the_memo.html"),
     new LessonInfo("Глобальные горячие клавиши", "Упрощение жизни с помощью горячих клавиш", "hotkeys.html"),
     new LessonInfo("Скриншоты", "Для чего нужны и как их делать?", "screenshots.html"),
     new LessonInfo("Перенос файла через USB-подключение", "Как перенести картинку с телефона на пк", "transferring_files.html"),
