@@ -5,6 +5,9 @@
     border-radius: 10px;
     padding: 1%;
 }
+.dashed {
+    border-style:dashed;
+}
 
 /*условия перехода на следующую страницу*/
 ul.none {
