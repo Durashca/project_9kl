@@ -50,25 +50,38 @@ function LessonElement(lessonButton, name, description, numberLesson, link, chil
 }
 
 let lessons = [
-    new LessonInfo("Горячие клавиши", "Упрощение жизни с помощью горячих клавиш" , "hotkeys.html", ["idle"], [
-        new LessonInfo("Работа с текстом", "Горячие клавиши для работы с текстом", '', ["soon"]),
-        new LessonInfo("Работа с ПК", "Горячие клавиши для работы с ПК", '', ["hard", "soon"]),
-    ]),
+    new LessonInfo("Логин", "Что означают эти не понятные слова", "the_memo.html"),
+    new LessonInfo("Глобальные горячие клавиши", "Упрощение жизни с помощью горячих клавиш", "hotkeys.html"),
     new LessonInfo("Скриншоты", "Для чего нужны и как их делать?", "screenshots.html"),
-    new LessonInfo("Перекидывание файлов", "Как перекинуть файлы с телефона на ПК?", "", ["soon"]),
+    new LessonInfo("Перенос файла через USB-подключение", "Как перенести картинку с телефона на компьютер", "transferring_files.html", ["hard"]),
+    new LessonInfo("Функциональные клавиши", "Быстро и легко работаем с текстом", "basic_keys.html"),
+    new LessonInfo("Скачивание приложения", "Учимся скачивать приложения на компьютере", "download_the_application.html"),
+    new LessonInfo("Удаление приложения", "Учимся удалять приложения на компьютере", "uninstalling_an_application.html"),
+    new LessonInfo("Ошибки со звуком", "Исправляем ошибки со звуком на компьютере", "audio_errors.html"),
+    new LessonInfo("Пароль", "Как обезопасить себя от взлома", "device_password.html"),
 ];
 
 const stateToLessonNumberElement = {
-    'new': `<a class="number-lesson bg-success">Новый</a>`,
-    'soon': `<a class="number-lesson bg-primary">Скоро</a>`,
-    'old': `<a class="number-lesson bg-warning">Устар.</a>`,
-    'hard': `<a class="number-lesson bg-danger">Сложный</a>`,
+    'new': (stateLen) => `<a class="number-lesson bg-success">${stateLengths['new'][stateLen]}</a>`,
+    'soon': (stateLen) => `<a class="number-lesson bg-primary">${stateLengths['soon'][stateLen]}</a>`,
+    'old': (stateLen) => `<a class="number-lesson bg-warning">${stateLengths['old'][stateLen]}</a>`,
+    'hard': (stateLen) => `<a class="number-lesson bg-danger">${stateLengths['hard'][stateLen]}</a>`,
 };
+
+const stateLengths = {
+    'new': ["Новый"],
+    'soon': ["Скоро"],
+    'old': ["Устар.", "Устарев.", "Устаревший"],
+    'hard': ["Сложн.", "Сложный"],
+}
 
 const stateToAdditionalDecoration = {
     'soon': (lesson) => {
         lesson.style.pointerEvents = 'none';
         lesson.classList.add('text-muted');
+
+        let numbers = lesson.querySelectorAll(".number-lesson");
+        numbers.forEach(n => n.classList.add("text-muted"));
     },
 };
 

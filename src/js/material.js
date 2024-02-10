@@ -55,7 +55,7 @@ let material = (function () {
 
         for (let state of lessonInfo.states) {
             if (state in stateToLessonNumberElement)
-                leftPart.insertAdjacentHTML('beforeend', stateToLessonNumberElement[state]);
+                leftPart.insertAdjacentHTML('beforeend', stateToLessonNumberElement[state](indent / 20));
         }
 
         for (let state of lessonInfo.states)

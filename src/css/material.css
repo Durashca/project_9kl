@@ -3,6 +3,12 @@
     display: block;
 }
 
+.material-body-scroll {
+    overflow: auto;
+    height: calc(100% - 60px);
+    scrollbar-width: none;
+}
+
 .lesson {
     border: 1px solid gray;
     border-radius: 7px;

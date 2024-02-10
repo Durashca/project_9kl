@@ -54,3 +54,54 @@ h3 {
     padding: 0;
     border-color: transparent!important;
 }
+
+/*для transferring_files*/
+
+ol.meterial-block li {
+    margin: 2% 0;
+}
+/*зеленая карточка*/
+.bd-callout-green {
+    --bd-callout-color: #6ef67d;
+    --bd-callout-bg: #03300d;
+    --bd-callout-border: #089011;
+}
+
+/*красная карточка*/
+.bd-callout-red {
+    --bd-callout-color: #f66e6e;
+    --bd-callout-bg: #490a0d;
+    --bd-callout-border: #990404;
+}
+/*синея карточка*/
+.bd-callout-info {
+    --bd-callout-color: #6edff6;
+    --bd-callout-bg: #032830;
+    --bd-callout-border: #087990;
+}
+/*желтая карточка*/
+.bd-callout-warning {
+    --bd-callout-color: #ffda6a;
+    --bd-callout-bg:#332701;
+    --bd-callout-border: #997404;
+}
+/*сиреневая карточка*/
+.bd-callout-lilac {
+    --bd-callout-color: #ffda6a;
+    --bd-callout-bg:#332701;
+    --bd-callout-border: #997404;
+}
+
+
+/*применение карточки*/
+.bd-callout {
+    --bs-link-color-rgb: 110, 168, 254;
+    --bs-code-color: #e685b5;
+    padding: 1.25rem;
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+    border-radius: 0 10px 10px 10px;
+    color: var(--bd-callout-color, inherit);
+    background-color: var(--bd-callout-bg);
+    border-left: 0.25rem solid var(--bd-callout-border);
+}

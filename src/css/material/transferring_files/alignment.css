@@ -1,0 +1,30 @@
+div.keyboard-shortcut-block  img {
+    max-width: 92%;
+    min-width: 150px;
+    margin: 1% auto;
+    max-height: 350px;
+}
+div.container.text-center img {
+    min-height: 450px;
+}
+p {
+    text-align: left;
+    margin: 2%;
+}
+h4 {
+    margin-top: 4%;
+}
+
+
+
+/*
+.bd-callout {
+    --bs-link-color-rgb: 110,168,254;
+    --bs-code-color: #e685b5;
+    padding: 1.25rem;
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+    color: var(--bd-callout-color, inherit);
+    background-color: var(--bd-callout-bg);
+    border-left: 0.25rem solid #997404;
+}*/
