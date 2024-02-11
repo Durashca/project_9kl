@@ -1,10 +1,12 @@
 header {
     margin-bottom: 10px !important;
 }
+
 /* положение области левой кнопки */
 .carousel-control-prev {
     left: 6%;
 }
+
 /* положение области правой кнопки */
 .carousel-control-next {
     right: 6%;
@@ -16,11 +18,13 @@ header {
     background-size: 50%;
 
 }
+
 /* правая кнопка карусели */
 .carousel-control-next-icon {
     background-image: url("../../src/images/right-arrow.png");
     background-size: 50%;
 }
+
 /* выравнивание div.card по div.d-block.w-100 */
 .d-block.w-100 {
     display: flex !important;
@@ -52,7 +56,7 @@ h3 {
     margin-left: 5px;
     margin-right: 25px;
     padding: 0;
-    border-color: transparent!important;
+    border-color: transparent !important;
 }
 
 /*для transferring_files*/
@@ -60,6 +64,7 @@ h3 {
 ol.meterial-block li {
     margin: 2% 0;
 }
+
 /*зеленая карточка*/
 .bd-callout-green {
     --bd-callout-color: #6ef67d;
@@ -73,23 +78,26 @@ ol.meterial-block li {
     --bd-callout-bg: #490a0d;
     --bd-callout-border: #990404;
 }
+
 /*синея карточка*/
 .bd-callout-info {
     --bd-callout-color: #6edff6;
     --bd-callout-bg: #032830;
     --bd-callout-border: #087990;
 }
+
 /*желтая карточка*/
 .bd-callout-warning {
     --bd-callout-color: #ffda6a;
-    --bd-callout-bg:#332701;
+    --bd-callout-bg: #332701;
     --bd-callout-border: #997404;
 }
+
 /*сиреневая карточка*/
 .bd-callout-lilac {
-    --bd-callout-color: #ffda6a;
-    --bd-callout-bg:#332701;
-    --bd-callout-border: #997404;
+    --bd-callout-color: #f56aff;
+    --bd-callout-bg: #3c0355;
+    --bd-callout-border: #8d0499;
 }
 
 
