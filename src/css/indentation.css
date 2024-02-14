@@ -64,6 +64,13 @@ h3 {
 ol.meterial-block li {
     margin: 2% 0;
 }
+/*картинки общее*/
+div.keyboard-shortcut-block img {
+    width: 100%;
+    margin: 1% auto;
+    min-height: 350px;
+    max-height: 350px;
+}
 
 /*зеленая карточка*/
 .bd-callout-green {
