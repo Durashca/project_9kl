@@ -1,22 +1,49 @@
-/*"module"*/
-// Import the functions you need from the SDKs you need
-import {initializeApp} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-import {getAnalytics} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics.js";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-    apiKey: "AIzaSyAajT5UbThkqpNNL0nvCaCzozK5l3BQoeE",
-    authDomain: "project9kl.firebaseapp.com",
-    projectId: "project9kl",
-    storageBucket: "project9kl.appspot.com",
-    messagingSenderId: "713449286951",
-    appId: "1:713449286951:web:01c19cdf5674a793ac8d02",
-    measurementId: "G-KMDR2748RD"
+let type;
+type="module"
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+    import { getDatabase, ref } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+    import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+    // Инициализация Firebase
+    const firebaseConfig = {
+    apiKey: "AIzaSyApYvBJ_Z6AgypvZ4kDEhA_EodJnTFr8-A",
+    authDomain: "project9kl-1bce9.firebaseapp.com",
+    databaseURL: "https://project9kl-1bce9-default-rtdb.firebaseio.com",
+    projectId: "project9kl-1bce9",
+    storageBucket: "project9kl-1bce9.appspot.com",
+    messagingSenderId: "807367263615",
+    appId: "1:807367263615:web:e0a42155f098998244064a",
+    measurementId: "G-6YSQ8ZQQ8K"
 };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+    let app = initializeApp(firebaseConfig);
+    const database = getDatabase();
+
+    // Функция регистрации пользователя
+    function registerUser() {
+    const email = document.getElementById('emailInput').value;
+    const password = document.getElementById('passwordInput').value;
+
+    let auth = getAuth(app);
+    console.log(app);
+    createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+// Регистрация успешна, сохраняем данные в Realtime Database
+    const userData = {
+    email: email,
+    password: password
+};
+    ref(database, 'users/' + userCredential.user.uid).set(userData)
+    .then(() => {
+    console.log('Данные пользователя успешно сохранены в Realtime Database');
+})
+    .catch((error) => {
+    console.error('Ошибка при сохранении данных: ', error);
+});
+})
+    .catch((error) => {
+    console.error('Ошибка при регистрации пользователя: ', error);
+});
+}
+
+    let btn = document.querySelector("#btn");
+    btn.addEventListener('click', registerUser);
