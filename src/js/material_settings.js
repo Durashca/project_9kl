@@ -16,15 +16,16 @@ function LessonElement(lessonButton, name, description, numberLesson, link) {
 /*добавляем элементы*/
 let lessons = [
 
-    new LessonInfo("Логин", "Что означают эти не понятные слова", "the_memo.html"),
-    new LessonInfo("Глобальные горячие клавиши", "Упрощение жизни с помощью горячих клавиш", "hotkeys.html"),
-    new LessonInfo("Скриншоты", "Для чего нужны и как их делать?", "screenshots.html"),
-    new LessonInfo("Перенос файла через USB-подключение", "Как перенести картинку с телефона на пк", "transferring_files.html"),
-    new LessonInfo("Функциональные клавиши", "Быстро и легко работаем с текстом", "basic_keys.html"),
-    new LessonInfo("Скачивание приложения", "Учимся скачивать приложения на пк или ноутбуке", "download_the_application.html"),
-    new LessonInfo("Удаление приложения", "Учимся удалять приложения на пк или ноутбуке", "uninstalling_an_application.html"),
-    new LessonInfo("Ошибки со звуком", "Исправляем ошибки со звуком на пк или ноутбуке", "audio_errors.html"),
-    new LessonInfo("Пароль", "Как обезопасить себя от взлома", "device_password.html"),
+    new LessonInfo("Логин", "Разбираем понятия: авторизация, регистрация, аутентификация и тд.", "the_memo.html"),
+    new LessonInfo("Глобальные горячие клавиши", "Вставить, копировать, вырезать, отменить последнее действие", "hotkeys.html"),
+    new LessonInfo("F клавиши", "Настройка звука, яркости, видео", "f_keys.html"),
+    new LessonInfo("Скриншоты", "Делаем скрин на пк(ноутбуке)", "screenshots.html"),
+    new LessonInfo("Перенос файла через USB-подключение", "Изучаем способы переноса файлов, документов, изображений", "transferring_files.html"),
+    new LessonInfo("Функциональные клавиши", "Учимся быстро перемещаться по тексту", "basic_keys.html"),
+    new LessonInfo("Скачивание приложения", "Скачиваем приложения через браузер", "download_the_application.html"),
+    new LessonInfo("Удаление приложения", "Удаляем ненужные программы", "uninstalling_an_application.html"),
+    new LessonInfo("Ошибки со звуком", "Узнаем разные способы исправления ошибок с воспроизведением звука", "audio_errors.html"),
+    new LessonInfo("Пароль", "Защищаем свой ПК или ноутбук от посторонних", "device_password.html"),
 ];
 
 material.createLessons(lessons);

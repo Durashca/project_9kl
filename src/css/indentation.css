@@ -71,6 +71,10 @@ div.keyboard-shortcut-block img {
     min-height: 350px;
     max-height: 350px;
 }
+/*для списка в карточке инфо*/
+div.bd-callout.bd-callout-info ol > li{
+    margin-bottom: 0.8%;
+}
 
 /*зеленая карточка*/
 .bd-callout-green {
