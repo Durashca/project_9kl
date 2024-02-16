@@ -25,7 +25,7 @@ let lessons = [
     new LessonInfo("Скачивание приложения", "Скачиваем приложения через браузер", "download_the_application.html"),
     new LessonInfo("Удаление приложения", "Удаляем ненужные программы", "uninstalling_an_application.html"),
     new LessonInfo("Ошибки со звуком", "Узнаем разные способы исправления ошибок с воспроизведением звука", "audio_errors.html"),
-    new LessonInfo("Пароль", "Защищаем свой ПК или ноутбук от посторонних", "device_password.html"),
+    new LessonInfo("Пароль", "Защищаем свой ПК или ноутбук от недоброжелателей", "device_password.html"),
 ];
 
 material.createLessons(lessons);

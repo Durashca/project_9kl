@@ -117,8 +117,8 @@ div.bd-callout.bd-callout-info ol > li{
     --bs-link-color-rgb: 110, 168, 254;
     --bs-code-color: #e685b5;
     padding: 1.25rem;
-    margin-top: 1.25rem;
-    margin-bottom: 1.25rem;
+    margin-top: 1.20rem;
+    margin-bottom: 1.20rem;
     border-radius: 0 10px 10px 10px;
     color: var(--bd-callout-color, inherit);
     background-color: var(--bd-callout-bg);
