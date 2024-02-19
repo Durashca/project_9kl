@@ -1,52 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WhatsApp Style Message</title>
-    <style>
-        .message-container {
-            display: flex;
-            align-items: stretch;
-            max-width: 70%;
-            background-color: #DCF8C6;
-            padding: 10px 0;
-            margin: 5px 0;
-            border-radius: 10px;
-            overflow: hidden; /* Для обрезания углов, близких друг к другу */
-        }
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Логин и авторизация</title>
+    <link rel="stylesheet" href="src/css/menu.css">
 
-        .message-icon {
-            position: relative;
-            background-color: red;
-            flex: 0 0 30px;
-            display: flex;
-            justify-content: center;
-            color: white;
-            border-top-left-radius: 10px;
-            border-bottom-left-radius: 10px;
-            width: 0;
-            height: 0;
-            border-left: 30px solid red; /* сторона b */
-            border-top: 35px solid transparent; /* сторона a с небольшим увеличением для сужения углов */
-            border-bottom: 35px solid transparent; /* сторона a с небольшим увеличением для сужения углов */
-        }
-
-        .message-text {
-            font-size: 14px;
-            color: #333;
-            flex: 1;
-            padding: 10px;
-        }
-    </style>
 </head>
-
 <body>
-<div class="message-container">
-    <div class="message-icon"></div>
-    <p class="message-text">Ваш текст сообщения здесь...</p>
-</div>
+<header id="header">
+    <a id="logo">WEB HACKER</a>
+    <nav id="nav">
+        <button id="btn"></button>
+        <ul id="menu">
+            <li><a href="#">HTML</a></li>
+            <li><a href="#">CSS</a></li>
+            <li><a href="#">JS</a></li>
+        </ul>
+    </nav>
+</header>
+<section class="wrapper">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>
+</section>
 </body>
-
 </html>
