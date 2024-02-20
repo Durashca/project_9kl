@@ -76,6 +76,12 @@ div.bd-callout.bd-callout-info ol > li{
     margin-bottom: 0.8%;
 }
 
+/*для кнопок перехода на сл. страницу*/
+.disabled {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
 /*зеленая карточка*/
 .bd-callout-green {
     --bd-callout-color: #6ef67d;

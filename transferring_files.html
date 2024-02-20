@@ -176,7 +176,7 @@
                                     Путь
                                 </label>
                             </div>
-                            <button class="btn btn-outline-success">Ответить</button>
+                            <button id="btn-task-check" class="btn btn-outline-success">Ответить</button>
                     </div>
 
                 </content>
@@ -198,5 +198,18 @@
 <script src="src/js/authorization_panel.js"></script>
 <script src="src/js/material.js"></script>
 <script src="src/js/material_settings.js"></script>
+<script src="src/js/transition.js"></script>
+
+<script>
+    const checkbox = document.getElementById('flexRadioDefault3')
+    btn_task_check.addEventListener('click', function func() {
+
+        if (checkbox.checked){
+            func_tg_dis()
+        }
+    })
+
+
+</script>
 </body>
 </html>
