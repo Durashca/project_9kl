@@ -65,7 +65,6 @@
                                 <b>вставка</b>):
                             </li>
                             <div class="keyboard-shortcut-block" contenteditable="true" id="editableDiv"></div>
-                            <li>Если получилось, то можете повторить вставить скриншот в <b>Word</b></li>
                         </ol>
                     </div>
 
@@ -89,12 +88,13 @@
 <script src="src/js/authorization_panel.js"></script>
 <script src="src/js/material.js"></script>
 <script src="src/js/material_settings.js"></script>
+<script src="src/js/transition.js"></script>
 <script>
     const editableDiv = document.getElementById('editableDiv');
 
     // Обработчик события вставки (paste)
     editableDiv.addEventListener('paste', function (e) {
-        e.preventDefault(); // Предотвращаем стандартное поведение вставки
+       /* e.preventDefault(); // Предотвращаем стандартное поведение вставки*/
 
         // Получаем вставленные данные
         const clipboardData = e.clipboardData || window.clipboardData;

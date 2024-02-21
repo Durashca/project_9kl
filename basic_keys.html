@@ -111,34 +111,36 @@
                         </ol>
                     </div>
                     <div class="keyboard-shortcut-block dashed">
-                        <h4>Что надо нажать, чтобы курсор переместился в начало строки?</h4>
+                        <h4>Какие клавиши отвечают за перемещение курсора в начало и конец строки?</h4>
 
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                            <label class="form-check-label" for="flexRadioDefault1">
-                                <b>Home</b>
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
-                            <label class="form-check-label" for="flexRadioDefault2">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1">
+                            <label class="form-check-label" for="flexCheckDefault1">
                                 <b>End</b>
                             </label>
                         </div>
-
-                        <h4>Что надо нажать, чтобы курсор переместился в конец строки?</h4>
+                        <!--#2-->
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault1" id="flexRadioDefault3">
-                            <label class="form-check-label" for="flexRadioDefault3">
+                            <input class="form-check-input" type="checkbox" value="">
+                            <label class="form-check-label" >
+                                <b>Ctrl</b>
+                            </label>
+                        </div>
+                        <!--#3-->
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                <b>Tab</b>
+                            </label>
+                        </div>
+                        <!--#4-->
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault2">
+                            <label class="form-check-label" for="flexCheckDefault2">
                                 <b>Home</b>
                             </label>
                         </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault1" id="flexRadioDefault4">
-                            <label class="form-check-label" for="flexRadioDefault4">
-                                <b>End</b>
-                            </label>
-                        </div>
+
                         <button id="btn-task-check" class="btn btn-outline-success">Ответить</button>
                     </div>
                 </content>
@@ -160,5 +162,18 @@
 <script src="src/js/authorization_panel.js"></script>
 <script src="src/js/material.js"></script>
 <script src="src/js/material_settings.js"></script>
+<script src="/src/js/transition.js"></script>
+<script>
+    let checked = document.getElementById('flexCheckDefault1')
+    let checked2 = document.getElementById('flexCheckDefault2')
+    btn_task_check.addEventListener('click', function (){
+        if (checked.checked && checked2.checked){
+            func_tg_rmv()
+        }else {
+            func_p_wrong()
+        }
+    })
+
+</script>
 </body>
 </html>

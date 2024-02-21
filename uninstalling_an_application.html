@@ -104,5 +104,18 @@
 <script src="src/js/authorization_panel.js"></script>
 <script src="src/js/material.js"></script>
 <script src="src/js/material_settings.js"></script>
+<script src="/src/js/transition.js"></script>
+<script>
+    let checked = document.getElementById('flexCheckDefault1')
+    let checked2 = document.getElementById('flexCheckDefault2')
+    btn_task_check.addEventListener('click', function (){
+        if (checked.checked && checked2.checked){
+            func_tg_rmv()
+        }else {
+            func_p_wrong()
+        }
+    })
+
+</script>
 </body>
 </html>

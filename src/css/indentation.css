@@ -82,6 +82,18 @@ div.bd-callout.bd-callout-info ol > li{
     opacity: 0.5;
 }
 
+/*вопросы*/
+.form-check {
+    margin: 0.3% 0;
+}
+/*кнопки*/
+.btn {
+    padding: 0.7%;
+}
+
+
+
+
 /*зеленая карточка*/
 .bd-callout-green {
     --bd-callout-color: #6ef67d;
