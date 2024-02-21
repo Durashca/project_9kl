@@ -5,7 +5,7 @@ let btn_task_check = document.getElementById('btn-task-check')
 
 /*функция для добавления/удаления класса disabled */
 function func_tg_dis() {
-    btn_move_to_next.classList.toggle('disabled')
+    btn_move_to_next.classList.remove('disabled')
 }
 
 /*вызов по умолчанию*/
