@@ -121,22 +121,22 @@
                         </div>
                         <!--#2-->
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="">
-                            <label class="form-check-label" >
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault2">
+                            <label class="form-check-label" for="flexCheckDefault2">
                                 <b>Ctrl</b>
                             </label>
                         </div>
                         <!--#3-->
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                            <label class="form-check-label" for="flexCheckDefault">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault3">
+                            <label class="form-check-label" for="flexCheckDefault3">
                                 <b>Tab</b>
                             </label>
                         </div>
                         <!--#4-->
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault2">
-                            <label class="form-check-label" for="flexCheckDefault2">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault4">
+                            <label class="form-check-label" for="flexCheckDefault4">
                                 <b>Home</b>
                             </label>
                         </div>
@@ -162,15 +162,20 @@
 <script src="src/js/authorization_panel.js"></script>
 <script src="src/js/material.js"></script>
 <script src="src/js/material_settings.js"></script>
-<script src="/src/js/transition.js"></script>
+<script src="src/js/transition.js"></script>
 <script>
     let checked = document.getElementById('flexCheckDefault1')
     let checked2 = document.getElementById('flexCheckDefault2')
-    btn_task_check.addEventListener('click', function (){
-        if (checked.checked && checked2.checked){
-            func_tg_rmv()
-        }else {
-            func_p_wrong()
+    let checked3 = document.getElementById('flexCheckDefault3')
+    let checked4 = document.getElementById('flexCheckDefault4')
+    btn_task_check.addEventListener('click', function () {
+        if (checked.checked && checked4.checked && !(checked2.checked || checked3.checked)) {
+            func_tg_rmv();
+            for (let elem of checkbox_arr) {
+                elem.classList.add('disabled');
+            }
+        } else {
+            func_p_wrong();
         }
     })
 

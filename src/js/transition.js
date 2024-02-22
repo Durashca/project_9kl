@@ -2,7 +2,8 @@
 let btn_move_to_next = document.getElementById('createPageButton');
 /* варианты ответов*/
 let checkbox_arr = document.querySelectorAll('.dashed input[type="checkbox"]');
-/* кнопка задания */
+let radio_arr = document.querySelectorAll('.dashed input[type="radio"]');
+/* кнопка задания(для блокировки) */
 let btn_task_check = document.getElementById('btn-task-check');
 /* фон */
 let div_dashed = document.querySelector('.dashed');
@@ -51,8 +52,10 @@ function func_p_wrong() {
     div_dashed.style.borderColor = '#f66e6e';
 }
 
+/*
 btn_task_check.style.display = 'flex';
 btn_task_check.style.margin = '2% 0';
+*/
 
 /* добавление статуса задания (по умолчанию) */
 let p = document.createElement('p');

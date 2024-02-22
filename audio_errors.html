@@ -139,12 +139,15 @@
 <script src="src/js/authorization_panel.js"></script>
 <script src="src/js/material.js"></script>
 <script src="src/js/material_settings.js"></script>
-<script src="/src/js/transition.js"></script>
+<script src="src/js/transition.js"></script>
 <script>
-    let checked = document.getElementById('flexRadioDefault3')
+    let radio = document.getElementById('flexRadioDefault3')
     btn_task_check.addEventListener('click', function (){
-        if (checked.checked ){
+        if (radio.checked ){
             func_tg_rmv()
+            for (let elem of radio_arr){
+                elem.classList.add('disabled')
+            }
         }else {
             func_p_wrong()
         }

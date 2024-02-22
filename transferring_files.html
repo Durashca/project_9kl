@@ -201,11 +201,14 @@
 <script src="src/js/transition.js"></script>
 
 <script>
-    const checkbox = document.getElementById('flexRadioDefault3')
+    const radio = document.getElementById('flexRadioDefault3')
     btn_task_check.addEventListener('click', function func() {
 
-        if (checkbox.checked){
+        if (radio.checked){
             func_tg_rmv()
+            for (let elem of radio_arr){
+                elem.classList.add('disabled')
+            }
         }else {
             func_p_wrong()
         }
