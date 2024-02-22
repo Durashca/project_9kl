@@ -128,5 +128,23 @@
 <script src="src/js/authorization_panel.js"></script>
 <script src="src/js/material.js"></script>
 <script src="src/js/material_settings.js"></script>
+<script src="src/js/transition.js"></script>
+<script>
+    const radio = document.getElementById('flexRadioDefault2');
+
+    btn_task_check.addEventListener('click', function func () {
+
+        if (radio.checked) {
+            func_tg_rmv()
+            for (let elem of checkbox_arr){
+                elem.classList.add('disabled')
+            }
+        }else {
+            func_p_wrong()
+        }
+    })
+
+</script>
+
 </body>
 </html>

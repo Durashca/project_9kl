@@ -35,10 +35,10 @@ let navbarCode =
                     
                 </ul>
                 <!--поиск-->
-                <form class="d-flex" role="search">
+               <!-- <form class="d-flex" role="search">
                     <input class="form-control me-2" type="search" placeholder="Поиск" aria-label="Поиск">
                     <button id="search_button" class="btn btn-primary" type="submit">Искать</button>
-                </form>
+                </form>-->
                 <div style="padding-bottom: 10px"></div>
             </div>
         </div>

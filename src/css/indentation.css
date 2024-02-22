@@ -87,8 +87,14 @@ div.bd-callout.bd-callout-info ol > li{
     margin: 0.3% 0;
 }
 /*кнопки*/
-.btn {
+#btn-task-check {
     padding: 0.7%;
+    margin-top: 1%;
+    margin-bottom: 2%;
+}
+
+#createPageButton {
+    margin:  0.2% 0;
 }
 
 
@@ -122,12 +128,6 @@ div.bd-callout.bd-callout-info ol > li{
     --bd-callout-border: #997404;
 }
 
-/*сиреневая карточка*/
-.bd-callout-lilac {
-    --bd-callout-color: #f56aff;
-    --bd-callout-bg: #3c0355;
-    --bd-callout-border: #8d0499;
-}
 
 
 /*применение карточки*/

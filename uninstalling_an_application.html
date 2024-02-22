@@ -70,15 +70,15 @@
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                   >
-                            <label class="form-check-label" >
+                                    id="flexRadioDefault2">
+                            <label class="form-check-label"for="flexRadioDefault2" >
                                 Быстрота и легкость
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault">
-                            <label class="form-check-label" >
-                                Доступный офлайн режим
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3">
+                            <label class="form-check-label" for="flexRadioDefault3">
+                                Доступный в некоторых приложениях офлайн режим
                             </label>
                         </div>
                         <button id="btn-task-check" class="btn btn-outline-success">Ответить</button>
@@ -106,10 +106,9 @@
 <script src="src/js/material_settings.js"></script>
 <script src="/src/js/transition.js"></script>
 <script>
-    let checked = document.getElementById('flexCheckDefault1')
-    let checked2 = document.getElementById('flexCheckDefault2')
+    let radio = document.getElementById('flexRadioDefault1')
     btn_task_check.addEventListener('click', function (){
-        if (checked.checked && checked2.checked){
+        if (radio.checked){
             func_tg_rmv()
         }else {
             func_p_wrong()
