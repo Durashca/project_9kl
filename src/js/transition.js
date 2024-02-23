@@ -16,9 +16,6 @@ function func_tg_add() {
 }
 
 /* функция для удаления класса disabled */
-function func_tg_dis() {
-    btn_move_to_next.classList.remove('disabled');
-}
 
 /* вызов по умолчанию */
 func_tg_add();
@@ -26,7 +23,7 @@ func_tg_add();
 /* функция для удаления класса disabled */
 function func_tg_rmv() {
     /* открываем переход на следующую страницу */
-    func_tg_dis()
+    btn_move_to_next.classList.remove('disabled');
     /* вызываем функцию при правильном ответе */
     func_p_Right();
     /* блокируем кнопку задания */

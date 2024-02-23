@@ -1,3 +1,4 @@
+let first = false
 let material = (function () {
     let lessonElems = [];
 
@@ -31,6 +32,14 @@ let material = (function () {
         let lesson = createElement("a", "btn btn-primary lesson");
         lesson.innerHTML = lessonCode;
 
+        // блокируем все уроки кроме первого
+         if(first){
+            lesson.classList.add('disabled');
+        }
+        first = true
+
+
+
         let name = lesson.querySelector(".name-lesson");
         let description = lesson.querySelector(".description-lesson");
         let numberLesson = lesson.querySelector(".number-lesson");
@@ -48,8 +57,16 @@ let material = (function () {
         return elem;
     }
 
+
     return {
         showLessons: showLessons,
         createLessons: createLessons,
     };
 })();
+
+
+function func_lsn_rmv(num) {
+    lessonElems[num].classList.remove('disabled')
+    console.log(lessonElems[num])
+}
+

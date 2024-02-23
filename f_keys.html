@@ -96,10 +96,12 @@
 <script src="src/js/material_settings.js"></script>
 <script src="src/js/transition.js"></script>
 <script>
+
     let radio = document.getElementById('flexRadioDefault3')
     btn_task_check.addEventListener('click', function (){
         if (radio.checked){
             func_tg_rmv()
+            func_lsn_rmv(0)
             for (let elem of radio_arr){
                 elem.classList.add('disabled')
             }

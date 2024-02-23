@@ -107,14 +107,17 @@
 
                         <!--текст чекбокс-->
                         <div class="keyboard-shortcut-block dashed">
-                            <ol>
-                                <h5>Чтобы перейти на следующую страницу, вам необходимо пройти практику по следующему материалу.
-                                    Вы можете перейти сразу к непройденной теме, просто нажмите на ссылку ниже:</h5>
-                                <li id="checked1" class="crossmark"><a href="#ctrl-c"><b>Ctrl + C</b></a></li>
+                                <h4> Выделите и скопируйте текст( <b>Ctrl</b> + <b>C</b>) из одного поля и вставьте( <b>Ctrl</b> + <b>V</b>) в другое:</h4>
+                                <input id="ctrlC" value="ВсеЗнай"> -> <input id="ctrlV">
+                            <h4> Выделите и вырежьте текст( <b>Ctrl</b> + <b>X</b>) из поля и отмените последние действие с помощью( <b>Ctrl</b> + <b>Z</b>)</h4>
+                            <input id="ctrlXZ" value="ВсеЗнай">
+                            <br>
+                            <button id="btn-task-check" class="btn btn-outline-success">Ответить</button>
+
+                            <!--<li id="checked1" class="crossmark"><a href="#ctrl-c"><b>Ctrl + C</b></a></li>
                                 <li id="checked2" class="crossmark"><a href="#ctrl-v"><b>Ctrl + V</b></a></li>
                                 <li id="checked3" class="crossmark"><a href="#ctrl-x"><b>Ctrl + X</b></a></li>
-                                <li id="checked4" class="crossmark"><a href="#ctrl-z"><b>Ctrl + Z</b></a></li>
-                            </ol>
+                                <li id="checked4" class="crossmark"><a href="#ctrl-z"><b>Ctrl + Z</b></a></li>-->
                         </div>
                         <!---->
                     </div>
@@ -155,18 +158,6 @@
         document.addEventListener('keydown', handleKeyDown);
     });
 
-    // Определение типа устройства
-    var deviceType = "";
-    if (/Mobi|Android/i.test(navigator.userAgent)) {
-        deviceType = "Мобильное устройство";
-    } else if (/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream) {
-        deviceType = "iOS устройство";
-    } else {
-        deviceType = "Десктоп";
-    }
-
-    // Вывод типа устройства
-    /*  alert("Тип устройства: " + deviceType);*/
     let flagT = false
     let flagK = false
     let liK = document.querySelector('#checked');
@@ -199,7 +190,8 @@
     });
 </script>
 <script>
-    var exampleElement = document.getElementById("example");
+    /*для копирования*/
+    var exampleElement = document.getElementById("ctrlC");
 
     exampleElement.addEventListener("copy", function(event) {
         event.preventDefault();
@@ -208,8 +200,10 @@
 
         if (copiedText === fullText) {
             alert("Вы скопировали ВЕСЬ текст!");
+
         } else {
             alert("Пожалуйста, скопируйте ВЕСЬ текст!");
+
         }
     });
 </script>
