@@ -19,11 +19,14 @@ function func_tg_add() {
 func_tg_add()
 
 /*разблокировать кнопку перехода*/
- function func_tg_dis(){
+ function func_tg_dis(lessonElem){
      /* открываем переход на следующую страницу */
      btn_move_to_next.classList.remove('disabled');
      /* блокируем кнопку задания */
      btn_task_check.classList.add('disabled');
+     lessonElem.lessonButton.classList.remove('disabled');
+     lessonElem.lessonButton.querySelector('.lock-icon').style.display = 'none';
+
  }
 
 /* функция для удаления класса disabled */

@@ -40,6 +40,7 @@ let material = (function () {
         //
 
 
+
         let name = lesson.querySelector(".name-lesson");
         let description = lesson.querySelector(".description-lesson");
         let numberLesson = lesson.querySelector(".number-lesson");

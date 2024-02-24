@@ -98,8 +98,6 @@ div.bd-callout.bd-callout-info ol > li{
     display: block;
 }
 
-
-
 /*зеленая карточка*/
 .bd-callout-green {
     --bd-callout-color: #6ef67d;
