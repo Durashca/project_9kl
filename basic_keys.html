@@ -170,12 +170,13 @@
     let checked4 = document.getElementById('flexCheckDefault4')
     btn_task_check.addEventListener('click', function () {
         if (checked.checked && checked4.checked && !(checked2.checked || checked3.checked)) {
-            func_tg_rmv();
-            for (let elem of checkbox_arr) {
-                elem.classList.add('disabled');
+            func_tg_dis()
+            func_tg_vcr()
+            for (let elem of checkbox_arr){
+                elem.classList.add('disabled')
             }
-        } else {
-            func_p_wrong();
+        }else {
+            func_tg_wrong()
         }
     })
 

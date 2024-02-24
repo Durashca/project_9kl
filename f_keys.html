@@ -100,13 +100,13 @@
     let radio = document.getElementById('flexRadioDefault3')
     btn_task_check.addEventListener('click', function (){
         if (radio.checked){
-            func_tg_rmv()
-            func_lsn_rmv(0)
+            func_tg_dis()
+            func_tg_vcr()
             for (let elem of radio_arr){
                 elem.classList.add('disabled')
             }
         }else {
-            func_p_wrong()
+            func_tg_wrong()
         }
     })
 

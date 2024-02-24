@@ -100,7 +100,6 @@
         func_tg_dis()
     } else if (screenWidth >= 768) {
         /*пк*/
-
         const editableDiv = document.getElementById('editableDiv');
         let imagePasted = false;
 
@@ -137,9 +136,10 @@
 
         btnTaskCheck.addEventListener('click', function() {
             if (imagePasted) {
-                func_tg_rmv()
+                func_tg_dis()
+                func_tg_vcr()
             }else {
-                func_p_wrong()
+                func_tg_wrong()
             }
         });
     }

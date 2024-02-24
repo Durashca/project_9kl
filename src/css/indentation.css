@@ -14,14 +14,14 @@ header {
 
 /* левая кнопка карусели */
 .carousel-control-prev-icon {
-    background-image: url("../../src/images/left-arrow.png");
+    background-image: url("../images/garbage/left-arrow.png");
     background-size: 50%;
 
 }
 
 /* правая кнопка карусели */
 .carousel-control-next-icon {
-    background-image: url("../../src/images/right-arrow.png");
+    background-image: url("../images/garbage/right-arrow.png");
     background-size: 50%;
 }
 
@@ -95,11 +95,10 @@ div.bd-callout.bd-callout-info ol > li{
 
 #createPageButton {
     margin:  0.2% 0;
+    display: block;
 }
 
-.locked {
 
-}
 
 /*зеленая карточка*/
 .bd-callout-green {

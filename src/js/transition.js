@@ -10,28 +10,24 @@ let div_dashed = document.querySelector('.dashed');
 /* h4 */
 let h4 = document.querySelector('.dashed > h4');
 
-/* функция для добавления класса disabled */
+/* функция для добавления класса disabled(вызов по умолчанию) */
 function func_tg_add() {
     btn_move_to_next.classList.add('disabled');
 }
 
+/* функция для добавления класса disabled */
+func_tg_add()
+
+/*разблокировать кнопку перехода*/
+ function func_tg_dis(){
+     /* открываем переход на следующую страницу */
+     btn_move_to_next.classList.remove('disabled');
+     /* блокируем кнопку задания */
+     btn_task_check.classList.add('disabled');
+ }
+
 /* функция для удаления класса disabled */
-
-/* вызов по умолчанию */
-func_tg_add();
-
-/* функция для удаления класса disabled */
-function func_tg_rmv() {
-    /* открываем переход на следующую страницу */
-    btn_move_to_next.classList.remove('disabled');
-    /* вызываем функцию при правильном ответе */
-    func_p_Right();
-    /* блокируем кнопку задания */
-    btn_task_check.classList.add('disabled');
-}
-
-/* вызываем, когда правильно прошли */
-function func_p_Right() {
+function func_tg_vcr() {
     /* отображаем статус текстом */
     p.textContent = 'Все получилось';
     /* отображаем статус фоном */
@@ -41,18 +37,16 @@ function func_p_Right() {
 
 }
 
+
 /* вызываем, когда неправильно прошли */
-function func_p_wrong() {
+function func_tg_wrong() {
     /* отображаем статус фоном */
     div_dashed.style.background = 'rgb(255 218 218)';
     /*отображаем статус границы*/
     div_dashed.style.borderColor = '#f66e6e';
 }
 
-/*
-btn_task_check.style.display = 'flex';
-btn_task_check.style.margin = '2% 0';
-*/
+
 
 /* добавление статуса задания (по умолчанию) */
 let p = document.createElement('p');

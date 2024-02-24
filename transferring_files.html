@@ -203,12 +203,13 @@
     btn_task_check.addEventListener('click', function func() {
 
         if (radio.checked){
-            func_tg_rmv()
+            func_tg_dis()
+            func_tg_vcr()
             for (let elem of radio_arr){
                 elem.classList.add('disabled')
             }
         }else {
-            func_p_wrong()
+            func_tg_wrong()
         }
     })
 

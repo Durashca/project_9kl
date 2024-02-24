@@ -37,7 +37,7 @@ let material = (function () {
             lesson.classList.add('disabled');
         }
         first = true
-
+        //
 
 
         let name = lesson.querySelector(".name-lesson");
@@ -63,10 +63,4 @@ let material = (function () {
         createLessons: createLessons,
     };
 })();
-
-
-function func_lsn_rmv(num) {
-    lessonElems[num].classList.remove('disabled')
-    console.log(lessonElems[num])
-}
 

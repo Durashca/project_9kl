@@ -3,7 +3,7 @@ let navbarCode =
 <header id="h-space" class="text-center">
     <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top" style="--bs-navbar-padding-y: 0rem; z-index: 10">
         <div class="container-xxl theme little-dark" style="min-height: 50px; box-shadow: 1px 2px 10px grey; text-align: justify">
-            <a class="navbar-brand" href="main.html">ВсeЗнай</a>
+            <a class="navbar-brand" href="the_ending.html">ВсeЗнай</a>
             <!--тайная кнопка-->
             <div>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -14,7 +14,7 @@ let navbarCode =
                 <!--профиль-->
                 <button class="btn position-relative profile" type="button" data-bs-toggle="offcanvas"
                         data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
-                    <img class="profile" src="src/images/user-profile.png" alt="профиль">
+                    <img class="profile" src="src/images/garbage/user-profile.png" alt="профиль">
                     <!--уведомления-->
                     <span class="position-absolute badge rounded-pill bg-dark" style="right: -8px; top: -2px">
                         !
