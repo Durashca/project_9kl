@@ -107,12 +107,13 @@
 
                         <!--текст чекбокс-->
                         <div class="keyboard-shortcut-block dashed">
-                                <h4> Выделите и скопируйте текст( <b>Ctrl</b> + <b>C</b>) из одного поля и вставьте( <b>Ctrl</b> + <b>V</b>) в другое:</h4>
-                                <input id="ctrlC" value="ВсеЗнай"> -> <input id="ctrlV">
+                                <h4>Скопируйте весь текст и вставьте его в поле справа( <b>Ctrl</b> + <b>V</b>):</h4>
+                            <p style="display: inline">Выделите весь этот текст</p> -> <input id="ctrlV">
+                            <button id="btn-task-check" class="btn btn-outline-success">Ответить</button>
                             <h4> Выделите и вырежьте текст( <b>Ctrl</b> + <b>X</b>) из поля и отмените последние действие с помощью( <b>Ctrl</b> + <b>Z</b>)</h4>
                             <input id="ctrlXZ" value="ВсеЗнай">
                             <br>
-                            <button id="btn-task-check" class="btn btn-outline-success">Ответить</button>
+                            <button id="btn-task-check2" class="btn btn-outline-success">Ответить</button>
 
                             <!--<li id="checked1" class="crossmark"><a href="#ctrl-c"><b>Ctrl + C</b></a></li>
                                 <li id="checked2" class="crossmark"><a href="#ctrl-v"><b>Ctrl + V</b></a></li>
@@ -140,7 +141,9 @@
 <script src="src/js/authorization_panel.js"></script>
 <script src="src/js/material.js"></script>
 <script src="src/js/material_settings.js"></script>
-<script>
+<script src="src/js/transition.js"></script>
+
+<!--<script>
     let tt = document.getElementById('ttt');
     let str = ''
 
@@ -189,9 +192,10 @@
         }
     });
 </script>
+-->
 <script>
     /*для копирования*/
-    var exampleElement = document.getElementById("ctrlC");
+    var exampleElement = document.querySelector("#example");
 
     exampleElement.addEventListener("copy", function(event) {
         event.preventDefault();
@@ -206,6 +210,17 @@
 
         }
     });
+
+    let inpCtrlV = document.querySelector('#ctrlV')
+    btn_task_check.addEventListener('click', function () {
+        if (inpCtrlV.value === 'Выделите весь этот текст'){
+            func_tg_rmv()
+                btn_move_to_next.classList.add('disabled')
+        }else {
+            func_p_wrong()
+        }
+    })
+
 </script>
 </body>
 </html>
