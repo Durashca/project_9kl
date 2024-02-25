@@ -57,21 +57,21 @@ let navbarCode =
             <form class="form-profile row g-3 registry" novalidate>
                 <div class="col-md-8">
                     <label for="validationTextareaRegister1" class="form-label">Имя пользователя</label>
-                    <input type="text" class="form-control" id="validationTextareaRegister1" placeholder="Ваше имя пользователя" required>
+                    <input type="text" class="form-control" id="registry-name" placeholder="Ваше имя пользователя" required>
                     <div class="invalid-feedback">
                         Пожалуйста, введите имя пользователя.
                     </div>
                 </div>
                 <div class="col-md-8">
                     <label for="validationTextareaRegister2" class="form-label">Почта</label>
-                    <input type="email" class="form-control" id="validationTextareaRegister2" placeholder="Ваша почту" required>
+                    <input type="email" class="form-control" id="registry-email" placeholder="Ваша почту" required>
                     <div class="invalid-feedback">
                         Пожалуйста, введите почту.
                     </div>
                 </div>
                 <div class="col-md-8 is-invalid">
                     <label for="validationTextareaRegister3" class="form-label">Пароль</label>
-                    <input type="password" class="form-control" id="validationTextareaRegister3" placeholder="Ваш пароль" required>
+                    <input type="password" class="form-control" id="registry-password" placeholder="Ваш пароль" required>
                     <div class="invalid-feedback">
                         Пожалуйста, введите пароль.
                     </div>
@@ -87,14 +87,14 @@ let navbarCode =
             <form class="form-profile row g-3 login hide" novalidate>
                 <div class="col-md-8">
                     <label for="validationTextareaLogin2" class="form-label">Почта</label>
-                    <input type="email" class="form-control" id="validationTextareaLogin2" placeholder="Ваша почту" required>
+                    <input type="email" class="form-control" id="login-email" placeholder="Ваша почту" required>
                     <div class="invalid-feedback">
                         Пожалуйста, введите почту.
                     </div>
                 </div>
                 <div class="col-md-8">
                     <label for="validationTextareaLogin3" class="form-label">Пароль</label>
-                    <input type="password" class="form-control" id="validationTextareaLogin3" placeholder="Ваш пароль" required>
+                    <input type="password" class="form-control" id="login-password" placeholder="Ваш пароль" required>
                     <div class="invalid-feedback">
                         Пожалуйста, введите пароль.
                     </div>

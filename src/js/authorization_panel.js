@@ -33,7 +33,7 @@ function addInputValidationEvent() {
             })
 
             if (correctly) {
-                form.classList.contains("registry") ? authorization.Register() : authorization.Login();
+                form.classList.contains("registry") ? authorization.register() : authorization.login();
             }
 
             form.classList.add("was-validated");

@@ -1,10 +1,89 @@
-// сама логика авторизации с помощью класса `authorization`
-let authorization = {
-    Register() {
-        console.log("Вы зарегестрированы");
-    },
+function connectToServer() {
+    const firebaseConfig = {
+        apiKey: "AIzaSyApYvBJ_Z6AgypvZ4kDEhA_EodJnTFr8-A",
+        authDomain: "project9kl-1bce9.firebaseapp.com",
+        databaseURL: "https://project9kl-1bce9-default-rtdb.firebaseio.com",
+        projectId: "project9kl-1bce9",
+        storageBucket: "project9kl-1bce9.appspot.com",
+        messagingSenderId: "807367263615",
+        appId: "1:807367263615:web:e0a42155f098998244064a",
+        measurementId: "G-6YSQ8ZQQ8K"
+    };
 
-    Login() {
-        console.log("Вы вошли");
-    },
-};
+    firebase.initializeApp(firebaseConfig);
+}
+
+connectToServer();
+
+// сама логика авторизации с помощью класса `authorization`
+let authorization = (function () {
+    let database = firebase.database();
+    let auth = firebase.auth();
+
+    let refAccount = null;
+
+    function register() {
+        let name = document.getElementById("registry-name").value;
+        let email = document.getElementById("registry-email").value;
+        let password = document.getElementById("registry-password").value;
+
+        auth.createUserWithEmailAndPassword(email, password)
+            .then((userCredential) => {
+                const userData = {
+                    name: name,
+                    progress: 0
+                };
+                refAccount = database.ref(getPathToUser(userCredential));
+                refAccount.set(userData)
+                    .then(() => {
+                        console.log('Данные пользователя успешно сохранены в Realtime Database');
+                        return true;
+                    })
+                    .catch((error) => {
+                        console.error('Ошибка при сохранении данных: ', error.message);
+                        return false;
+                    });
+            })
+            .catch((error) => {
+                console.error('Ошибка при регистрации пользователя: ', error.message);
+                return false;
+            });
+    }
+
+    function login() {
+        let email = document.getElementById("login-email").value;
+        let password = document.getElementById("login-password").value;
+
+        auth.signInWithEmailAndPassword(email, password)
+            .then((userCredential) => {
+                refAccount = database.ref(getPathToUser(userCredential));
+                refAccount.once("value", (snapshot) => {
+                    if (snapshot.exists()) {
+                        let userData = snapshot.val();
+                        alert("Your name is " + userData.name);
+                        console.log('Вы успешно вошли в аккаунт');
+                    } else {
+                        console.error('Пользователь с таким ID не найден');
+                    }
+                });
+            })
+            .catch((error) => {
+                console.error('Ошибка при авторизации пользователя: ', error.message);
+                return false;
+            });
+    }
+
+    function isAuthorized() {
+        return refAccount !== null;
+    }
+
+    function getPathToUser(userCredential) {
+        return `users/${userCredential.user.uid}`;
+    }
+
+    return {
+        register: register,
+        login: login,
+        isAuthorized: isAuthorized,
+    };
+})();
