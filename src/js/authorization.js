@@ -1,15 +1,6 @@
 function connectToServer() {
-    const firebaseConfig = {
-        apiKey: "AIzaSyApYvBJ_Z6AgypvZ4kDEhA_EodJnTFr8-A",
-        authDomain: "project9kl-1bce9.firebaseapp.com",
-        databaseURL: "https://project9kl-1bce9-default-rtdb.firebaseio.com",
-        projectId: "project9kl-1bce9",
-        storageBucket: "project9kl-1bce9.appspot.com",
-        messagingSenderId: "807367263615",
-        appId: "1:807367263615:web:e0a42155f098998244064a",
-        measurementId: "G-6YSQ8ZQQ8K"
-    };
-
+    let config = readFromFile('../../firebaseConfig.json');
+    const firebaseConfig = JSON.parse(config);
     firebase.initializeApp(firebaseConfig);
 }
 
@@ -87,3 +78,15 @@ let authorization = (function () {
         isAuthorized: isAuthorized,
     };
 })();
+
+function readFromFile(filePath) {
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', filePath, false);
+    xhr.send();
+    if (xhr.status === 200) {
+        return xhr.responseText;
+    }
+    else {
+        throw new Error('Failed to read the file');
+    }
+}
