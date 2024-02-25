@@ -237,6 +237,15 @@
             }, 100);
         }
     });
+
+
+  let func3 = setInterval(function () {
+        if ( p2.textContent === 'Все получилось'){
+            /* открываем переход на следующую страницу */
+            btn_move_to_next.classList.remove('disabled');
+            clearInterval(func3)
+        }
+    }, 3000)
 </script>
 </body>
 </html>
