@@ -113,20 +113,20 @@
                             </ol>
                         </div>
 
-                        <!--текст чекбокс-->
                         <div class="keyboard-shortcut-block dashed">
                             <h4>Скопируйте весь текст и вставьте его в поле справа( <b>Ctrl</b> + <b>V</b>):</h4>
-                            <i style="display: inline">"Выделите весь этот текст, без кавычек"</i> -> <input id="ctrlV">
+                            <i style="display: inline">"Выделите весь этот текст, без кавычек"</i> -> <input maxlength="37" id="ctrlV">
                         </div>
 
                         <div id="div_sec" class="keyboard-shortcut-block dashed ">
                             <h4 id="h4_sec">Вырежьте весь текст( <b>Ctrl</b> + <b>X</b>) из поля и отмените последние
                                 действие с помощью( <b>Ctrl</b> + <b>Z</b>)</h4>
-                            <input id="inp_sec" value="ВсеЗнай">
-                            <button id="btn-task-check" class="btn btn-outline-success">Ответить</button>
+                            <input maxlength="6" id="inp_sec" value="ВсеЗнай">
 
                         </div>
-                        <p>Если вы проходите уроки, с телефона, то кнопка для вас будет разблокирована</p>
+
+
+                        <div class="bd-callout bd-callout-info">Если вы проходите уроки, с телефона, то кнопка для вас будет разблокирована</div>
 
                         <!---->
                     </div>
@@ -150,110 +150,93 @@
 <script src="src/js/material.js"></script>
 <script src="src/js/material_settings.js"></script>
 <script src="src/js/transition.js"></script>
+<script src="src/js/transition2.js"></script>
 <script>
-    if (window.innerWidth < 768){
+    if (window.innerWidth < 768) {
         func_tg_dis()
     }
     /*счетчик*/
-    let pressing_two_keys = 0;
-    /*переемная чтобы прибавка выполнилась один раз*/
-    let hasPastedText = true
+    let pressing_two_keys = [false, false, false];
+    let tot = 0;
+    let flag_v = true;
+    let func, func2;
 
-    /* первое задание */
     let inpCtrlV = document.querySelector('#ctrlV');
-    inpCtrlV.addEventListener('paste', function (e) {
-        e.preventDefault(); // отменяем стандартное действие вставки события paste
 
-        let pastedText = '';
-        if (e.clipboardData || e.originalEvent.clipboardData) {
-            pastedText = (e.originalEvent || e).clipboardData.getData('text/plain');
-        } else if (window.clipboardData) {
-            pastedText = window.clipboardData.getData('Text');
-        }
+    inpCtrlV.addEventListener('keydown', function (e) {
+        if (e.ctrlKey && (e.key === 'v' || e.key === 'м')) {
+            func = setTimeout(() => {
+                if (inpCtrlV.value === 'Выделите весь этот текст, без кавычек') {
+                    inpCtrlV.classList.add('disabled');
 
-        if (pastedText === 'Выделите весь этот текст, без кавычек') {
-            inpCtrlV.value = pastedText;
-            inpCtrlV.classList.add('disabled');
-            if (hasPastedText){
-                pressing_two_keys += 1;
-                hasPastedText = false
-            }
-            func_tg_vcr();
-        } else {
-            inpCtrlV.value = ''; // очищаем поле ввода, если текст не соответствует
-            func_tg_wrong();
-        }
+                    if (flag_v) {
+                        pressing_two_keys[0] = true;
+                        flag_v = false;
+                    }
 
-        if (pressing_two_keys === 3) {
-            func_tg_dis()
-        }
+                    func_tg_vcr();
 
-        });
+                    tot = pressing_two_keys.filter(elem => elem).length;
 
-    /*второе задание*/
-    let inpCtrlXZ = document.querySelector('#inp_sec');
-    inpCtrlXZ.addEventListener('keydown', function (e) {
-        if (e.ctrlKey && (e.key === 'x' || e.key === 'ч')) {
-            if (inpCtrlXZ.value === 'ВсеЗнай') {
-                pressing_two_keys += 1;
-            }
-        }
-        if (e.ctrlKey && (e.key === 'z' || e.key === 'я')) {
-            pressing_two_keys += 1;
+                    if (tot === 3) {
+                        inpCtrlXZ.classList.add('disabled');
+                        func_tg_dis();
+                        func_tg_vcr();
+                        clearTimeout(func);
+                        clearTimeout(func2);
+                    }
+                } else {
+                    func_tg_wrong();
+                }
+            }, 100);
         }
     });
 
-    /*добавление доп данных*/
-    let div_dashed2 = document.querySelector(' #div_sec');
-    let h4_2 = document.querySelector('#h4_sec')
-    /* добавление статуса задания (по умолчанию) */
-    let p2 = document.createElement('p');
-    p2.textContent = 'Пока нет верного ответа';
-    p2.style.marginLeft = '0';
-    p2.style.fontStyle = 'italic';
-    // Добавим элемент <p> после кнопки
-    h4_2.insertAdjacentElement('afterend', p2);
+    let flag_x = true;
+    let flag_z = true;
 
-
-    btn_task_check.addEventListener('click', function () {
-        if (pressing_two_keys === 2) {
-            /* отображаем статус текстом */
-            p2.textContent = 'Все получилось';
-            /* отображаем статус фоном */
-            div_dashed2.style.background = 'rgb(219 255 218)';
-            /*отображаем статус границы*/
-            div_dashed2.style.borderColor = '#6ef67d';
-            /* блокируем кнопку задания */
-            btn_task_check.classList.add('disabled');
-            /*инпут CtrlXZ */
-            inpCtrlXZ.classList.add('disabled');
-
-
-        } else {
-            /* отображаем статус фоном */
-            div_dashed2.style.background = 'rgb(255 218 218)';
-            /*отображаем статус границы*/
-            div_dashed2.style.borderColor = '#f66e6e';
+    let inpCtrlXZ = document.querySelector('#inp_sec');
+    inpCtrlXZ.addEventListener('keydown', function (e) {
+        if (e.ctrlKey && (e.key === 'x' || e.key === 'ч')) {
+            func2 = setTimeout(() => {
+                if (inpCtrlXZ.value === '') {
+                    if (flag_x) {
+                        pressing_two_keys[1] = true;
+                        flag_x = false;
+                    }
+                }
+            }, 100);
         }
 
-        if (pressing_two_keys === 3) {
-            func_tg_dis()
+        if (e.ctrlKey && (e.key === 'z' || e.key === 'я')) {
+            func2 = setTimeout(() => {
+                if (flag_z) {
+                    pressing_two_keys[2] = true;
+                    flag_z = false;
 
-            /* отображаем статус текстом */
-            p2.textContent = 'Все получилось';
-            /* отображаем статус фоном */
-            div_dashed2.style.background = 'rgb(219 255 218)';
-            /*отображаем статус границы*/
-            div_dashed2.style.borderColor = '#6ef67d';
-            /* блокируем кнопку задания */
-            btn_task_check.classList.add('disabled');
-            /*инпут CtrlXZ */
-            inpCtrlXZ.classList.add('disabled');
+                    tot = pressing_two_keys.filter(elem => elem).length;
 
+                    if (pressing_two_keys[1] === true && pressing_two_keys[2] === true){
+                        func_tg_vcr_sec();
+                        inpCtrlXZ.classList.add('disabled');
+
+
+
+                    } else {
+                        func_tg_wrong_sec()
+                    }
+
+                    if (tot === 3) {
+                        func_tg_dis();
+                        func_tg_vcr_sec();
+                        clearTimeout(func);
+                        clearTimeout(func2);
+                        inpCtrlXZ.classList.add('disabled');
+                    }
+                }
+            }, 100);
         }
-
-    })
-    unlockLesson(1)
+    });
 </script>
 </body>
 </html>
