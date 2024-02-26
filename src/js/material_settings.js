@@ -1,19 +1,26 @@
 const lessonState = { IDLE: 'idle', NEW: 'new', SOON: 'soon', OLD: 'old', HARD: 'hard' };
 
-function LessonInfo(name, description, link, states = ['idle'], children = []) {
+function LessonInfo(name, description, path, states = ['idle'], children = []) {
     this.name = name;
     this.description = description;
     this.states = states;
-    this.link = link;
+    this.path = path;
     this.children = children;
+
+    Object.defineProperty(this, 'fullPath', {
+        get: function () {
+            const fullPath = new URL(this.path, window.location.href).href;
+            return fullPath;
+        }
+    });
 }
 
-function LessonElement(lessonButton, name, description, numberLesson, link, children = []) {
+function LessonElement(lessonButton, name, description, numberLesson, path, children = []) {
     this.lessonButton = lessonButton;
     this.name = name;
     this.description = description;
     this.numberLesson = numberLesson;
-    this.link = link;
+    this.path = path;
     this.children = children;
 
     this.folding = lessonButton.querySelector(".folding");
@@ -45,8 +52,8 @@ function LessonElement(lessonButton, name, description, numberLesson, link, chil
         }
     };
 
-    if (link !== "")
-        lessonButton.href = link;
+    if (path !== "")
+        lessonButton.href = path;
 }
 
 let lessons = [

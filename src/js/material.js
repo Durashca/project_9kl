@@ -65,7 +65,7 @@ let material = (function () {
         let description = lesson.querySelector(".description-lesson");
         let numberLesson = lesson.querySelector(".number-lesson");
 
-        let lessonElem = new LessonElement(lesson, name, description, numberLesson, lessonInfo.link);
+        let lessonElem = new LessonElement(lesson, name, description, numberLesson, lessonInfo.path);
 
         let i = 0;
         for (let lessonChild of lessonInfo.children) {
