@@ -86,8 +86,19 @@ let material = (function () {
         return elem;
     }
 
+    function toggleLessonLockByIndex(toggle, indexLesson) {
+        let lesson = lessonElems[indexLesson];
+        lesson.classList.toggle("disabled", toggle);
+    }
+
+    // TODO: implement a function for switching lesson blocking by its id
+    function toggleLessonLockById(toggle, idLesson) {
+
+    }
+
     return {
         showLessons: showLessons,
         createLessons: createLessons,
+        toggleLessonLockByIndex: toggleLessonLockByIndex,
     };
 })();
