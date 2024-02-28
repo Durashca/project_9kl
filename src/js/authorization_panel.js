@@ -1,4 +1,6 @@
-let authorizationPanel = {
+import { authorization } from "./authorization.js";
+
+const authorizationPanel = {
     switchTo(indexView) {
         let forms = document.querySelectorAll(".form-profile");
 
@@ -93,4 +95,6 @@ function addSwitchingAuthorizationCapabilitiesEvent() {
     addInputValidationEvent();
 }
 
-addSwitchingAuthorizationCapabilitiesEvent();
+// addSwitchingAuthorizationCapabilitiesEvent();
+
+export { authorizationPanel, addSwitchingAuthorizationCapabilitiesEvent };

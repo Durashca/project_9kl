@@ -1,4 +1,7 @@
-let material = (function () {
+import { LessonInfo, LessonElement } from './material_settings.js';
+import * as settings from './material_settings.js';
+
+const material = (function () {
     let lessonElems = [];
 
     function showLessons() {
@@ -54,12 +57,12 @@ let material = (function () {
             rightPart.insertAdjacentHTML('afterbegin', codeFolding);
 
         for (let state of lessonInfo.states) {
-            if (state in stateToLessonNumberElement)
-                leftPart.insertAdjacentHTML('beforeend', stateToLessonNumberElement[state](indent / 20));
+            if (state in settings.stateToLessonNumberElement)
+                leftPart.insertAdjacentHTML('beforeend', settings.stateToLessonNumberElement[state](indent / 20));
         }
 
         for (let state of lessonInfo.states)
-            stateToAdditionalDecoration[state]?.call(null, lesson);
+            settings.stateToAdditionalDecoration[state]?.call(null, lesson);
 
         let name = lesson.querySelector(".name-lesson");
         let description = lesson.querySelector(".description-lesson");
@@ -102,3 +105,5 @@ let material = (function () {
         toggleLessonLockByIndex: toggleLessonLockByIndex,
     };
 })();
+
+export { material };

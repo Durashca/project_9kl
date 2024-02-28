@@ -1,3 +1,8 @@
+import { connectToServer } from './authorization.js';
+import { addSwitchingAuthorizationCapabilitiesEvent } from './authorization_panel.js';
+import { material } from './material.js';
+import { lessons } from './material_settings.js';
+
 const navbarCode =
 `
 <header id="h-space" class="text-center">
@@ -137,16 +142,11 @@ const navbarCode =
 <!---->
 `;
 
-const libraryCode =
-`
-<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
-<script src="src/js/authorization.js"></script>
-<script src="src/js/authorization_panel.js"></script>
-<script src="src/js/material.js"></script>
-<script src="src/js/material_settings.js"></script>
-`;
-
 document.body.insertAdjacentHTML('afterbegin', navbarCode);
-document.body.insertAdjacentHTML('beforeend', libraryCode);
+
+material.createLessons(lessons);
+material.showLessons();
+
+addSwitchingAuthorizationCapabilitiesEvent();
+
+connectToServer();

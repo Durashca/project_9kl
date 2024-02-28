@@ -56,7 +56,7 @@ function LessonElement(lessonButton, name, description, numberLesson, path, chil
         lessonButton.href = path;
 }
 
-let lessons = [
+const lessons = [
     new LessonInfo("Логин", "Что означают эти не понятные слова", "the_memo.html"),
     new LessonInfo("Глобальные горячие клавиши", "Упрощение жизни с помощью горячих клавиш", "hotkeys.html"),
     new LessonInfo("Скриншоты", "Для чего нужны и как их делать?", "screenshots.html"),
@@ -92,5 +92,4 @@ const stateToAdditionalDecoration = {
     },
 };
 
-material.createLessons(lessons);
-material.showLessons();
+export { lessonState, LessonInfo, LessonElement, lessons, stateToLessonNumberElement, stateLengths, stateToAdditionalDecoration };

@@ -1,14 +1,17 @@
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js';
+import { getAuth } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js';
+import { getDatabase } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js';
+// import firebaseConfig from '../../firebaseConfig.json';
+
 function connectToServer() {
     let config = readFromFile('../../firebaseConfig.json');
     const firebaseConfig = JSON.parse(config);
-    firebase.initializeApp(firebaseConfig);
+    initializeApp(firebaseConfig);
 }
 
-connectToServer();
-
 // сама логика авторизации с помощью класса `authorization`
-let authorization = (function () {
-    let database = firebase.database();
+const authorization = (function () {
+    /*let database = firebase.database();
     let auth = firebase.auth();
 
     let refAccount = null;
@@ -76,7 +79,9 @@ let authorization = (function () {
         register: register,
         login: login,
         isAuthorized: isAuthorized,
-    };
+    };*/
+
+    return null;
 })();
 
 function readFromFile(filePath) {
@@ -90,3 +95,5 @@ function readFromFile(filePath) {
         throw new Error('Failed to read the file');
     }
 }
+
+export { connectToServer, authorization };
