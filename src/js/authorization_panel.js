@@ -20,8 +20,8 @@ function addInputValidationEvent() {
     let forms = document.querySelectorAll(".form-profile");
     forms.forEach(function (form) {
         form.addEventListener("submit", function (event){
+            event.preventDefault();
             if (!form.checkValidity()) {
-                event.preventDefault();
                 event.stopPropagation();
             }
 

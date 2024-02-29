@@ -69,7 +69,7 @@ const navbarCode =
                 </div>
                 <div class="col-md-8">
                     <label for="validationTextareaRegister2" class="form-label">Почта</label>
-                    <input type="email" class="form-control" id="registry-email" placeholder="Ваша почту" required>
+                    <input type="email" class="form-control" id="registry-email" placeholder="Ваша почта" required>
                     <div class="invalid-feedback">
                         Пожалуйста, введите почту.
                     </div>
@@ -82,7 +82,7 @@ const navbarCode =
                     </div>
                 </div>
                 <div class="col-md-8">
-                    <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
+                    <button type="submit" class="btn btn-primary" id="registry">Зарегистрироваться</button>
                 </div>
                 <div class="col-md-8">
                     <a>Уже есть аккаунт? <a id="proceed-to-login" href="#">Войти</a></a>
@@ -92,7 +92,7 @@ const navbarCode =
             <form class="form-profile row g-3 login hide" novalidate>
                 <div class="col-md-8">
                     <label for="validationTextareaLogin2" class="form-label">Почта</label>
-                    <input type="email" class="form-control" id="login-email" placeholder="Ваша почту" required>
+                    <input type="email" class="form-control" id="login-email" placeholder="Ваша почта" required>
                     <div class="invalid-feedback">
                         Пожалуйста, введите почту.
                     </div>
@@ -105,7 +105,7 @@ const navbarCode =
                     </div>
                 </div>
                 <div class="col-md-8">
-                    <button type="submit" class="btn btn-primary">Войти</button>
+                    <button type="submit" class="btn btn-primary" id="login">Войти</button>
                 </div>
                 <div class="col-md-10">
                     <a>Ещё нет аккаунта? <a id="proceed-to-registry" href="#">Зарегистрироваться</a></a>
