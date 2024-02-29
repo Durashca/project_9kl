@@ -1,6 +1,6 @@
 import { connectToServer } from './authorization.js';
 import { addSwitchingAuthorizationCapabilitiesEvent } from './authorization_panel.js';
-import { material } from './material.js';
+import { createLessons, showLessons } from './material.js';
 import { lessons } from './material_settings.js';
 
 const navbarCode =
@@ -144,8 +144,8 @@ const navbarCode =
 
 document.body.insertAdjacentHTML('afterbegin', navbarCode);
 
-material.createLessons(lessons);
-material.showLessons();
+createLessons(lessons);
+showLessons();
 
 addSwitchingAuthorizationCapabilitiesEvent();
 

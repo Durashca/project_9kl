@@ -1,23 +1,21 @@
-import { authorization } from "./authorization.js";
+import * as authorization from "./authorization.js";
 
-const authorizationPanel = {
-    switchTo(indexView) {
-        let forms = document.querySelectorAll(".form-profile");
+function switchTo(indexView) {
+    const forms = document.querySelectorAll(".form-profile");
 
-        let currentForm = forms[indexView];
-        currentForm.classList.remove("hide");
+    const currentForm = forms[indexView];
+    currentForm.classList.remove("hide");
 
-        for (const form of forms) {
-            if (form !== currentForm)
-                form.classList.add("hide");
+    for (const form of forms) {
+        if (form !== currentForm)
+            form.classList.add("hide");
 
-            form.classList.remove("was-validated");
-        }
+        form.classList.remove("was-validated");
     }
-};
+}
 
 function addInputValidationEvent() {
-    let forms = document.querySelectorAll(".form-profile");
+    const forms = document.querySelectorAll(".form-profile");
     forms.forEach(function (form) {
         form.addEventListener("submit", function (event){
             event.preventDefault();
@@ -25,7 +23,7 @@ function addInputValidationEvent() {
                 event.stopPropagation();
 
             let correctly = Array.from(form.children).every((elem) => {
-                let input = elem.querySelector("input");
+                const input = elem.querySelector("input");
 
                 if (input !== null)
                     return input.value.length !== 0;
@@ -42,15 +40,13 @@ function addInputValidationEvent() {
 }
 
 function addSwitchingAuthorizationCapabilitiesEvent() {
-    let textLogin = document.querySelector("#proceed-to-login");
-    textLogin.addEventListener("click", () =>
-        authorizationPanel.switchTo(1));
+    const textLogin = document.querySelector("#proceed-to-login");
+    textLogin.addEventListener("click", () => switchTo(1));
 
-    let textRegistry = document.querySelector("#proceed-to-registry");
-    textRegistry.addEventListener("click", () =>
-        authorizationPanel.switchTo(0));
+    const textRegistry = document.querySelector("#proceed-to-registry");
+    textRegistry.addEventListener("click", () => switchTo(0));
 
     addInputValidationEvent();
 }
 
-export { authorizationPanel, addSwitchingAuthorizationCapabilitiesEvent };
+export { switchTo, addSwitchingAuthorizationCapabilitiesEvent };
