@@ -1,6 +1,6 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js';
-import { getAuth } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js';
-import { getDatabase } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js';
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js';
+import { getDatabase, ref, set, get } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js';
 // import firebaseConfig from '../../firebaseConfig.json';
 
 function connectToServer() {
@@ -9,10 +9,12 @@ function connectToServer() {
     initializeApp(firebaseConfig);
 }
 
+connectToServer();
+
 // сама логика авторизации с помощью класса `authorization`
 const authorization = (function () {
-    /*let database = firebase.database();
-    let auth = firebase.auth();
+    let database = getDatabase();
+    let auth = getAuth();
 
     let refAccount = null;
 
@@ -21,14 +23,14 @@ const authorization = (function () {
         let email = document.getElementById("registry-email").value;
         let password = document.getElementById("registry-password").value;
 
-        auth.createUserWithEmailAndPassword(email, password)
+        createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 const userData = {
                     name: name,
-                    progress: 0
+                    completedLessonsId: []
                 };
-                refAccount = database.ref(getPathToUser(userCredential));
-                refAccount.set(userData)
+                refAccount = ref(database, getPathToUser(userCredential));
+                set(refAccount, userData)
                     .then(() => {
                         console.log('Данные пользователя успешно сохранены в Realtime Database');
                         return true;
@@ -48,10 +50,10 @@ const authorization = (function () {
         let email = document.getElementById("login-email").value;
         let password = document.getElementById("login-password").value;
 
-        auth.signInWithEmailAndPassword(email, password)
+        signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
-                refAccount = database.ref(getPathToUser(userCredential));
-                refAccount.once("value", (snapshot) => {
+                refAccount = ref(database, getPathToUser(userCredential));
+                get(refAccount, (snapshot) => {
                     if (snapshot.exists()) {
                         let userData = snapshot.val();
                         alert("Your name is " + userData.name);
@@ -79,9 +81,7 @@ const authorization = (function () {
         register: register,
         login: login,
         isAuthorized: isAuthorized,
-    };*/
-
-    return null;
+    };
 })();
 
 function readFromFile(filePath) {
