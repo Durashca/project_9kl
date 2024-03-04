@@ -9,6 +9,12 @@ let btn_task_check = document.getElementById('btn-task-check');
 let div_dashed = document.querySelector('.dashed');
 /* h4 */
 let h4 = document.querySelector('.dashed > h4');
+/*массив ссылок на материал(с левой панели)*/
+let lesson_arr = document.querySelectorAll('a.btn.btn-primary.lesson')
+/*счетчик уроков*/
+let lesson_counter = 0
+
+
 
 /* функция для добавления класса disabled(вызов по умолчанию) */
 function func_tg_add() {
@@ -20,10 +26,17 @@ func_tg_add()
 
 /*разблокировать кнопку перехода*/
  function func_tg_dis(){
+     /*открываем ссылку на урок в панели слева */
+     lesson_arr[lesson_counter].classList.remove('disabled');
+     console.log(lesson_arr[lesson_counter])
+     /*отодвигаем счетчик*/
+     lesson_counter++;
      /* открываем переход на следующую страницу */
      btn_move_to_next.classList.remove('disabled');
      /* блокируем кнопку задания */
      btn_task_check.classList.add('disabled');
+
+
 
 
  }
@@ -57,3 +70,4 @@ p.style.marginLeft = '0';
 p.style.fontStyle = 'italic';
 // Добавим элемент <p> после кнопки
 h4.insertAdjacentElement('afterend', p);
+
