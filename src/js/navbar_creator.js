@@ -80,28 +80,49 @@ const navbarCode =
                                 </div>
                             </form>
                             <!--login-->
-                            <form class="form-profile row g-3 login hide" novalidate>
-                                <div class="col-md-8">
+                        <form id="login-form" class="form-profile row g-3 login hide" novalidate>
+                                 <div class="col-md-8">
                                     <label for="login-email" class="form-label">Почта</label>
                                     <input type="email" class="form-control" id="login-email" placeholder="Ваша почта" required>
+                                <div class="invalid-feedback">
+                                  Пожалуйста, введите почту.
+                                </div>
+                                </div>
+                                     <div class="col-md-8">
+                             <label for="login-password" class="form-label">Пароль</label>
+                                <input type="password" class="form-control" id="login-password" placeholder="Ваш пароль" required>
                                     <div class="invalid-feedback">
-                                        Пожалуйста, введите почту.
+                                  Пожалуйста, введите пароль.
+                                </div>
+                                </div>
+                                 <div class="col-md-8">
+                              <button type="submit" class="btn btn-primary" id="login">Войти</button>
+                              </div>
+                              <div class="col-md-10">
+                            <a>Ещё нет аккаунта? <a id="proceed-to-registry" href="#">Зарегистрироваться</a></a>
                                     </div>
-                                </div>
-                                <div class="col-md-8">
-                                    <label for="login-password" class="form-label">Пароль</label>
-                                    <input type="password" class="form-control" id="login-password" placeholder="Ваш пароль" required>
-                                    <div class="invalid-feedback">
-                                        Пожалуйста, введите пароль.
-                                    </div>
-                                </div>
-                                <div class="col-md-8">
-                                    <button type="submit" class="btn btn-primary" id="login">Войти</button>
-                                </div>
-                                <div class="col-md-10">
-                                    <a>Ещё нет аккаунта? <a id="proceed-to-registry" href="#">Зарегистрироваться</a></a>
-                                </div>
                             </form>
+                            <!--профиль-->
+                             <form id="user_profile" class="form-profile row g-3 login hide" novalidate>
+                                <div class="col-md-8">
+                                   <p id="name_profile">Ваше имя:</p>
+                                </div>
+                                <div class="col-md-8">
+                                   <p id="mail_profile">Ваша почта:</p>                                    
+                                </div>
+                                <div class="col-md-8">
+                                    <p id="pass_profile">Ваш пароль</p>
+                                </div>
+                                <div class="col-md-8">
+                                    <p id="progress_profile">Ваш пароль</p>
+                                </div>
+                                <div class="col-md-8">
+                                   <!--  <button type="button" class="btn btn-primary" id="update_progress">Обновить прогресс</button>-->
+                                </div>
+                                
+                               <a>Есть другой аккаунт? <a id="exit_profile" href="#">Выйти</a></a>
+                            </form>
+                            <!---->
                         </div>
                     </div>
                     <!--material-->
@@ -130,3 +151,86 @@ const navbarCode =
 
 document.body.insertAdjacentHTML('afterbegin', navbarCode);
 
+// Функция для сохранения данных пользователя и прогресса
+function saveUserData(name, email, password, progress) {
+    localStorage.setItem('userName', name);
+    localStorage.setItem('userEmail', email);
+    localStorage.setItem('userPassword', password);
+
+    const userProgress = progress + 1;
+    localStorage.setItem('userProgress', userProgress);
+}
+
+// Функция для обновления прогресса
+function updateProgress() {
+    let userProgress = localStorage.getItem('userProgress') || 0;
+    userProgress = parseInt(userProgress) + 1;
+    localStorage.setItem('userProgress', userProgress);
+
+    showUserProfile(); // Отображаем обновленные данные пользователя
+}
+
+// Функция для отображения данных пользователя
+function showUserProfile() {
+    const userProfileForm = document.getElementById('user_profile');
+    const nameElement = document.getElementById('name_profile');
+    const mailElement = document.getElementById('mail_profile');
+    const passElement = document.getElementById('pass_profile');
+    const progressElement = document.getElementById('progress_profile');
+
+    const userName = localStorage.getItem('userName');
+    const userEmail = localStorage.getItem('userEmail');
+    const userPassword = localStorage.getItem('userPassword');
+    const userProgress = localStorage.getItem('userProgress');
+
+    nameElement.textContent = `Ваше имя: ${userName}`;
+    mailElement.textContent = `Ваша почта: ${userEmail}`;
+    passElement.textContent = `Ваш пароль: ${userPassword}`;
+    progressElement.textContent = `Ваш прогресс: ${userProgress}`;
+
+    userProfileForm.classList.remove('hide');
+    document.getElementById('myForm').classList.add('hide');
+}
+
+document.getElementById('registry').addEventListener('click', function(event) {
+    event.preventDefault();
+
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('mail').value;
+    const password = document.getElementById('pass').value;
+
+    saveUserData(name, email, password, 0); // Сохраняем данные пользователя и начальный прогресс
+
+    showUserProfile();
+});
+
+document.getElementById('update_progress').addEventListener('click', function(event) {
+    event.preventDefault();
+
+    updateProgress();
+    func_progress(); // Вызываем функцию для дополнительного повышения прогресса
+});
+
+document.getElementById('proceed-to-login').addEventListener('click', function(event) {
+    event.preventDefault();
+
+    document.getElementById('myForm').classList.remove('hide');
+    document.getElementById('user_profile').classList.add('hide');
+});
+
+document.getElementById('exit_profile').addEventListener('click', function(event) {
+    event.preventDefault();
+
+    localStorage.clear(); // Очищаем локальное хранилище при выходе из аккаунта
+
+    document.getElementById('myForm').classList.remove('hide');
+    document.getElementById('user_profile').classList.add('hide');
+});
+
+// Новая функция func_progress
+function func_progress() {
+    let currentProgress = localStorage.getItem('userProgress') || 0;
+    currentProgress = parseInt(currentProgress) + 1;
+    localStorage.setItem('userProgress', currentProgress);
+    return currentProgress;
+}

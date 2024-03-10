@@ -9,7 +9,7 @@ let btn_task_check = document.getElementById('btn-task-check');
 let div_dashed = document.querySelector('.dashed');
 /* h4 */
 let h4 = document.querySelector('.dashed > h4');
-
+let lesson_arr = document.querySelectorAll('a.btn.btn-primary.lesson')
 
 
 /* функция для добавления класса disabled(вызов по умолчанию) */
@@ -23,15 +23,25 @@ func_tg_add()
 
 
 /*разблокировать кнопку перехода*/
- function func_tg_dis(){
-     /* открываем переход на следующую страницу */
-     btn_move_to_next.classList.remove('disabled');
-     /* блокируем кнопку задания */
-     btn_task_check.classList.add('disabled');
+function func_tg_dis() {
+    /* открываем переход на следующую страницу */
+    btn_move_to_next.classList.remove('disabled');
 
+    let progress = Number(func_progress());
 
- }
+    /* увеличение прогресса */
+    func_progress();
 
+    /* перебор массива до значения функции прогресса */
+    for (let i = 0; i < progress && i < lesson_arr.length; i++) {
+        lesson_arr[i].classList.remove('disabled');
+    }
+
+    /* блокируем кнопку задания */
+    if (btn_task_check) {
+        btn_task_check.classList.add('disabled');
+    }
+}
 /* функция для удаления класса disabled */
 function func_tg_vcr() {
     /* отображаем статус текстом */
@@ -55,10 +65,12 @@ function func_tg_wrong() {
 
 
 /* добавление статуса задания (по умолчанию) */
-let p = document.createElement('p');
-p.textContent = 'Пока нет верного ответа';
-p.style.marginLeft = '0';
-p.style.fontStyle = 'italic';
+    let p = document.createElement('p');
+    p.textContent = 'Пока нет верного ответа';
+    p.style.marginLeft = '0';
+    p.style.fontStyle = 'italic';
 // Добавим элемент <p> после кнопки
-h4.insertAdjacentElement('afterend', p);
+    h4.insertAdjacentElement('afterend', p);
+
+
 
