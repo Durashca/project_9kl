@@ -226,22 +226,25 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('login').addEventListener('click', function (event) {
         event.preventDefault();
 
-        const inputEmail = document.getElementById('login-email').value;
-        const inputPassword = document.getElementById('login-password').value;
+        const inputEmail = document.getElementById('login-email');
+        const inputPassword = document.getElementById('login-password');
 
         // Получаем сохраненные данные из локального хранилища
         const savedEmail = localStorage.getItem('userEmail');
         const savedPassword = localStorage.getItem('userPassword');
 
-        if (inputEmail === savedEmail && inputPassword === savedPassword) {
+        if (inputEmail.value === savedEmail && inputPassword.value === savedPassword) {
             // В случае совпадения показываем форму с данными пользователя
             showUserProfile();
         } else {
             // В случае несовпадения можно вывести сообщение об ошибке или предпринять другие действия
             console.log('Неправильные учетные данные. Попробуйте снова.');
+            inputPassword.classList.add('error-input');
+            inputEmail.classList.add('error-input');
         }
     });
-    // Добавляем обработчик для автоматического отображения профиля пользователя при повторном входе
+
+// Добавляем обработчик для автоматического отображения профиля пользователя при повторном входе
     if (storedUserName && storedUserEmail && storedUserPassword) {
         showUserProfile();
     }
@@ -265,7 +268,7 @@ function showUserProfile() {
     mailElement.textContent = `Ваша почта: ${userEmail}`;
     passElement.textContent = `Ваш пароль: ${userPassword}`;
 
-    const progressPercent = (userProgress.filter(value => value).length * 10) + '%'; // Рассчитываем процент выполненных заданий
+    const progressPercent = (userProgress.filter(value => value).length * 10 + 10) + '%'; // Рассчитываем процент выполненных заданий, начиная с 10%
     progressElement.textContent = `Ваш прогресс: ${progressPercent}`;
 
     userProfileForm.classList.remove('hide');
@@ -274,7 +277,6 @@ function showUserProfile() {
     document.getElementById('offcanvasRightLabel').textContent = 'Ваш профиль';
     document.getElementById('notification').style.display = 'none';
 }
-
 function updateProgress(index) {
     const userProgress = JSON.parse(localStorage.getItem('userProgress')) || Array(10).fill(false);
 

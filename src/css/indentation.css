@@ -76,6 +76,11 @@ div.bd-callout.bd-callout-info ol > li{
     margin-bottom: 0.8%;
 }
 
+.error-input {
+    background: rgb(255 218 218);
+    border-color: #f66e6e;
+}
+
 /*для кнопок перехода на сл. страницу*/
 .disabled {
     pointer-events: none;

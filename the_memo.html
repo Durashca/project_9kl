@@ -119,11 +119,23 @@
 <script src="src/js/transition.js"></script>
 <script>
     // Функция проверки и выполнения действия
-    function checkLocalDataAndPerformAction() {
-        const userEmail = localStorage.getItem('userEmail');
-        const userPassword = localStorage.getItem('userPassword');
 
-        if (userEmail || userPassword) {
+        let dataChecking = setInterval(function() {
+            const userName = localStorage.getItem('userName');
+            const userEmail = localStorage.getItem('userEmail');
+            const userPassword = localStorage.getItem('userPassword');
+
+            if (userName && userEmail && userPassword) {
+                func_tg_dis();
+                func_tg_vcr();
+                updateProgress(1);  // Это ваша функция для отображения профиля пользователя
+                clearInterval(dataChecking);
+            }
+        }, 1000);
+
+
+
+        /*if (userEmail || userPassword) {
             func_tg_dis();
             func_tg_vcr();
             updateProgress(1);
@@ -137,13 +149,13 @@
     document.getElementById('login').addEventListener('click', checkLocalDataAndPerformAction);
     const formElement = document.getElementById('user_profile');
 
-    if (formElement.classList.contains('hide')) {
+    if (formElement.classList.contains('hide') && userEmail && userPassword) {
         func_tg_dis();
         func_tg_vcr();
         updateProgress(1);
     } else {
         console.log('Класс hide отсутствует в форме user_profile.');
-    }
+    }*/
 </script>
 
 </body>
