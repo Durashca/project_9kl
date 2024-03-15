@@ -98,6 +98,13 @@ div.bd-callout.bd-callout-info ol > li{
     display: block;
 }
 
+.material-body-scroll {
+    min-height: 200px;
+    height: auto; /* Установите максимальную высоту дива */
+    max-height: 90%;
+    overflow-y: auto; /* Добавьте вертикальную прокрутку при необходимости */
+}
+
 /*зеленая карточка*/
 .bd-callout-green {
     --bd-callout-color: #6ef67d;

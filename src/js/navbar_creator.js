@@ -27,7 +27,7 @@ const navbarCode =
                             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                                     <li class="nav-item">
-                                        <a class="nav-link active" aria-current="page" href="main.html">Главная</a>
+                                        <a class="nav-link active" aria-current="page" href="index.html">Главная</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
@@ -152,11 +152,12 @@ const navbarCode =
 document.body.insertAdjacentHTML('afterbegin', navbarCode);
 
 // Обновленный код JavaScript
-
+let userProgress = JSON.parse(localStorage.getItem('userProgress')) || Array(10).fill(false); // Инициализация userProgress
 document.addEventListener('DOMContentLoaded', function () {
     const storedUserName = localStorage.getItem('userName');
     const storedUserEmail = localStorage.getItem('userEmail');
     const storedUserPassword = localStorage.getItem('userPassword');
+
 
     if (storedUserName && storedUserEmail && storedUserPassword) {
         showUserProfile();
@@ -258,48 +259,34 @@ function showUserProfile() {
     const userName = localStorage.getItem('userName');
     const userEmail = localStorage.getItem('userEmail');
     const userPassword = localStorage.getItem('userPassword');
-    const userProgress = localStorage.getItem('userProgress');
-    let flag = true
-    const progress_right = function (){
-        let res = 0
-        if(flag){
-            for (let progress of userProgress){
-                if (progress){
-                    res += 10;
-                }
-            }
-        }
-        flag = false;
-        return res
-    }
+    const userProgress = JSON.parse(localStorage.getItem('userProgress')) || Array(10).fill(false);
 
     nameElement.textContent = `Ваше имя: ${userName}`;
     mailElement.textContent = `Ваша почта: ${userEmail}`;
     passElement.textContent = `Ваш пароль: ${userPassword}`;
-    progressElement.textContent = `Ваш прогресс: ${progress_right()}%`;
 
+    const progressPercent = (userProgress.filter(value => value).length * 10) + '%'; // Рассчитываем процент выполненных заданий
+    progressElement.textContent = `Ваш прогресс: ${progressPercent}`;
 
     userProfileForm.classList.remove('hide');
     document.getElementById('registry_form').classList.add('hide');
     document.getElementById('login_form').classList.add('hide');
     document.getElementById('offcanvasRightLabel').textContent = 'Ваш профиль';
-    document.getElementById('notification').style.display = 'none'
-
+    document.getElementById('notification').style.display = 'none';
 }
 
-let userProgress = JSON.parse(localStorage.getItem('userProgress')) || Array(10).fill(false);
-
 function updateProgress(index) {
-    console.log(`Ваш прогресс стал равен ${userProgress[index]}`);
+    const userProgress = JSON.parse(localStorage.getItem('userProgress')) || Array(10).fill(false);
 
+    // Увеличиваем прогресс на 10% за каждый правильный ответ
     index = parseInt(index);
-
-    for (let i = 0; i <= index; i++) {
-        userProgress[i] = true;
+    if (index >= 0 && index < userProgress.length) {
+        userProgress[index] = true;
+        const progressPercent = userProgress.filter(value => value).length * 10;
+        localStorage.setItem('userProgress', JSON.stringify(userProgress));
+        showUserProfile(); // Обновляем данные на странице
+        console.log(`Прогресс увеличен! Текущий прогресс: ${progressPercent}%`);
+    } else {
+        console.log(`Ошибка: Некорректный индекс ${index}`);
     }
-
-    localStorage.setItem('userProgress', JSON.stringify(userProgress));
-    showUserProfile();
-
-    console.log(userProgress, lesson_arr);
 }
