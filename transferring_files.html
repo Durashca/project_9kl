@@ -192,7 +192,6 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
 <script src="src/js/navbar_creator.js"></script>
-<script src="src/js/login.js"></script>
 <script src="src/js/material.js"></script>
 <script src="src/js/material_settings.js"></script>
 <script src="src/js/transition.js"></script>
@@ -206,6 +205,7 @@
         if (radio.checked){
             func_tg_dis()
             func_tg_vcr()
+            updateProgress(4);
             for (let elem of radio_arr){
                 elem.classList.add('disabled')
             }

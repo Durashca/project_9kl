@@ -17,7 +17,7 @@ const navbarCode =
                                     <img class="profile" src="src/images/garbage/user_profile.png"  alt="профиль">
 
                                     <!--уведомления-->
-                                    <span class="position-absolute badge rounded-pill bg-dark" style="right: -8px; top: -2px">
+                                    <span id="notification" class="position-absolute badge rounded-pill bg-dark" style="right: -8px; top: -2px">
                         !
                         <span class="visually-hidden">непрочитанные сообщения</span>
                     </span>
@@ -43,14 +43,14 @@ const navbarCode =
                          id="offcanvasRight"
                          aria-labelledby="offcanvasRightLabel">
                         <div class="offcanvas-header">
-                            <h5 class="offcanvas-title" id="offcanvasRightLabel">Авторизация</h5>
+                            <h5 class="offcanvas-title" id="offcanvasRightLabel">Зарегистрироваться</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
                                     aria-label="Закрыть"></button>
                         </div>
                         <div style="text-align: start" class="offcanvas-body">
                             <!--поля ввода-->
                             <!--register-->
-                            <form class="form-profile row g-3 registry" novalidate id="myForm">
+                            <form class="form-profile row g-3 registry" novalidate id="registry_form">
                                 <div class="col-md-8">
                                     <label for="name" class="form-label">Имя пользователя</label>
                                     <input type="text" class="form-control" id="name" placeholder="Ваше имя пользователя" required>
@@ -80,7 +80,7 @@ const navbarCode =
                                 </div>
                             </form>
                             <!--login-->
-                        <form id="login-form" class="form-profile row g-3 login hide" novalidate>
+                        <form id="login_form" class="form-profile row g-3 login hide" novalidate>
                                  <div class="col-md-8">
                                     <label for="login-email" class="form-label">Почта</label>
                                     <input type="email" class="form-control" id="login-email" placeholder="Ваша почта" required>
@@ -136,9 +136,9 @@ const navbarCode =
                             <div>
                                 <h6 class="text-center">Прогресс по материалу:</h6>
                                 <div class="progress" role="progressbar" aria-label="Пример информации"
-                                     aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="height: 0.9em">
-                                    <div class="progress-bar-animated progress-bar-striped bg-dark"
-                                         style="width: 50%"></div>
+                                     aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="height: 1.4em">
+                                    <div id="progress_bar" class="progress-bar-animated progress-bar-striped bg-dark"
+                                         style="width: 0"></div>
                                 </div>
                             </div>
                             <hr>
@@ -151,26 +151,103 @@ const navbarCode =
 
 document.body.insertAdjacentHTML('afterbegin', navbarCode);
 
-// Функция для сохранения данных пользователя и прогресса
-function saveUserData(name, email, password, progress) {
-    localStorage.setItem('userName', name);
-    localStorage.setItem('userEmail', email);
-    localStorage.setItem('userPassword', password);
+// Обновленный код JavaScript
 
-    const userProgress = progress + 1;
-    localStorage.setItem('userProgress', userProgress);
-}
+document.addEventListener('DOMContentLoaded', function () {
+    const storedUserName = localStorage.getItem('userName');
+    const storedUserEmail = localStorage.getItem('userEmail');
+    const storedUserPassword = localStorage.getItem('userPassword');
 
-// Функция для обновления прогресса
-function updateProgress() {
-    let userProgress = localStorage.getItem('userProgress') || 0;
-    userProgress = parseInt(userProgress) + 1;
-    localStorage.setItem('userProgress', userProgress);
+    if (storedUserName && storedUserEmail && storedUserPassword) {
+        showUserProfile();
+    }
 
-    showUserProfile(); // Отображаем обновленные данные пользователя
-}
 
-// Функция для отображения данных пользователя
+    const proceedToLogin = document.getElementById('proceed-to-login');
+    const proceedToRegistry = document.getElementById('proceed-to-registry');
+    const exitProfile = document.getElementById('exit_profile');
+    const registryForm = document.getElementById('registry_form');
+    const loginForm = document.getElementById('login_form');
+    const userProfile = document.getElementById('user_profile');
+    let top_text = document.querySelector('#offcanvasRightLabel');
+
+    proceedToLogin.addEventListener('click', function (event) {
+        event.preventDefault();
+        registryForm.classList.add('hide');
+        loginForm.classList.remove('hide');
+        userProfile.classList.add('hide');
+    });
+
+    proceedToRegistry.addEventListener('click', function (event) {
+        event.preventDefault();
+        loginForm.classList.add('hide');
+        userProfile.classList.add('hide');
+        registryForm.classList.remove('hide');
+        top_text.textContent = 'Зарегистрироваться';
+    });
+
+    exitProfile.addEventListener('click', function (event) {
+        event.preventDefault();
+        userProfile.classList.add('hide');
+        loginForm.classList.remove('hide');
+    });
+
+
+    document.getElementById('registry').addEventListener('click', function (event) {
+        event.preventDefault();
+
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('mail').value;
+        const password = document.getElementById('pass').value;
+
+        saveUserData(name, email, password, 0);
+        showRegistrationForm() ///!!!!!
+        showUserProfile();
+    });
+
+    function saveUserData(name, email, password, progress) {
+        localStorage.setItem('userName', name);
+        localStorage.setItem('userEmail', email);
+        localStorage.setItem('userPassword', password);
+        localStorage.setItem('userProgress', progress);
+    }
+
+
+    function showRegistrationForm() {
+        userProfile.classList.add('hide');
+        loginForm.classList.add('hide');
+        registryForm.classList.remove('hide');
+        top_text.textContent = 'Зарегистрироваться';
+        document.getElementById('notification').style.display = 'block';
+
+    }
+
+    document.getElementById('login').addEventListener('click', function (event) {
+        event.preventDefault();
+
+        const inputEmail = document.getElementById('login-email').value;
+        const inputPassword = document.getElementById('login-password').value;
+
+        // Получаем сохраненные данные из локального хранилища
+        const savedEmail = localStorage.getItem('userEmail');
+        const savedPassword = localStorage.getItem('userPassword');
+
+        if (inputEmail === savedEmail && inputPassword === savedPassword) {
+            // В случае совпадения показываем форму с данными пользователя
+            showUserProfile();
+        } else {
+            // В случае несовпадения можно вывести сообщение об ошибке или предпринять другие действия
+            console.log('Неправильные учетные данные. Попробуйте снова.');
+        }
+    });
+    // Добавляем обработчик для автоматического отображения профиля пользователя при повторном входе
+    if (storedUserName && storedUserEmail && storedUserPassword) {
+        showUserProfile();
+    }
+});
+
+
+// Функция для отображения данных пользователя в форме профиля
 function showUserProfile() {
     const userProfileForm = document.getElementById('user_profile');
     const nameElement = document.getElementById('name_profile');
@@ -182,55 +259,47 @@ function showUserProfile() {
     const userEmail = localStorage.getItem('userEmail');
     const userPassword = localStorage.getItem('userPassword');
     const userProgress = localStorage.getItem('userProgress');
+    let flag = true
+    const progress_right = function (){
+        let res = 0
+        if(flag){
+            for (let progress of userProgress){
+                if (progress){
+                    res += 10;
+                }
+            }
+        }
+        flag = false;
+        return res
+    }
 
     nameElement.textContent = `Ваше имя: ${userName}`;
     mailElement.textContent = `Ваша почта: ${userEmail}`;
     passElement.textContent = `Ваш пароль: ${userPassword}`;
-    progressElement.textContent = `Ваш прогресс: ${userProgress}`;
+    progressElement.textContent = `Ваш прогресс: ${progress_right()}%`;
+
 
     userProfileForm.classList.remove('hide');
-    document.getElementById('myForm').classList.add('hide');
+    document.getElementById('registry_form').classList.add('hide');
+    document.getElementById('login_form').classList.add('hide');
+    document.getElementById('offcanvasRightLabel').textContent = 'Ваш профиль';
+    document.getElementById('notification').style.display = 'none'
+
 }
 
-document.getElementById('registry').addEventListener('click', function(event) {
-    event.preventDefault();
+let userProgress = JSON.parse(localStorage.getItem('userProgress')) || Array(10).fill(false);
 
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('mail').value;
-    const password = document.getElementById('pass').value;
+function updateProgress(index) {
+    console.log(`Ваш прогресс стал равен ${userProgress[index]}`);
 
-    saveUserData(name, email, password, 0); // Сохраняем данные пользователя и начальный прогресс
+    index = parseInt(index);
 
+    for (let i = 0; i <= index; i++) {
+        userProgress[i] = true;
+    }
+
+    localStorage.setItem('userProgress', JSON.stringify(userProgress));
     showUserProfile();
-});
 
-document.getElementById('update_progress').addEventListener('click', function(event) {
-    event.preventDefault();
-
-    updateProgress();
-    func_progress(); // Вызываем функцию для дополнительного повышения прогресса
-});
-
-document.getElementById('proceed-to-login').addEventListener('click', function(event) {
-    event.preventDefault();
-
-    document.getElementById('myForm').classList.remove('hide');
-    document.getElementById('user_profile').classList.add('hide');
-});
-
-document.getElementById('exit_profile').addEventListener('click', function(event) {
-    event.preventDefault();
-
-    localStorage.clear(); // Очищаем локальное хранилище при выходе из аккаунта
-
-    document.getElementById('myForm').classList.remove('hide');
-    document.getElementById('user_profile').classList.add('hide');
-});
-
-// Новая функция func_progress
-function func_progress() {
-    let currentProgress = localStorage.getItem('userProgress') || 0;
-    currentProgress = parseInt(currentProgress) + 1;
-    localStorage.setItem('userProgress', currentProgress);
-    return currentProgress;
+    console.log(userProgress, lesson_arr);
 }

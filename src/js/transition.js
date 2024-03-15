@@ -1,3 +1,4 @@
+
 /* кнопка перехода */
 let btn_move_to_next = document.getElementById('createPageButton');
 /* варианты ответов*/
@@ -9,7 +10,10 @@ let btn_task_check = document.getElementById('btn-task-check');
 let div_dashed = document.querySelector('.dashed');
 /* h4 */
 let h4 = document.querySelector('.dashed > h4');
-let lesson_arr = document.querySelectorAll('a.btn.btn-primary.lesson')
+
+let lesson_arr = document.querySelectorAll('a.btn.btn-primary.lesson');
+
+
 
 
 /* функция для добавления класса disabled(вызов по умолчанию) */
@@ -25,17 +29,14 @@ func_tg_add()
 /*разблокировать кнопку перехода*/
 function func_tg_dis() {
     /* открываем переход на следующую страницу */
-    btn_move_to_next.classList.remove('disabled');
-
-    let progress = Number(func_progress());
+    if (btn_move_to_next){
+        btn_move_to_next.classList.remove('disabled');
+    }
 
     /* увеличение прогресса */
-    func_progress();
+
 
     /* перебор массива до значения функции прогресса */
-    for (let i = 0; i < progress && i < lesson_arr.length; i++) {
-        lesson_arr[i].classList.remove('disabled');
-    }
 
     /* блокируем кнопку задания */
     if (btn_task_check) {
@@ -70,7 +71,32 @@ function func_tg_wrong() {
     p.style.marginLeft = '0';
     p.style.fontStyle = 'italic';
 // Добавим элемент <p> после кнопки
+if (h4){
     h4.insertAdjacentElement('afterend', p);
+}
 
 
+let progress_bar = document.getElementById('progress_bar');
+let total_bar = 0;
 
+window.onload = function func_pr_mt() {
+    // Предположим, что userProgress и lesson_arr определены где-то ранее в коде
+    userProgress.forEach((progress, index) => {
+        console.log(index);
+        if (progress) {
+            if (lesson_arr[index]) {
+                lesson_arr[index].classList.remove('disabled');
+                lesson_arr[index].disabled = false;
+                total_bar += 10;
+                console.log(lesson_arr[index]);
+            } else {
+                console.error(`lesson_arr[${index}] is not defined.`);
+            }
+        }
+    });
+
+    progress_bar.style.width = `${total_bar}%`;
+    console.log(userProgress);
+
+    return total_bar;
+};

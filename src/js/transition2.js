@@ -20,7 +20,10 @@ function func_tg_vcr_sec () {
     /*отображаем статус границы*/
     div_dashed2.style.borderColor = '#6ef67d';
     /* блокируем кнопку задания */
-    btn_task_check.classList.add('disabled');
+    /*if (btn_task_check) {
+        btn_task_check.classList.remove('disabled');
+    } else {
+        console.error('Элемент не найден');*/
 
 }
 

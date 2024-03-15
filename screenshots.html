@@ -98,6 +98,7 @@
     if (screenWidth < 768) {
         /*телефон*/
         func_tg_dis()
+        updateProgress(3);
     } else if (screenWidth >= 768) {
         /*пк*/
         const editableDiv = document.getElementById('editableDiv');
@@ -138,6 +139,7 @@
             if (imagePasted) {
                 func_tg_dis()
                 func_tg_vcr()
+                updateProgress(3);
             }else {
                 func_tg_wrong()
             }
