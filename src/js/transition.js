@@ -76,8 +76,47 @@ if (h4){
 }
 
 
+
+//делаем все что надо по странице
+function full_execution() {
+    if (typeof func_tg_dis === 'function') {
+        func_tg_dis();
+    }
+
+    updateProgress(2);
+
+    if (typeof func_tg_vcr_sec === 'function') {
+        func_tg_vcr_sec();
+    }
+
+    if (typeof func_tg_vcr === 'function') {
+        func_tg_vcr();
+    }
+
+    if (typeof func === 'number') {
+        clearTimeout(func);
+    }
+
+    if (typeof func2 === 'number') {
+        clearTimeout(func2);
+    }
+
+    const inpCtrlV = document.getElementById('inpCtrlV');
+    const inpCtrlXZ = document.getElementById('inpCtrlXZ');
+
+    if (inpCtrlV) {
+        inpCtrlV.value = 'Выделите весь этот текст, без кавычек';
+        inpCtrlV.classList.add('disabled');
+    }
+
+    if (inpCtrlXZ) {
+        inpCtrlXZ.classList.add('disabled');
+    }
+}
+
+
 let progress_bar = document.getElementById('progress_bar');
-let total_bar = 0;
+let total_bar = 10;
 
 window.onload = function func_pr_mt() {
     // Предположим, что userProgress и lesson_arr определены где-то ранее в коде
@@ -94,9 +133,10 @@ window.onload = function func_pr_mt() {
             }
         }
     });
-
+    // устанавливаем значение прогресс бару
     progress_bar.style.width = `${total_bar}%`;
-    console.log(userProgress);
+
+
 
     return total_bar;
 };

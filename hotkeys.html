@@ -153,7 +153,7 @@
 
 <script>
     if (window.innerWidth < 768) {
-        func_tg_dis()
+        full_execution()
     }
     /*счетчик*/
     let pressing_two_keys = [false, false, false];
@@ -227,16 +227,9 @@
             }, 100);
         }
     });
-    
-    function full_execution() {
-        func_tg_dis();
-        updateProgress(2);
-        func_tg_vcr_sec();
-        clearTimeout(func);
-        clearTimeout(func2);
 
-        inpCtrlXZ.classList.add('disabled');
-    }
+
+
 </script>
 </body>
 </html>

@@ -284,11 +284,11 @@ function updateProgress(index) {
     index = parseInt(index);
     if (index >= 0 && index < userProgress.length) {
         userProgress[index] = true;
-        const progressPercent = userProgress.filter(value => value).length * 10;
+       /* const progressPercent = userProgress.filter(value => value).length * 10;*/
         localStorage.setItem('userProgress', JSON.stringify(userProgress));
         showUserProfile(); // Обновляем данные на странице
-        console.log(`Прогресс увеличен! Текущий прогресс: ${progressPercent}%`);
     } else {
         console.log(`Ошибка: Некорректный индекс ${index}`);
     }
+
 }
