@@ -13,6 +13,35 @@
     <link rel="stylesheet" href="src/css/material/style.css">
     <link rel="stylesheet" href="src/css/material/hotkeys/alignment.css">
     <link rel="stylesheet" href="src/css/material/transferring_files/alignment.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        #certificateContainer {
+            display: inline-block;
+            position: relative;
+            padding: unset; /* или установите padding в unset */
+            margin: 20px;
+        }
+        #certificateImage {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        #textBlock {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #FFF;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
 <div class="container-xxl">
@@ -20,14 +49,20 @@
         <div class="row">
             <div class="container-material">
                 <content style="text-align: center;">
-                    <h1 class="title text-center">Поздравляю, вы прошли все уроки. Держите медальку </h1>
-                    <img src="src/images/garbage/free-icon-medal-5275486.png" style="display: block; margin: 0 auto;width: 100%; height: 75%" alt="медалька">
+                    <canvas id="canvas"></canvas>
+                    <div id="certificateContainer">
+                        <img id="certificateImage" src="src/images/garbage/pngwing.com.png" alt="Certificate Image">
+                       <!-- <div id="textBlock">
+                            <h2>Фамилия Имя</h2>
+                            <p>Ваш сайт</p>
+                        </div>-->
+                    </div>
+                    <button  style="margin-bottom: 1%" id="downloadCertificateButton" class="btn btn-outline-success" onclick="downloadCertificate()">Скачать</button>
                 </content>
             </div>
         </div>
     </div>
 </div>
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
@@ -36,8 +71,52 @@
 <script src="src/js/material_settings.js"></script>
 <script src="src/js/footer.js"></script>
 <script>
-    updateProgress(10);
+    const userName = localStorage.getItem('userName');
+    const userSurname = localStorage.getItem('userSurname');
 
+    const currentDate = new Date();
+    const day = currentDate.getDate();
+    const month = String(currentDate.getMonth() + 1).padStart(2, '0'); // Добавляем нуль перед месяцем, если он однозначный
+    const year = currentDate.getFullYear();
+    const currentDateString = `${day}.${month}.${year}`;
+
+    updateProgress(10);
+    window.addEventListener('DOMContentLoaded', function() {
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+
+        const img = new Image();
+        img.onload = function() {
+            canvas.width = img.width;
+            canvas.height = img.height;
+
+            ctx.drawImage(img, 0, 0);
+
+            ctx.font = 'italic 20px Roboto, sans-serif';
+            ctx.fillStyle = '#FFF'; // Белый цвет текста
+            ctx.fillText('Сертификат потверждает что', 45, 160); // Позиция имени и фамилии
+            ctx.fillText(`${userName} ${userSurname}`, 45, 190);
+            ctx.fillText('Прошел уроки на сайте ВсеЗнай', 45, 230); // Позиция названия сайта
+            ctx.fillText('на 100%', 45, 260); // Позиция названия сайта
+            ctx.font = 'italic 16px Roboto, sans-serif';
+            ctx.fillText(currentDateString, 50, 330); // Рисуем текущую дату на холсте в указанной позиции
+            // Добавляем стиль подписи
+            ctx.font = 'italic bold 18px "Comic Sans MS", cursive'; // Выбираем максимально курсивный шрифт и необычный шрифт для подписи
+            ctx.fillText('Podpis', 288, 330); // Позиция для подписи
+
+            document.getElementById('certificateContainer').style.display = 'block';
+        };
+
+        img.src = 'src/images/garbage/pngwing.com.png'; // Путь к фоновому изображению
+    });
+    function downloadCertificate() {
+        const canvas = document.getElementById('canvas');
+        const a = document.createElement('a');
+        a.href = canvas.toDataURL('image/png');
+        a.download = 'certificate.png';
+        a.click();
+    }
 </script>
+
 </body>
 </html>
