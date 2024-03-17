@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="src/css/material/hotkeys/alignment.css">
     <link rel="stylesheet" href="src/css/material/transferring_files/alignment.css">
     <style>
-        body {
+        .container-material {
             font-family: Arial, sans-serif;
             text-align: center;
             padding: 50px;
@@ -33,12 +33,11 @@
             height: 100%;
             object-fit: cover;
         }
-        #textBlock {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: #FFF;
+
+        .font-congratulations {
+            font-family: 'Indie Flower', cursive;
+            font-size: 24px;
+            color: #000000; /* Золотой цвет */
             text-align: center;
         }
     </style>
@@ -49,16 +48,16 @@
         <div class="row">
             <div class="container-material">
                 <content style="text-align: center;">
-                    <canvas id="canvas"></canvas>
-                    <div id="certificateContainer">
-                        <img id="certificateImage" src="src/images/garbage/pngwing.com.png" alt="Certificate Image">
-                       <!-- <div id="textBlock">
-                            <h2>Фамилия Имя</h2>
-                            <p>Ваш сайт</p>
-                        </div>-->
-                    </div>
-                    <button  style="; margin: 0.5% auto 1%" id="downloadCertificateButton" class="btn btn-outline-success" onclick="downloadCertificate()">Скачать</button>
+                    <h4 class="font-congratulations" style="text-align: center; margin-bottom: 5% ">Мои поздравления вы прошли этот сложный путь.</h4>
+                        <canvas id="canvas"></canvas>
+                        <div style="margin: 0 auto" id="certificateContainer">
+                            <img style="margin: 0 auto"  id="certificateImage" src="src/images/garbage/mojjeTggsAc.jpg" alt="Certificate Image">
+
+                        </div>
+
+
                 </content>
+                    <button type="button" style="; margin: 0.5% auto 1%" id="downloadCertificateButton" class="btn btn-outline-success" onclick="downloadCertificate()">Скачать</button>
             </div>
         </div>
     </div>
