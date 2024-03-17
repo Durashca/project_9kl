@@ -57,7 +57,7 @@
                             <p>Ваш сайт</p>
                         </div>-->
                     </div>
-                    <button  style="margin-bottom: 1%" id="downloadCertificateButton" class="btn btn-outline-success" onclick="downloadCertificate()">Скачать</button>
+                    <button  style="; margin: 0.5% auto 1%" id="downloadCertificateButton" class="btn btn-outline-success" onclick="downloadCertificate()">Скачать</button>
                 </content>
             </div>
         </div>
@@ -69,8 +69,12 @@
 <script src="src/js/navbar_creator.js"></script>
 <script src="src/js/material.js"></script>
 <script src="src/js/material_settings.js"></script>
+<script src="src/js/transition.js"></script>
 <script src="src/js/footer.js"></script>
+
+
 <script>
+    updateProgress(9)
     const userName = localStorage.getItem('userName');
     const userSurname = localStorage.getItem('userSurname');
 
@@ -80,7 +84,6 @@
     const year = currentDate.getFullYear();
     const currentDateString = `${day}.${month}.${year}`;
 
-    updateProgress(10);
     window.addEventListener('DOMContentLoaded', function() {
         const canvas = document.getElementById('canvas');
         const ctx = canvas.getContext('2d');
@@ -116,7 +119,8 @@
         a.download = 'certificate.png';
         a.click();
     }
-</script>
 
+
+</script>
 </body>
 </html>

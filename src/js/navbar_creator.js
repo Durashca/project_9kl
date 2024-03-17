@@ -109,7 +109,7 @@ const navbarCode =
                 </div>
             </form>
             <!--профиль-->
-            <form id="user_profile" class="form-profile row g-3 login hide" novalidate>
+            <form id="user_profile" class="form-profile row g-3 login hide">
                 <div class="col-md-8">
                     <p id="name_profile">Ваше имя:</p>
                 </div>
@@ -160,18 +160,9 @@ const navbarCode =
 
 document.body.insertAdjacentHTML('afterbegin', navbarCode);
 
-// Обновленный код JavaScript
-let userProgress = JSON.parse(localStorage.getItem('userProgress')) || Array(10).fill(false); // Инициализация userProgress
+let userProgress = JSON.parse(localStorage.getItem('userProgress')) || Array(10).fill(false);
+
 document.addEventListener('DOMContentLoaded', function () {
-    const storedUserName = localStorage.getItem('userName');
-    const storedUserEmail = localStorage.getItem('userEmail');
-    const storedUserPassword = localStorage.getItem('userPassword');
-    const storedUserSurname = localStorage.getItem('userSurname');
-
-    if (storedUserName && storedUserEmail && storedUserPassword && storedUserSurname) {
-        showUserProfile();
-    }
-
     const proceedToLogin = document.getElementById('proceed-to-login');
     const proceedToRegistry = document.getElementById('proceed-to-registry');
     const exitProfile = document.getElementById('exit_profile');
@@ -210,7 +201,6 @@ document.addEventListener('DOMContentLoaded', function () {
         const password = document.getElementById('pass').value;
 
         saveUserData(name, surname, email, password, 0);
-        showRegistrationForm();
         showUserProfile();
     });
 
@@ -222,42 +212,29 @@ document.addEventListener('DOMContentLoaded', function () {
         localStorage.setItem('userProgress', progress);
     }
 
-    function showRegistrationForm() {
-        userProfile.classList.add('hide');
-        loginForm.classList.add('hide');
-        registryForm.classList.remove('hide');
-        top_text.textContent = 'Зарегистрироваться';
-        document.getElementById('notification').style.display = 'block';
-    }
-
     document.getElementById('login').addEventListener('click', function (event) {
         event.preventDefault();
 
         const inputEmail = document.getElementById('login-email');
         const inputPassword = document.getElementById('login-password');
 
-        // Получаем сохраненные данные из локального хранилища
         const savedEmail = localStorage.getItem('userEmail');
         const savedPassword = localStorage.getItem('userPassword');
 
         if (inputEmail.value === savedEmail && inputPassword.value === savedPassword) {
-            // В случае совпадения показываем форму с данными пользователя
             showUserProfile();
         } else {
-            // В случае несовпадения можно вывести сообщение об ошибке или предпринять другие действия
             console.log('Неправильные учетные данные. Попробуйте снова.');
             inputPassword.classList.add('error-input');
             inputEmail.classList.add('error-input');
         }
     });
 
-    // Добавляем обработчик для автоматического отображения профиля пользователя при повторном входе
-    if (storedUserName && storedUserEmail && storedUserPassword) {
+    if (localStorage.getItem('userName') && localStorage.getItem('userEmail') && localStorage.getItem('userPassword')) {
         showUserProfile();
     }
 });
-
-// Функция для отображения данных пользователя в форме профиля
+// глобально
 function showUserProfile() {
     const userProfileForm = document.getElementById('user_profile');
     const nameElement = document.getElementById('name_profile');
@@ -272,20 +249,23 @@ function showUserProfile() {
     const userPassword = localStorage.getItem('userPassword');
     const userProgress = JSON.parse(localStorage.getItem('userProgress')) || Array(10).fill(false);
 
+    // знак вопроса
+    document.getElementById('notification').classList.add('hide')
+
     nameElement.textContent = `Ваше имя: ${userName}`;
     surnameElement.textContent = `Ваша фамилия: ${userSurname}`;
     mailElement.textContent = `Ваша почта: ${userEmail}`;
     passElement.textContent = `Ваш пароль: ${userPassword}`;
 
-    const progressPercent = (userProgress.filter(value => value).length * 10 + 10) + '%'; // Рассчитываем процент выполненных заданий, начиная с 10%
+    const progressPercent = (userProgress.filter(value => value).length * 10 + 10) + '%';
     progressElement.textContent = `Ваш прогресс: ${progressPercent}`;
 
     userProfileForm.classList.remove('hide');
     document.getElementById('registry_form').classList.add('hide');
     document.getElementById('login_form').classList.add('hide');
-    document.getElementById('offcanvasRightLabel').textContent = 'Ваш профиль';
-    document.getElementById('notification').style.display = 'none';
 }
+
+
 function updateProgress(index) {
     const userProgress = JSON.parse(localStorage.getItem('userProgress')) || Array(10).fill(false);
 
@@ -298,4 +278,53 @@ function updateProgress(index) {
     } else {
         console.log(`Ошибка: Некорректный индекс ${index}`);
     }
+}
+
+let progress_bar = document.getElementById('progress_bar');
+let total_bar = 10;
+window.onload = function func_pr_mt() {
+    // Предположим, что userProgress и lesson_arr определены где-то ранее в коде
+    userProgress.forEach((progress, index) => {
+        console.log(index);
+        if (progress) {
+            if (lesson_arr[index] && index !== 10) {
+                lesson_arr[index].classList.remove('disabled');
+                lesson_arr[index].disabled = false;
+                total_bar += 10;
+                console.log(lesson_arr[index]);
+            } else {
+                console.error(`lesson_arr[${index}] is not defined.`);
+            }
+        }
+    });
+    // устанавливаем значение прогресс бару
+    progress_bar.style.width = `${total_bar}%`;
+    return total_bar;
+
+
+
+
+};
+
+if (userProgress[9] === true){
+    console.log(userProgress[9])
+    // разблокировка уроков
+    lesson_arr2 = document.querySelectorAll('.material-body-scroll a.btn.btn-primary.lesson')
+    console.log(lesson_arr2)
+    window.onload = function (){
+        for (let i = 1; i < lesson_arr.length; i++){
+            lesson_arr[i].classList.remove('disabled')
+            lesson_arr[i].disabled = false;
+            console.log(lesson_arr[i])
+        }
+
+        //обновляем данные
+        showUserProfile()
+
+        localStorage.setItem('userProgress', JSON.stringify(userProgress));
+        console.log(localStorage)
+    }
+
+    // устанавливаем прогресс бар
+    document.getElementById('progress_bar').style.width = `100%`;
 }

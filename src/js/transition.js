@@ -115,28 +115,6 @@ function full_execution() {
 }
 
 
-let progress_bar = document.getElementById('progress_bar');
-let total_bar = 10;
-
-window.onload = function func_pr_mt() {
-    // Предположим, что userProgress и lesson_arr определены где-то ранее в коде
-    userProgress.forEach((progress, index) => {
-        console.log(index);
-        if (progress) {
-            if (lesson_arr[index]) {
-                lesson_arr[index].classList.remove('disabled');
-                lesson_arr[index].disabled = false;
-                total_bar += 10;
-                console.log(lesson_arr[index]);
-            } else {
-                console.error(`lesson_arr[${index}] is not defined.`);
-            }
-        }
-    });
-    // устанавливаем значение прогресс бару
-    progress_bar.style.width = `${total_bar}%`;
 
 
 
-    return total_bar;
-};
