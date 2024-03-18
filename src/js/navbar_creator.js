@@ -249,15 +249,15 @@ function showUserProfile() {
     const userPassword = localStorage.getItem('userPassword');
     const userProgress = JSON.parse(localStorage.getItem('userProgress')) || Array(10).fill(false);
 
-    // знак вопроса
-    document.getElementById('notification').classList.add('hide')
+    // скрыть уведомление
+    document.getElementById('notification').classList.add('hide');
 
     nameElement.textContent = `Ваше имя: ${userName}`;
     surnameElement.textContent = `Ваша фамилия: ${userSurname}`;
     mailElement.textContent = `Ваша почта: ${userEmail}`;
     passElement.textContent = `Ваш пароль: ${userPassword}`;
 
-    const progressPercent = (userProgress.filter(value => value).length * 10 + 10) + '%';
+    const progressPercent = userProgress.length > 0 ? `${(userProgress.filter(value => value).length * 10)}%` : '0%';
     progressElement.textContent = `Ваш прогресс: ${progressPercent}`;
 
     userProfileForm.classList.remove('hide');
@@ -267,7 +267,7 @@ function showUserProfile() {
 
 
 function updateProgress(index) {
-    const userProgress = JSON.parse(localStorage.getItem('userProgress')) || Array(10).fill(false);
+    let userProgress = JSON.parse(localStorage.getItem('userProgress')) || Array(10).fill(false);
 
     // Увеличиваем прогресс на 10% за каждый правильный ответ
     index = parseInt(index);
@@ -280,50 +280,3 @@ function updateProgress(index) {
     }
 }
 
-let progress_bar = document.getElementById('progress_bar');
-let total_bar = 10;
-window.onload = function func_pr_mt() {
-    // Предположим, что userProgress и lesson_arr определены где-то ранее в коде
-    userProgress.forEach((progress, index) => {
-        console.log(index);
-        if (progress) {
-            if (lesson_arr[index] && index !== 10) {
-                lesson_arr[index].classList.remove('disabled');
-                lesson_arr[index].disabled = false;
-                total_bar += 10;
-                /*console.log(lesson_arr[index]);*/
-            } else {
-                console.error(`lesson_arr[${index}] is not defined.`);
-            }
-        }
-    });
-    // устанавливаем значение прогресс бару
-    progress_bar.style.width = `${total_bar}%`;
-    return total_bar;
-
-
-
-
-};
-
-if (userProgress[9] === true){
-    console.log(userProgress[9])
-    // разблокировка уроков
-    lesson_arr2 = document.querySelectorAll('.material-body-scroll a.btn.btn-primary.lesson')
-    console.log(lesson_arr2)
-    window.onload = function (){
-        for (let i = 1; i < lesson_arr.length; i++){
-            lesson_arr[i].classList.remove('disabled')
-            lesson_arr[i].disabled = false;
-        }
-
-        //обновляем данные
-        showUserProfile()
-
-        localStorage.setItem('userProgress', JSON.stringify(userProgress));
-        console.log(localStorage)
-    }
-
-    // устанавливаем прогресс бар
-    document.getElementById('progress_bar').style.width = `100%`;
-}

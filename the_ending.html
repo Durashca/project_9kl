@@ -19,8 +19,7 @@
         width: 100%;
         height: auto;
         display: block;
-        margin: 0 auto;
-        margin-bottom: 20px;
+        margin: 0 auto 20px;
     }
 
     /* Styles for download button */
@@ -49,11 +48,11 @@
                                 onclick="downloadCertificate()">Скачать
                         </button>
                     </div>
-                    <div class="additional-content">
+                    <div style="margin-top: 2% " class="additional-content">
                         <footer class="bd-footer py-4  mt-5s bg-body-tertiary">
                             <div class="container">
-                                <p>Сайт <strong>ВсеЗнай</strong> &copy; 2024</p>
-                                <p>Сделано Космылёвым Владиславом Евгеньевичем</p>
+                                <p>Вы прошли все уроки на сайте <strong>ВсеЗнай</strong> &copy; 2024</p>
+                                <p> Материал уроков был распланирован Космылёвым Владиславом Евгеньевичем</p>
                             </div>
                         </footer>
                     </div>
@@ -68,13 +67,12 @@
 <script src="src/js/navbar_creator.js"></script>
 <script src="src/js/material.js"></script>
 <script src="src/js/material_settings.js"></script>
-<script src="src/js/transition.js"></script>
-
-
 <script>
-    updateProgress(9)
-    const userName = localStorage.getItem('userName');
-    const userSurname = localStorage.getItem('userSurname');
+
+
+    // Увеличение первых букв имени и фамилии
+    const modifiedUserName = localStorage.getItem('userName').charAt(0).toUpperCase() + localStorage.getItem('userName').slice(1);
+    const modifiedUserSurname = localStorage.getItem('userSurname').charAt(0).toUpperCase() +localStorage.getItem('userSurname').slice(1);
 
     const currentDate = new Date();
     const day = currentDate.getDate();
@@ -99,7 +97,7 @@
             ctx.font = 'italic bold 30px Roboto, sans-serif';
             ctx.fillStyle = '#000';
 
-            const userText = ` ${userSurname} ${userName} `;
+            const userText = ` ${modifiedUserSurname} ${modifiedUserName} `;
             const userTextWidth = ctx.measureText(userText).width;
             const userTextX = (canvas.width - userTextWidth) / 2; // Центрирование текста на горизонтальной оси
             const userTextY = 300; // Позиция текста по вертикали
@@ -109,7 +107,7 @@
             ctx.font = 'italic 25px Roboto, sans-serif';
 
 
-            document.getElementById('certificateContainer').style.display = 'block';
+    /*        document.getElementById('certificateContainer').style.display = 'block';*/
         };
 
         img.src = 'src/images/garbage/scr.png'; // Путь к фоновому изображению
@@ -123,6 +121,22 @@
         a.click();
     }
 
+    let lesson_arr = document.querySelectorAll('a.btn.btn-primary.lesson');
+    window.onload = function () {
+        for (let i = 1; i < lesson_arr.length; i++) {
+            lesson_arr[i].classList.remove('disabled')
+            lesson_arr[i].disabled = false;
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+            let userProgress = Array(10).fill(true); // Устанавливаем все уроки как завершенные
+            localStorage.setItem('userProgress', JSON.stringify(userProgress));
+            showUserProfile(); // Обновляем данные на странице
+    });
+
+    // устанавливаем прогресс бар
+    document.getElementById('progress_bar').style.width = `100%`;
 
 </script>
 </body>
