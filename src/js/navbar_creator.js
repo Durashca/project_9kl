@@ -291,7 +291,7 @@ window.onload = function func_pr_mt() {
                 lesson_arr[index].classList.remove('disabled');
                 lesson_arr[index].disabled = false;
                 total_bar += 10;
-                console.log(lesson_arr[index]);
+                /*console.log(lesson_arr[index]);*/
             } else {
                 console.error(`lesson_arr[${index}] is not defined.`);
             }
@@ -315,7 +315,6 @@ if (userProgress[9] === true){
         for (let i = 1; i < lesson_arr.length; i++){
             lesson_arr[i].classList.remove('disabled')
             lesson_arr[i].disabled = false;
-            console.log(lesson_arr[i])
         }
 
         //обновляем данные

@@ -1,120 +1,129 @@
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Конец</title>
-        <!--подключение Бутстрапа-->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-              integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-        <link rel="stylesheet" href="src/css/indentation.css">
-        <link rel="stylesheet" href="src/css/bootstrap.css">
-        <link rel="stylesheet" href="src/css/material.css">
-        <link rel="stylesheet" href="src/css/material/style.css">
-        <link rel="stylesheet" href="src/css/material/hotkeys/alignment.css">
-        <link rel="stylesheet" href="src/css/material/transferring_files/alignment.css">
-        <style>
-            .container-material {
-                font-family: Arial, sans-serif;
-                text-align: center;
-                padding: 50px;
-            }
-            #certificateContainer {
-                position: relative;
-                display: inline-block;
-            }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Конец</title>
+    <!--подключение Бутстрапа-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="src/css/indentation.css">
+    <link rel="stylesheet" href="src/css/bootstrap.css">
+    <link rel="stylesheet" href="src/css/material.css">
+    <link rel="stylesheet" href="src/css/material/style.css">
+    <link rel="stylesheet" href="src/css/material/hotkeys/alignment.css">
+    <link rel="stylesheet" href="src/css/material/transferring_files/alignment.css">
+<style>
+    /* Styles for certificate image */
+    #canvas {
+        width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 20px;
+    }
 
-            #certificateImage {
-                display: block;
-                width: 100%;
-                height: auto;
-                max-width: 100%;
-            }
+    /* Styles for download button */
+    #downloadCertificateButton {
+        width: 60%;
+        margin: 0 auto;
+    }
 
-            #downloadCertificateButton {
-                display: block;
-                margin: 10px auto;
-                width: 80%; /* Установите желаемую ширину кнопки в процентах */
-            }
-        </style>
-    </head>
-    <body>
-    <div class="container-xxl">
-        <div class="container text-left text">
-            <div class="row">
-                <div class="container-material">
-                    <content style="text-align: center; margin: 0 auto">
-                        <h4 class="font-congratulations" style="text-align: center; margin-bottom: 3% ">Мои поздравления, вы прошли этот сложный путь.</h4>
-                            <canvas id="canvas"></canvas>
-
-                    </content>
-                        <button type="button" style="; margin: 0.5% auto 1%" id="downloadCertificateButton" class="btn btn-outline-success" onclick="downloadCertificate()">Скачать</button>
-                </div>
+    /* Styles for additional content */
+    .additional-content {
+        text-align: center;
+    }
+</style>
+</head>
+<body>
+<div class="container-xxl">
+    <div class="container text-left text">
+        <div class="row">
+            <div style="margin-bottom: 10%;" class="container-material">
+                <content style="text-align: center; margin: 0 auto">
+                    <h4 class="font-congratulations" style="text-align: center; margin-bottom: 3%">Мои поздравления, вы
+                        прошли этот сложный путь.</h4>
+                    <canvas id="canvas"></canvas>
+                    <div style="display: flex; width: 100%; justify-content: center;">
+                        <button id="downloadCertificateButton" class="btn btn-outline-success"
+                                onclick="downloadCertificate()">Скачать
+                        </button>
+                    </div>
+                    <div class="additional-content">
+                        <footer class="bd-footer py-4  mt-5s bg-body-tertiary">
+                            <div class="container">
+                                <p>Сайт <strong>ВсеЗнай</strong> &copy; 2024</p>
+                                <p>Сделано Космылёвым Владиславом Евгеньевичем</p>
+                            </div>
+                        </footer>
+                    </div>
+                </content>
             </div>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-            crossorigin="anonymous"></script>
-    <script src="src/js/navbar_creator.js"></script>
-    <script src="src/js/material.js"></script>
-    <script src="src/js/material_settings.js"></script>
-    <script src="src/js/transition.js"></script>
-    <script src="src/js/footer.js"></script>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+<script src="src/js/navbar_creator.js"></script>
+<script src="src/js/material.js"></script>
+<script src="src/js/material_settings.js"></script>
+<script src="src/js/transition.js"></script>
 
 
-    <script>
-        updateProgress(9)
-        const userName = localStorage.getItem('userName');
-        const userSurname = localStorage.getItem('userSurname');
+<script>
+    updateProgress(9)
+    const userName = localStorage.getItem('userName');
+    const userSurname = localStorage.getItem('userSurname');
 
-        const currentDate = new Date();
-        const day = currentDate.getDate();
-        const month = String(currentDate.getMonth() + 1).padStart(2, '0'); // Добавляем нуль перед месяцем, если он однозначный
-        const year = currentDate.getFullYear();
-        const currentDateString = `${day}.${month}.${year}`;
+    const currentDate = new Date();
+    const day = currentDate.getDate();
+    const month = String(currentDate.getMonth() + 1).padStart(2, '0'); // Добавляем нуль перед месяцем, если он однозначный
+    const year = currentDate.getFullYear();
+    const currentDateString = `${day}.${month}.${year}`;
 
-        window.addEventListener('DOMContentLoaded', function() {
-            const canvas = document.getElementById('canvas');
-            const ctx = canvas.getContext('2d');
+    window.addEventListener('DOMContentLoaded', function () {
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
 
-            const img = new Image();
-            img.onload = function() {
-                canvas.width = img.width;
-                canvas.height = img.height;
+        const img = new Image();
+        img.onload = function () {
+            canvas.width = img.width;
+            canvas.height = img.height;
 
-                ctx.drawImage(img, 0, 0);
+            ctx.drawImage(img, 0, 0);
 
-                ctx.font = 'italic 25px Roboto, sans-serif';
-                ctx.fillText(currentDateString,236, 532); // Рисуем текущую дату на холсте в указанной позиции
+            ctx.font = 'italic 25px Roboto, sans-serif';
+            ctx.fillText(currentDateString, 236, 532); // Рисуем текущую дату на холсте в указанной позиции
 
-                ctx.font = 'italic bold 30px Roboto, sans-serif';
-                ctx.fillStyle = '#000';
+            ctx.font = 'italic bold 30px Roboto, sans-serif';
+            ctx.fillStyle = '#000';
 
-                const userText = `${userName} ${userSurname}`;
-                const userTextWidth = ctx.measureText(userText).width;
-                const userTextX = (canvas.width - userTextWidth) / 2; // Центрирование текста на горизонтальной оси
-                const userTextY = 300; // Позиция текста по вертикали
+            const userText = ` ${userSurname} ${userName} `;
+            const userTextWidth = ctx.measureText(userText).width;
+            const userTextX = (canvas.width - userTextWidth) / 2; // Центрирование текста на горизонтальной оси
+            const userTextY = 300; // Позиция текста по вертикали
 
-                ctx.fillText(userText, userTextX, userTextY);
+            ctx.fillText(userText, userTextX, userTextY);
 
-                ctx.font = 'italic 25px Roboto, sans-serif';
-
-
-                document.getElementById('certificateContainer').style.display = 'block';
-            };
-
-            img.src = 'src/images/garbage/ser.png'; // Путь к фоновому изображению
-        });
-        function downloadCertificate() {
-            const canvas = document.getElementById('canvas');
-            const a = document.createElement('a');
-            a.href = canvas.toDataURL('image/png');
-            a.download = 'certificate.png';
-            a.click();
-        }
+            ctx.font = 'italic 25px Roboto, sans-serif';
 
 
-    </script>
-    </body>
-    </html>
+            document.getElementById('certificateContainer').style.display = 'block';
+        };
+
+        img.src = 'src/images/garbage/scr.png'; // Путь к фоновому изображению
+    });
+
+    function downloadCertificate() {
+        const canvas = document.getElementById('canvas');
+        const a = document.createElement('a');
+        a.href = canvas.toDataURL('image/png');
+        a.download = 'certificate.png';
+        a.click();
+    }
+
+
+</script>
+</body>
+</html>
