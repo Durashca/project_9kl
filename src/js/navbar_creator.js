@@ -188,8 +188,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
     exitProfile.addEventListener('click', function (event) {
         event.preventDefault();
+        localStorage.removeItem('userName');
+        localStorage.removeItem('userSurname');
+        localStorage.removeItem('userEmail');
+        localStorage.removeItem('userPassword');
+        localStorage.removeItem('userProgress');
+
         userProfile.classList.add('hide');
         loginForm.classList.remove('hide');
+
+        // Перенаправление на первую страницу сайта
+        window.location.href = 'the_memo.html';
     });
 
     document.getElementById('registry').addEventListener('click', function (event) {
@@ -205,8 +214,11 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     function saveUserData(name, surname, email, password, progress) {
-        localStorage.setItem('userName', name);
-        localStorage.setItem('userSurname', surname);
+        const formattedName = name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
+        const formattedSurname = surname.charAt(0).toUpperCase() + surname.slice(1).toLowerCase();
+
+        localStorage.setItem('userName', formattedName);
+        localStorage.setItem('userSurname', formattedSurname);
         localStorage.setItem('userEmail', email);
         localStorage.setItem('userPassword', password);
         localStorage.setItem('userProgress', progress);
