@@ -92,7 +92,7 @@
             ctx.drawImage(img, 0, 0);
 
             ctx.font = 'italic 25px Roboto, sans-serif';
-            ctx.fillText(currentDateString, 236, 532); // Рисуем текущую дату на холсте в указанной позиции
+            ctx.fillText(currentDateString, 220, 505); // Рисуем текущую дату на холсте в указанной позиции
 
             ctx.font = 'italic bold 30px Roboto, sans-serif';
             ctx.fillStyle = '#000';
@@ -100,7 +100,7 @@
             const userText = ` ${modifiedUserSurname} ${modifiedUserName} `;
             const userTextWidth = ctx.measureText(userText).width;
             const userTextX = (canvas.width - userTextWidth) / 2; // Центрирование текста на горизонтальной оси
-            const userTextY = 300; // Позиция текста по вертикали
+            const userTextY = 285; // Позиция текста по вертикали
 
             ctx.fillText(userText, userTextX, userTextY);
 
