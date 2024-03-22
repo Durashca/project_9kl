@@ -111,37 +111,8 @@
                         </ol>
                     </div>
                     <div class="keyboard-shortcut-block dashed">
-                        <h4>Какие клавиши отвечают за перемещение курсора в начало и конец строки?</h4>
-
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1">
-                            <label class="form-check-label" for="flexCheckDefault1">
-                                <b>End</b>
-                            </label>
-                        </div>
-                        <!--#2-->
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault2">
-                            <label class="form-check-label" for="flexCheckDefault2">
-                                <b>Ctrl</b>
-                            </label>
-                        </div>
-                        <!--#3-->
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault3">
-                            <label class="form-check-label" for="flexCheckDefault3">
-                                <b>Tab</b>
-                            </label>
-                        </div>
-                        <!--#4-->
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault4">
-                            <label class="form-check-label" for="flexCheckDefault4">
-                                <b>Home</b>
-                            </label>
-                        </div>
-
-                        <button id="btn-task-check" class="btn btn-outline-success">Ответить</button>
+                        <h4>Поставьте курсор сначала в середину, а потом нажмите поочередно, на клавиши <b>Home</b> и <b>End</b>(если поставили цифру, значит у вас включен <b>NumLk</b>)</h4>
+                        <input style="width: 100%" type="text" id="userChInput">
                     </div>
                 </content>
             </div>
@@ -164,6 +135,23 @@
 <script src="src/js/footer.js"></script>
 
 <script>
+    const userChInput = document.getElementById('userChInput');
+    userChInput.value = "Пример текста для проверки курсора";
+    userChInput.addEventListener('keydown', function checkCursor() {
+        userChInput.focus();
+        const cursorPosition = userChInput.selectionStart;
+
+        if (cursorPosition === 0 || cursorPosition === userChInput.value.length) {
+            func_tg_dis();
+            func_tg_vcr();
+            updateProgress(6);
+        } else {
+            func_tg_wrong()
+        }
+    })
+
+
+
     let checked = document.getElementById('flexCheckDefault1')
     let checked2 = document.getElementById('flexCheckDefault2')
     let checked3 = document.getElementById('flexCheckDefault3')

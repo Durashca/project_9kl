@@ -1,32 +1,41 @@
+video {
+    max-width: 900px;
+    width: 100%;
+    height: auto;
+}
+
+
 header {
     margin-bottom: 10px !important;
 }
 
-/* положение области левой кнопки */
+/*
+!* положение области левой кнопки *!
 .carousel-control-prev {
     left: 6%;
 }
 
-/* положение области правой кнопки */
+!* положение области правой кнопки *!
 .carousel-control-next {
     right: 6%;
 }
 
-/* левая кнопка карусели */
+!* левая кнопка карусели *!
 .carousel-control-prev-icon {
     background-image: url("../images/garbage/left-arrow.png");
     background-size: 50%;
 
 }
 
-/* правая кнопка карусели */
+!* правая кнопка карусели *!
 .carousel-control-next-icon {
     background-image: url("../images/garbage/right-arrow.png");
     background-size: 50%;
 }
+*/
 
 /* выравнивание div.card по div.d-block.w-100 */
-.d-block.w-100 {
+/*.d-block.w-100 {
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
@@ -36,7 +45,7 @@ header {
     width: 50%;
     display: block;
     margin: 0 auto;
-}
+}*/
 
 .hide {
     display: none;

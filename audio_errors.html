@@ -96,28 +96,10 @@
                         </div>
 
                     </div>
-                    <div class="keyboard-shortcut-block dashed">
-                        <h4>Беспроводные наушники, колонки, мышки, клавиатуры - это...</h4>
 
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                            <label class="form-check-label" for="flexRadioDefault1">
-                                Чудо-технологии
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
-                            <label class="form-check-label" for="flexRadioDefault2">
-                                Волшебство мира
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3">
-                            <label class="form-check-label" for="flexRadioDefault3">
-                                Блютуз устройства
-                            </label>
-                        </div>
-                        <button id="btn-task-check" class="btn btn-outline-success">Ответить</button>
+                    <div class="keyboard-shortcut-block dashed">
+                        <h4>Попробуйте исправить звук на видео ниже</h4>
+
                     </div>
                 </content>
             </div>
@@ -141,6 +123,28 @@
 <script src="src/js/footer.js"></script>
 
 <script>
+    const videoElement = document.createElement('video');
+    videoElement.src = 'src/video/video_audio.mp4';
+    videoElement.controls = true;
+    videoElement.muted = true; // выключаем звук по умолчанию
+    let checked = false
+
+    videoElement.onvolumechange = function() {
+        if (!videoElement.muted) {
+            func_tg_dis();
+            func_tg_vcr();
+            updateProgress(9);
+            checked = true
+        } else {
+         if(checked){
+             func_tg_wrong();
+         }
+        }
+    };
+
+    const keyboardShortcutBlock = document.querySelector('.keyboard-shortcut-block.dashed');
+    keyboardShortcutBlock.appendChild(videoElement);
+    /*
     let radio = document.getElementById('flexRadioDefault3')
     btn_task_check.addEventListener('click', function (){
         if (radio.checked ){
@@ -154,7 +158,7 @@
             func_tg_wrong()
         }
     })
-
+*/
 </script>
 </body>
 </html>
