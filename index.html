@@ -32,6 +32,7 @@
                         <li>По шаговые обьяснение будут в не прерывистых рамочках.</li>
                         <li>В конце урока будут задания, они будут в прерывистых рамочках.</li>
                         <li>Вы всегда можете вернуться к уроку. Нажмите на кнопку <b>материал</b>, на верхней  панели.</li>
+                        <li>Не все задания будут доступны на телефонах, поэтому рекомендую проходить задания на моем сайте на ноутбуке или пк.</li>
                     </ul>
 
                 </div>
@@ -52,5 +53,26 @@
 <script src="src/js/material.js"></script>
 <script src="src/js/material_settings.js"></script>
 <script src="src/js/footer.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        let lesson_arr = document.querySelectorAll('a.btn.btn-primary.lesson');
+        const userProgress = JSON.parse(localStorage.getItem('userProgress')) || Array(10).fill(false);
+        const progressPercent = userProgress.length > 0 ? `${(userProgress.filter(value => value).length * 10)}%` : '0%';
+        let i = 0
+        for (let elem of userProgress) {
+            if (elem) {
+                console.log(elem)
+                lesson_arr[i].classList.remove('disabled');
+                lesson_arr[i].disabled = false;
+                i++;
+
+            }
+
+        }
+
+        progress_bar.style.width = `${progressPercent}`
+    })
+</script>
+
 </body>
 </html>

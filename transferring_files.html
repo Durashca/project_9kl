@@ -13,7 +13,30 @@
     <link rel="stylesheet" href="src/css/material/style.css">
     <link rel="stylesheet" href="src/css/material/hotkeys/alignment.css">
     <link rel="stylesheet" href="src/css/material/transferring_files/alignment.css">
+    <style>
+        .container_dsh {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: auto auto auto;
+            gap: 10px;
+        }
 
+        .text-row {
+            display: flex;
+            align-items: center;
+            padding-right: 10px;
+        }
+
+        .draggable {
+            border: 1px solid black;
+            border-radius: 15px;
+            background: white;
+            padding: 10px;
+            margin: 5px;
+            cursor: pointer;
+            z-index: 1;
+        }
+    </style>
 </head>
 <body>
 <div class="container-xxl">
@@ -76,21 +99,9 @@
                                             <img class="rounded d-block phone "
                                                  src="src/images/transferring_files/Screenshot1.jpg"
                                                  alt="телефон-пк-вылез-сообщи">
-                                       <!-- <div class="col">
-                                            <p>№2</p>
-                                            <img class="rounded  d-block"
-                                                 src="src/images/transferring_files/Screenshot2.jpg"
-                                                 alt="телефон-пк-вверх-сообщи">
-                                        </div>
-                                        <div class="col">
-                                            <p>№3</p>
-                                            <img class="rounded  d-block"
-                                                 src="src/images/transferring_files/Screenshot3.jpg"
-                                                 alt="телефон-пк-раскрытое-сообщи">
-                                        </div>-->
                                 </div>
                                 <!--карточка-->
-                                <div  class=" bd-callout-warning bd-callout">
+                                <div  class="bd-callout-warning bd-callout">
                                     Если вы случайно закрыли панельку USB-подключение или она не появилась, то
                                     вы можете высунуть конец провода из телефона, и вставить его обратно.
                                 </div>
@@ -100,14 +111,14 @@
                                 <li>Осталось только, узнать путь к вашей фотографии.</li>
                             </ol>
                             <!--карточка-->
-                            <!--<div class="card bg-dark" style="width: 100%;">
+                            <div class=" bd-callout bd-callout-info " style="width: 100%;">
                                 <div class="card-body">
                                     <h6 style="color: white">Путь - это маршрут. Он имеет остановки, которые в нашем
                                         случае, называются
                                         папками. На телефонах и пк все лежит в папочках, поэтому найти нужную фотку
                                         будет не просто.</h6>
                                 </div>
-                            </div>-->
+                            </div>
                         </div>
                         <h4>Перейдем ненадолго к телефону:</h4>
 
@@ -155,28 +166,23 @@
                         <!---->
                     </div>
                     <div class="keyboard-shortcut-block dashed">
-                        <h4>Что надо знать, чтобы найти картинку?</h4>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                <label class="form-check-label" for="flexRadioDefault1">
-                                    Скорость
-                                </label>
+                        <h4>Соотнесите варианты </h4>
+                        <div class="container_dsh">
+                                <div class="text-row div2">
+                                    <p>Этот компьютер:</p> <!--див 2-->
+                                    <div id="div1" class="draggable">Pictures/Screenshots</div>
+                                </div>
+                            <div class="text-row div1">
+                                <p>Промежуточные папки:</p> <!--див 1-->
+                                <div id="div2" class="draggable">Внутренняя память</div>
                             </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
-                                <label class="form-check-label" for="flexRadioDefault2">
-                                    Время
-                                </label>
+                            <div class="text-row div3">
+                                <p>Сам файл:</p> <!--див 3-->
+                                <div id="div3" class="draggable">photo.png</div>
                             </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3" >
-                                <label class="form-check-label" for="flexRadioDefault3">
-                                    Путь
-                                </label>
-                            </div>
-                            <button id="btn-task-check" class="btn btn-outline-success">Ответить</button>
-                    </div>
+                        </div>
 
+                    </div>
                 </content>
             </div>
         </div>
@@ -196,23 +202,53 @@
 <script src="src/js/material_settings.js"></script>
 <script src="src/js/transition.js"></script>
 <script src="src/js/footer.js"></script>
-
-
+<!--для перетаскивания дивов-->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 <script>
-    const radio = document.getElementById('flexRadioDefault3')
-    btn_task_check.addEventListener('click', function func() {
+    $(document).ready(function() {
+        $(".draggable").draggable({
+            revert: true
+        });
 
-        if (radio.checked){
-            func_tg_dis()
-            func_tg_vcr()
-            updateProgress(5);
-            for (let elem of radio_arr){
-                elem.classList.add('disabled')
+        $("#div1, #div2, #div3").droppable({
+            drop: function(event, ui) {
+                var dragId = ui.draggable.attr("id");
+                var dropId = $(this).attr("id");
+
+                var temp = $("#"+dragId).html();
+                $("#"+dragId).html($("#"+dropId).html());
+                $("#"+dropId).html(temp);
+
+                checkDiv2Content(); // Проверяем содержимое div2 после перестановки
             }
-        }else {
-            func_tg_wrong()
+        });
+    });
+
+    // Функция для проверки наличия текста "Внутренняя память" в div2
+    function checkDiv2Content() {
+        const div1Element = document.querySelector('.text-row.div1');
+        const childDivsWithText = div1Element.querySelectorAll('.draggable');
+
+        let containsPicturesScreenshots = false;
+
+        childDivsWithText.forEach(function(childDiv) {
+            if (childDiv.textContent.includes('Pictures/Screenshots')) {
+                containsPicturesScreenshots = true;
+            }
+        });
+
+        if (containsPicturesScreenshots) {
+           func_tg_vcr();
+            func_tg_dis();
+            updateProgress(5)
+            // Выполнить нужные действия здесь
+        } else {
+            func_tg_wrong();
+            // Выполнить другие действия здесь
         }
-    })
+    }
+
 
 
 </script>

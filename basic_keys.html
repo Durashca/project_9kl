@@ -114,6 +114,7 @@
                         <h4>Поставьте курсор сначала в середину, а потом нажмите поочередно, на клавиши <b>Home</b> и <b>End</b>(если поставили цифру, значит у вас включен <b>NumLk</b>)</h4>
                         <input style="width: 100%" type="text" id="userChInput">
                     </div>
+                    <div class="bd-callout bd-callout-warning">Если вы проходите уроки, с телефона, то кнопка для вас будет разблокирована</div>
                 </content>
             </div>
         </div>
@@ -135,40 +136,29 @@
 <script src="src/js/footer.js"></script>
 
 <script>
-    const userChInput = document.getElementById('userChInput');
-    userChInput.value = "Пример текста для проверки курсора";
-    userChInput.addEventListener('keydown', function checkCursor() {
-        userChInput.focus();
-        const cursorPosition = userChInput.selectionStart;
+    // Определить ширину экрана
+    const screenWidth = window.innerWidth;
+    // Определить тип устройства на основе ширины
+    if (screenWidth < 768) {
+        /*телефон*/
+        func_tg_dis()
+        updateProgress(6);
+    }else {
+        const userChInput = document.getElementById('userChInput');
+        userChInput.value = "Пример текста для проверки курсора";
+        userChInput.addEventListener('keydown', function checkCursor() {
+            userChInput.focus();
+            const cursorPosition = userChInput.selectionStart;
 
-        if (cursorPosition === 0 || cursorPosition === userChInput.value.length) {
-            func_tg_dis();
-            func_tg_vcr();
-            updateProgress(6);
-        } else {
-            func_tg_wrong()
-        }
-    })
-
-
-
-    let checked = document.getElementById('flexCheckDefault1')
-    let checked2 = document.getElementById('flexCheckDefault2')
-    let checked3 = document.getElementById('flexCheckDefault3')
-    let checked4 = document.getElementById('flexCheckDefault4')
-    btn_task_check.addEventListener('click', function () {
-        if (checked.checked && checked4.checked && !(checked2.checked || checked3.checked)) {
-            func_tg_dis()
-            func_tg_vcr()
-            updateProgress(6);
-            for (let elem of checkbox_arr){
-                elem.classList.add('disabled')
+            if (cursorPosition === 0 || cursorPosition === userChInput.value.length) {
+                func_tg_dis();
+                func_tg_vcr();
+                updateProgress(6);
+            } else {
+                func_tg_wrong()
             }
-        }else {
-            func_tg_wrong()
-        }
-    })
-
+        })
+    }
 </script>
 </body>
 </html>

@@ -85,28 +85,8 @@
                     </div>
 
                     <div class="keyboard-shortcut-block dashed">
-                        <h4>Что относится к плюсам скачивания?</h4>
-
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                            <label class="form-check-label" for="flexRadioDefault1">
-                                Риск безопасности
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
-                            <label class="form-check-label" for="flexRadioDefault2">
-                                Быстрота и легкость
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3">
-                            <label class="form-check-label" for="flexRadioDefault3">
-                                Ограниченные ресурс
-                            </label>
-                        </div>
-                        <button id="btn-task-check" class="btn btn-outline-success">Ответить</button>
-
+                        <h4>Попробуйте правильно установить приложение телеграмм</h4>
+                        <a href="https://apps.microsoft.com/detail/9nztwsqntd0s?hl=ru-ru&gl=RU" style="color: #3366cc; text-decoration: none; cursor: pointer; transition: all 0.3s ease;" target="_blank">Перейдите в Microsoft Store и скачайте телеграмм</a>
                     </div>
 
                 </content>
@@ -130,22 +110,34 @@
 <script src="src/js/footer.js"></script>
 
 <script>
-    const radio = document.getElementById('flexRadioDefault2');
+    document.addEventListener('DOMContentLoaded', function() {
+        const screenWidth = window.innerWidth;
 
-    btn_task_check.addEventListener('click', function func () {
+        if (screenWidth < 768) {
+            // Действия для экрана меньше 768px
+            func_tg_dis();
+            updateProgress(7);
+        } else {
+            const link = document.querySelector('a[href="https://apps.microsoft.com/detail/9nztwsqntd0s?hl=ru-ru&gl=RU"]');
 
-        if (radio.checked) {
-            func_tg_dis()
+            link.addEventListener('click', function(event) {
+                event.preventDefault();
+                func_tg_dis();
+                func_tg_vcr()
+                updateProgress(7);
+                setTimeout(function() {
+                    window.open(link.getAttribute('href'), '_blank');
+                }, 1300); // Переход через 2 секунды (можете изменить задержку по вашему усмотрению)
+            });
+        }
+
+        const userProgress = JSON.parse(localStorage.getItem('userProgress')) || Array(10).fill(false);
+        if (userProgress[7] === true) {
+            func_tg_dis();
             func_tg_vcr()
             updateProgress(7);
-            for (let elem of radio_arr){
-                elem.classList.add('disabled')
-            }
-        }else {
-            func_tg_wrong()
         }
-    })
-
+    });
 </script>
 
 </body>
