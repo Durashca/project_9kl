@@ -34,7 +34,7 @@
             cursor: pointer;
             position: relative;
             z-index: 1;
-            touch-action: manipulation; /* Устанавливаем обработку событий касания */
+            touch-action: none; /* Устанавливаем обработку событий касания */
         }
     </style>
 </head>
@@ -206,55 +206,65 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 <script>
-    $(document).ready(function() {
-        $(".draggable").draggable({
-            revert: true,
-            start: function(event, ui) {
-                $(".draggable").not(ui.helper).css('z-index', 1); // Перемещаем все дивы, кроме перетаскиваемого, на задний план
-                ui.helper.css('z-index', 2); // Поднимаем перетаскиваемый див на передний план
-            }
+    // Определить ширину экрана
+    const screenWidth = window.innerWidth;
+    // Определить тип устройства на основе ширины
+    if (screenWidth < 768) {
+        /*телефон*/
+        func_tg_dis()
+        updateProgress(5);
+
+    } else if (screenWidth >= 768) {
+        /*пк*/
+        $(document).ready(function () {
+            $(".draggable").draggable({
+                revert: true,
+                start: function (event, ui) {
+                    $(".draggable").not(ui.helper).css('z-index', 1); // Перемещаем все дивы, кроме перетаскиваемого, на задний план
+                    ui.helper.css('z-index', 2); // Поднимаем перетаскиваемый див на передний план
+                }
+            });
+
+            $("#div1, #div2, #div3").droppable({
+                drop: function (event, ui) {
+                    var dragId = ui.draggable.attr("id");
+                    var dropId = $(this).attr("id");
+
+                    var temp = $("#" + dragId).html();
+                    $("#" + dragId).html($("#" + dropId).html());
+                    $("#" + dropId).html(temp);
+
+                    $(".draggable").css('z-index', 1); // Перемещаем все дивы на задний план после завершения перетаскивания
+
+                    checkDiv2Content(); // Проверяем содержимое div2 после перестановки
+                }
+            });
         });
 
-        $("#div1, #div2, #div3").droppable({
-            drop: function(event, ui) {
-                var dragId = ui.draggable.attr("id");
-                var dropId = $(this).attr("id");
+        // Функция для проверки наличия текста "Внутренняя память" в div2
+        function checkDiv2Content() {
+            const div1Element = document.querySelector('.text-row.div1');
+            const childDivsWithText = div1Element.querySelectorAll('.draggable');
 
-                var temp = $("#" + dragId).html();
-                $("#" + dragId).html($("#" + dropId).html());
-                $("#" + dropId).html(temp);
+            let containsPicturesScreenshots = false;
 
-                $(".draggable").css('z-index', 1); // Перемещаем все дивы на задний план после завершения перетаскивания
+            childDivsWithText.forEach(function (childDiv) {
+                if (childDiv.textContent.includes('Pictures/Screenshots')) {
+                    containsPicturesScreenshots = true;
+                }
+            });
 
-                checkDiv2Content(); // Проверяем содержимое div2 после перестановки
+            if (containsPicturesScreenshots) {
+                func_tg_vcr();
+                func_tg_dis();
+                updateProgress(5)
+                // Выполнить нужные действия здесь
+            } else {
+                func_tg_wrong();
+                // Выполнить другие действия здесь
             }
-        });
-    });
-
-    // Функция для проверки наличия текста "Внутренняя память" в div2
-    function checkDiv2Content() {
-        const div1Element = document.querySelector('.text-row.div1');
-        const childDivsWithText = div1Element.querySelectorAll('.draggable');
-
-        let containsPicturesScreenshots = false;
-
-        childDivsWithText.forEach(function(childDiv) {
-            if (childDiv.textContent.includes('Pictures/Screenshots')) {
-                containsPicturesScreenshots = true;
-            }
-        });
-
-        if (containsPicturesScreenshots) {
-           func_tg_vcr();
-            func_tg_dis();
-            updateProgress(5)
-            // Выполнить нужные действия здесь
-        } else {
-            func_tg_wrong();
-            // Выполнить другие действия здесь
         }
     }
-
 
 
 </script>
