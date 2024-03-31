@@ -145,6 +145,12 @@
     const keyboardShortcutBlock = document.querySelector('.keyboard-shortcut-block.dashed');
     keyboardShortcutBlock.appendChild(videoElement);
 
+    if (userProgress[9]){
+        func_tg_dis();
+        func_tg_vcr();
+        videoElement.muted = false
+    }
+
 </script>
 </body>
 </html>

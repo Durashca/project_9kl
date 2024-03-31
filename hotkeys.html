@@ -112,7 +112,8 @@
                         </div>
 
                         <div class="keyboard-shortcut-block dashed">
-                            <h4>Скопируйте весь текст и вставьте его в поле справа( <b>Ctrl</b> + <b>V</b>):</h4>
+                            <h4>Скопируйте весь текст примера <b style="text-decoration: underline">без кавычек</b> и вставьте его в поле справа( <b>Ctrl</b> + <b>V</b>):</h4>
+                            <p style="margin: 0 auto">Пример:</p>
                             <i style="display: inline">"Выделите весь этот текст, без кавычек"</i> -> <input maxlength="37" id="ctrlV">
                         </div>
 
@@ -124,7 +125,7 @@
                         </div>
 
 
-                        <div class="bd-callout bd-callout-warning">Если вы проходите уроки, с телефона, то кнопка для вас будет разблокирована</div>
+                        <div id="pre_emptive_letter" class="bd-callout bd-callout-warning"></div>
 
                         <!---->
                     </div>
@@ -227,6 +228,46 @@
     });
 
 
+    //делаем все что надо по странице
+    function full_execution() {
+        if (typeof func_tg_dis === 'function') {
+            func_tg_dis();
+        }
+
+        if (typeof func_tg_vcr_sec === 'function') {
+            func_tg_vcr_sec();
+        }
+
+        if (typeof func_tg_vcr === 'function') {
+            func_tg_vcr();
+        }
+
+        if (typeof func === 'number') {
+            clearTimeout(func);
+        }
+
+        if (typeof func2 === 'number') {
+            clearTimeout(func2);
+        }
+
+        const inpCtrlV = document.getElementById('ctrlV');
+        const inpCtrlXZ = document.getElementById('inp_sec');
+
+        if (inpCtrlV) {
+            inpCtrlV.value = 'Выделите весь этот текст, без кавычек';
+            inpCtrlV.classList.add('disabled');
+        }
+
+        if (inpCtrlXZ) {
+            inpCtrlXZ.classList.add('disabled');
+        }
+
+        updateProgress(2);
+    }
+
+    if (userProgress[2]){
+        full_execution()
+    }
 
 </script>
 </body>

@@ -49,7 +49,6 @@
                         <label for="inputFN">Напишите клавишу, которая отвечает за специальных функций(начинается на F, а заканчивается на n)</label>
                         <input style="margin-top: 1%" id="inputFN">
                     </div>
-                    <div class="bd-callout bd-callout-warning">Если вы проходите уроки, с телефона, то кнопка для вас будет разблокирована</div>
                 </content>
             </div>
         </div>
@@ -71,6 +70,8 @@
 <script src="src/js/footer.js"></script>
 
 <script>
+    let inp_fn = document.getElementById('inputFN');
+
     // Определить ширину экрана
     const screenWidth = window.innerWidth;
     // Определить тип устройства на основе ширины
@@ -79,7 +80,7 @@
         func_tg_vcr();
         updateProgress(3);
     }else {
-        let inp_fn = document.getElementById('inputFN');
+
 
         inp_fn.addEventListener('input', function () {
             let inputValue = inp_fn.value.toUpperCase(); // Преобразование в верхний регистр
@@ -92,6 +93,13 @@
                 func_tg_wrong();
             }
         });
+    }
+    // авто выполнение
+    if (userProgress[3]){
+        inp_fn.value = 'Fn'
+        inp_fn.disabled = true
+        func_tg_dis();
+        func_tg_vcr();
     }
 </script>
 </body>

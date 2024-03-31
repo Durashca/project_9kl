@@ -67,7 +67,7 @@
 
                     </div>
                     <div class="bd-callout bd-callout-info">Можете попробовать вставить <b>скриншот</b> в <b>Word</b> </div>
-                    <div class="bd-callout bd-callout-warning">Если вы проходите уроки, с телефона, то кнопка для вас будет разблокирована</div>
+                    <div id="pre_emptive_letter" class="bd-callout bd-callout-warning"></div>
 
 
 
@@ -117,6 +117,15 @@
             for (let i = 0; i < items.length; i++) {
                 if (items[i].type.indexOf('image') !== -1) {
                     containsImage = true;
+                    const file = items[i].getAsFile(); // Получаем файл изображения
+                    const reader = new FileReader();
+
+                    reader.onload = function(e) {
+                        const imageSrc = e.target.result;
+                        localStorage.setItem("userImage", imageSrc); // Сохраняем изображение в localStorage
+                    };
+
+                    reader.readAsDataURL(file); // Читаем изображение как Data URL
                     break;
                 }
             }
@@ -126,10 +135,16 @@
             } else {
                 editableDiv.innerHTML = ''; // Очищаем содержимое
                 imagePasted = true;
+            }
+        });
 
-                /*setTimeout(() => {
-                    imagePasted = false;
-                }, 1000); // Сброс флага через 1 секунду*/
+        // Проверяем, есть ли сохраненное изображение при обновлении страницы
+        window.addEventListener('DOMContentLoaded', function() {
+            const savedImage = localStorage.getItem("userImage");
+
+            if (savedImage) {
+                editableDiv.innerHTML = `<img src="${savedImage}" alt="saved-image">`;
+                imagePasted = true;
             }
         });
 
@@ -146,6 +161,15 @@
         });
     }
 
+
+
+
+    // авто выполнение
+    if (userProgress[4]){
+        func_tg_dis()
+        func_tg_vcr()
+        //здесь должнен быть скриншот
+    }
 
 </script>
 </body>

@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="src/css/material/hotkeys/alignment.css">
     <link rel="stylesheet" href="src/css/material/transferring_files/alignment.css">
     <style>
+
         .container_dsh {
             display: grid;
             grid-template-columns: 1fr;
@@ -26,6 +27,7 @@
         }
 
         .draggable {
+
             border: 1px solid black;
             border-radius: 15px;
             background: white;
@@ -165,7 +167,7 @@
                         </div>
                         <!---->
                     </div>
-                    <div class="keyboard-shortcut-block dashed mb-5">
+                    <div class="keyboard-shortcut-block dashed">
                         <h4>Перетащите правильно варианты ответов</h4>
                         <div class="container_dsh">
                             <div class="text-row div2">
@@ -182,7 +184,7 @@
                             </div>
                         </div>
                     </div>
-
+                    <div id="pre_emptive_letter" class="bd-callout bd-callout-warning"></div>
                 </content>
             </div>
         </div>
@@ -205,6 +207,7 @@
 <!--для перетаскивания дивов-->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
 <script>
     // Определить ширину экрана
     const screenWidth = window.innerWidth;
@@ -212,6 +215,7 @@
     if (screenWidth < 768) {
         /*телефон*/
         func_tg_dis()
+        func_tg_vcr()
         updateProgress(5);
 
     } else if (screenWidth >= 768) {
@@ -266,6 +270,26 @@
         }
     }
 
+    // авто выполнение
+    if (userProgress[5]){
+        // Автоматическое перетаскивание блоков на свои места
+        const div1Content = document.getElementById('div1').innerHTML;
+        const div2Content = document.getElementById('div2').innerHTML;
+        const div3Content = document.getElementById('div3').innerHTML;
+
+        document.getElementById('div1').innerHTML = div2Content;
+        document.getElementById('div2').innerHTML = div3Content;
+        document.getElementById('div3').innerHTML = div1Content;
+
+        // Заблокировать блоки после автоматического перетаскивания
+        document.getElementById('div1').classList.add('disabled');
+        document.getElementById('div2').classList.add('disabled');
+        document.getElementById('div3').classList.add('disabled');
+
+        // Вызов функций для нужного состояния блоков
+        func_tg_dis();
+        func_tg_vcr();
+    }
 
 </script>
 </body>

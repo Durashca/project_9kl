@@ -114,7 +114,7 @@
                         <h4>Поставьте курсор сначала в середину, а потом нажмите поочередно, на клавиши <b>Home</b> и <b>End</b>(если поставили цифру, значит у вас включен <b>NumLk</b>)</h4>
                         <input style="width: 100%" type="text" id="userChInput">
                     </div>
-                    <div class="bd-callout bd-callout-warning">Если вы проходите уроки, с телефона, то кнопка для вас будет разблокирована</div>
+                    <div id="pre_emptive_letter" class="bd-callout bd-callout-warning"></div>
                 </content>
             </div>
         </div>
@@ -136,6 +136,7 @@
 <script src="src/js/footer.js"></script>
 
 <script>
+    const userChInput = document.getElementById('userChInput');
     // Определить ширину экрана
     const screenWidth = window.innerWidth;
     // Определить тип устройства на основе ширины
@@ -144,7 +145,6 @@
         func_tg_dis()
         updateProgress(6);
     }else {
-        const userChInput = document.getElementById('userChInput');
         userChInput.value = "Пример текста для проверки курсора";
         userChInput.addEventListener('keydown', function checkCursor() {
             userChInput.focus();
@@ -158,6 +158,23 @@
                 func_tg_wrong()
             }
         })
+    }
+    let previousValue = userChInput.value;
+
+    userChInput.addEventListener('input', function(event) {
+        if (userChInput.value.length < previousValue.length) {
+            userChInput.value = previousValue;
+        } else {
+            previousValue = userChInput.value;
+        }
+    });
+
+    // авто выполнение
+    if (userProgress[6]){
+
+        userChInput.disabled = true
+        func_tg_dis();
+        func_tg_vcr();
     }
 </script>
 </body>

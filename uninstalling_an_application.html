@@ -120,6 +120,14 @@
         }
     })
 
+    if (userProgress[8]){
+        func_tg_dis()
+        func_tg_vcr()
+        radio.checked = true
+        for (let elem of radio_arr){
+            elem.classList.add('disabled')
+        }
+    }
 </script>
 </body>
 </html>
