@@ -81,35 +81,11 @@ const navbarCode =
                 <div class="col-md-8">
                     <button type="submit" class="btn btn-primary" id="registry">Зарегистрироваться</button>
                 </div>
-                <div class="col-md-8">
-                    <a>Уже есть аккаунт? <a id="proceed-to-login" href="#">Войти</a></a>
-                </div>
+           
             </form>
-            <!--login-->
-            <form id="login_form" class="form-profile row g-3 login hide" novalidate>
-                <div class="col-md-8">
-                    <label for="login-email" class="form-label">Почта</label>
-                    <input type="email" class="form-control" id="login-email" placeholder="Ваша почта" required>
-                    <div class="invalid-feedback">
-                        Пожалуйста, введите почту.
-                    </div>
-                </div>
-                <div class="col-md-8">
-                    <label for="login-password" class="form-label">Пароль</label>
-                    <input type="password" class="form-control" id="login-password" placeholder="Ваш пароль" required>
-                    <div class="invalid-feedback">
-                        Пожалуйста, введите пароль.
-                    </div>
-                </div>
-                <div class="col-md-8">
-                    <button type="submit" class="btn btn-primary" id="login">Войти</button>
-                </div>
-                <div class="col-md-10">
-                    <a>Ещё нет аккаунта? <a id="proceed-to-registry" href="#">Зарегистрироваться</a></a>
-                </div>
-            </form>
+            
             <!--профиль-->
-            <form id="user_profile" class="form-profile row g-3 login hide">
+            <form id="user_profile" class="form-profile row g-3 hide">
                 <div class="col-md-8">
                     <p id="name_profile">Ваше имя:</p>
                 </div>
@@ -129,7 +105,7 @@ const navbarCode =
                     <!--  <button type="button" class="btn btn-primary" id="update_progress">Обновить прогресс</button>-->
                 </div>
 
-                <a>Есть другой аккаунт? <a id="exit_profile" href="#">Выйти</a></a>
+                <a>Есть желание покинуть или пройти снова сайт? <a id="exit_profile" href="#">Удалить профиль</a></a>
             </form>
             <!---->
         </div>
@@ -163,28 +139,11 @@ document.body.insertAdjacentHTML('afterbegin', navbarCode);
 let userProgress = JSON.parse(localStorage.getItem('userProgress')) || Array(10).fill(false);
 
 document.addEventListener('DOMContentLoaded', function () {
-    const proceedToLogin = document.getElementById('proceed-to-login');
-    const proceedToRegistry = document.getElementById('proceed-to-registry');
+
     const exitProfile = document.getElementById('exit_profile');
-    const registryForm = document.getElementById('registry_form');
-    const loginForm = document.getElementById('login_form');
+    /*const registryForm = document.getElementById('registry_form');*/
     const userProfile = document.getElementById('user_profile');
-    let top_text = document.querySelector('#offcanvasRightLabel');
-
-    proceedToLogin.addEventListener('click', function (event) {
-        event.preventDefault();
-        registryForm.classList.add('hide');
-        loginForm.classList.remove('hide');
-        userProfile.classList.add('hide');
-    });
-
-    proceedToRegistry.addEventListener('click', function (event) {
-        event.preventDefault();
-        loginForm.classList.add('hide');
-        userProfile.classList.add('hide');
-        registryForm.classList.remove('hide');
-        top_text.textContent = 'Зарегистрироваться';
-    });
+    let top_text = document.getElementById('offcanvasRightLabel');
 
     exitProfile.addEventListener('click', function (event) {
         event.preventDefault();
@@ -195,7 +154,6 @@ document.addEventListener('DOMContentLoaded', function () {
         localStorage.removeItem('userProgress');
 
         userProfile.classList.add('hide');
-        loginForm.classList.remove('hide');
 
         // Перенаправление на первую страницу сайта
         window.location.href = 'the_memo.html';
@@ -223,24 +181,6 @@ document.addEventListener('DOMContentLoaded', function () {
         localStorage.setItem('userPassword', password);
         localStorage.setItem('userProgress', progress);
     }
-
-    document.getElementById('login').addEventListener('click', function (event) {
-        event.preventDefault();
-
-        const inputEmail = document.getElementById('login-email');
-        const inputPassword = document.getElementById('login-password');
-
-        const savedEmail = localStorage.getItem('userEmail');
-        const savedPassword = localStorage.getItem('userPassword');
-
-        if (inputEmail.value === savedEmail && inputPassword.value === savedPassword) {
-            showUserProfile();
-        } else {
-            console.log('Неправильные учетные данные. Попробуйте снова.');
-            inputPassword.classList.add('error-input');
-            inputEmail.classList.add('error-input');
-        }
-    });
 
     if (localStorage.getItem('userName') && localStorage.getItem('userEmail') && localStorage.getItem('userPassword')) {
         showUserProfile();
@@ -274,9 +214,9 @@ function showUserProfile() {
 
     userProfileForm.classList.remove('hide');
     document.getElementById('registry_form').classList.add('hide');
-    document.getElementById('login_form').classList.add('hide');
-}
+    document.getElementById('offcanvasRightLabel').textContent = 'Профиль';
 
+}
 
 function updateProgress(index) {
     let userProgress = JSON.parse(localStorage.getItem('userProgress')) || Array(10).fill(false);

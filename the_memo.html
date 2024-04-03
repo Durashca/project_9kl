@@ -92,10 +92,10 @@
                         </ol>
                     </div>
                     <div class="keyboard-shortcut-block dashed">
-                    <p>Попробуйте <b>зарегистрироваться</b> на моем сайте, чтобы лучше понять теорию.</p>
+                    <h4>Попробуйте <b>зарегистрироваться</b> на моем сайте, чтобы лучше понять теорию.</h4>
                     <ol>
-                        <li>На верхушке моего сайта, нажмите значок человечка с восклицательным знаком.</li>
-                        <li>Заполните все данные, или <a data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" style="color: #3366cc; text-decoration: none; cursor: pointer; transition: all 0.3s ease;">прейдите по этой ссылке</a>.</li>
+                        <li>На главном меню моего сайта, нажмите на значок человечка с восклицательным знаком или <a data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" style="color: #3366cc; text-decoration: none; cursor: pointer; transition: all 0.3s ease;">прейдите по этой ссылке</a> .</li>
+                        <li>Заполните все данные.</li>
                     </ol>
                     </div>
                 </content>
@@ -112,6 +112,46 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const submitButton = document.getElementById('registry');
+
+        const requiredInputs = document.querySelectorAll('#registry_form input[required]');
+
+        // Функция для проверки заполненности всех обязательных полей
+        function checkRequiredInputs() {
+            let allFieldsFilled = true;
+            requiredInputs.forEach(input => {
+                if (input.value.trim() === '') {
+                    allFieldsFilled = false;
+                }
+            });
+
+            return allFieldsFilled;
+        }
+
+        // Функция для переключения состояния кнопки "Зарегистрироваться"
+        function toggleSubmitButtonState() {
+            if (checkRequiredInputs()) {
+                submitButton.disabled = false;
+            } else {
+                submitButton.disabled = true;
+            }
+        }
+        // Добавляем слушатель события на изменение ввода в каждое поле
+        requiredInputs.forEach(input => {
+            input.addEventListener('input', toggleSubmitButtonState);
+        });
+
+        // Изначально делаем кнопку неактивной
+        toggleSubmitButtonState();
+
+        submitButton.addEventListener('click', function (event) {
+            event.preventDefault();
+
+        });
+    });
+</script>
 <script src="src/js/navbar_creator.js"></script>
 <script src="src/js/material.js"></script>
 <script src="src/js/material_settings.js"></script>

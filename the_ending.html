@@ -66,7 +66,7 @@
     const modifiedUserSurname = localStorage.getItem('userSurname').charAt(0).toUpperCase() +localStorage.getItem('userSurname').slice(1);
 
     const currentDate = new Date();
-    const day = currentDate.getDate();
+    const day = String(currentDate.getDate()).padStart(2, '0');
     const month = String(currentDate.getMonth() + 1).padStart(2, '0'); // Добавляем нуль перед месяцем, если он однозначный
     const year = currentDate.getFullYear();
     const currentDateString = `${day}.${month}.${year}`;
